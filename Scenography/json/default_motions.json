@@ -1,0 +1,352 @@
+[
+  {
+    "name": "NORMAL",
+    "motions": [
+      {
+        "id": 0,
+        "icon": "img/motion/normal/normal__lstep.png",
+        "name": "LStep"
+      },
+      {
+        "id": 1,
+        "icon": "img/motion/normal/normal__fstep.png",
+        "name": "FStep"
+      },
+      {
+        "id": 2,
+        "icon": "img/motion/normal/normal__rstep.png",
+        "name": "RStep"
+      },
+      {
+        "id": 3,
+        "icon": "img/motion/normal/normal__a-hem.png",
+        "name": "A-hem"
+      },
+      {
+        "id": 4,
+        "icon": "img/motion/normal/normal__bow.png",
+        "name": "Bow"
+      },
+      {
+        "id": 5,
+        "icon": "img/motion/normal/normal__propose.png",
+        "name": "Propose"
+      },
+      {
+        "id": 6,
+        "icon": "img/motion/normal/normal__hug.png",
+        "name": "Hug"
+      },
+      {
+        "id": 7,
+        "icon": "img/motion/normal/normal__clap.png",
+        "name": "Clap"
+      },
+      {
+        "id": 8,
+        "icon": "img/motion/normal/normal__high-five.png",
+        "name": "High-five"
+      },
+      {
+        "id": 70,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "img/motion/no_image.png",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "img/motion/no_image.png",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "BOX",
+    "motions": [
+      {
+        "id": 10,
+        "icon": "img/motion/box/box__shake_a_box.png",
+        "name": "Shake a Box"
+      },
+      {
+        "id": 11,
+        "icon": "img/motion/box/box__pick_up_high.png",
+        "name": "Pick Up High"
+      },
+      {
+        "id": 12,
+        "icon": "img/motion/box/box__pick_up_low.png",
+        "name": "Pick Up Low"
+      },
+      {
+        "id": 13,
+        "icon": "img/motion/box/box__receive_a_box.png",
+        "name": "Receive a Box"
+      },
+      {
+        "id": 14,
+        "icon": "img/motion/box/box__present_a_box.png",
+        "name": "Present a Box"
+      },
+      {
+        "id": 15,
+        "icon": "img/motion/box/box__pass_a_box.png",
+        "name": "Pass a Box"
+      },
+      {
+        "id": 16,
+        "icon": "img/motion/box/box__throw_a_box.png",
+        "name": "Throw a Box"
+      },
+      {
+        "id": 17,
+        "icon": "img/motion/box/box__put_down_high.png",
+        "name": "Put Down High"
+      },
+      {
+        "id": 18,
+        "icon": "img/motion/box/box__put_down_low.png",
+        "name": "Put Down Low"
+      },
+      {
+        "id": 74,
+        "icon": "img/motion/no_image.png",
+        "name": "Carry Forward"
+      },
+      {
+        "id": 75,
+        "icon": "img/motion/no_image.png",
+        "name": "Carry LTurn"
+      },
+      {
+        "id": 76,
+        "icon": "img/motion/no_image.png",
+        "name": "Carry RTurn"
+      },
+      {
+        "id": 77,
+        "icon": "img/motion/no_image.png",
+        "name": "Carry Back"
+      }
+    ]
+  },
+  {
+    "name": "SOCCER",
+    "motions": [
+      {
+        "id": 20,
+        "icon": "img/motion/soccer/soccer__defense_lstep.png",
+        "name": "Defense LStep"
+      },
+      {
+        "id": 21,
+        "icon": "img/motion/soccer/soccer__dribble.png",
+        "name": "Dribble"
+      },
+      {
+        "id": 22,
+        "icon": "img/motion/soccer/soccer__defense_rstep.png",
+        "name": "Defense RStep"
+      },
+      {
+        "id": 23,
+        "icon": "img/motion/soccer/soccer__lkick.png",
+        "name": "LKick"
+      },
+      {
+        "id": 24,
+        "icon": "img/motion/soccer/soccer__long_dribble.png",
+        "name": "Long Dribble"
+      },
+      {
+        "id": 25,
+        "icon": "img/motion/soccer/soccer__rkick.png",
+        "name": "RKick"
+      },
+      {
+        "id": 26,
+        "icon": "img/motion/soccer/soccer__pass_to_left.png",
+        "name": "Pass to Left"
+      },
+      {
+        "id": 27,
+        "icon": "img/motion/soccer/soccer__pass_it_to_me!.png",
+        "name": "Pass it to Me!"
+      },
+      {
+        "id": 28,
+        "icon": "img/motion/soccer/soccer__pass_to_right.png",
+        "name": "Pass to Right"
+      },
+      {
+        "id": 70,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "img/motion/no_image.png",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "img/motion/no_image.png",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "DANCE",
+    "motions": [
+      {
+        "id": 30,
+        "icon": "img/motion/dance/dance__lstep.png",
+        "name": "Dance LStep"
+      },
+      {
+        "id": 31,
+        "icon": "img/motion/dance/dance__fstep.png",
+        "name": "Dance FStep"
+      },
+      {
+        "id": 32,
+        "icon": "img/motion/dance/dance__rstep.png",
+        "name": "Dance RStep"
+      },
+      {
+        "id": 33,
+        "icon": "img/motion/dance/dance__finish_pose.png",
+        "name": "Dance Finish Pose"
+      },
+      {
+        "id": 34,
+        "icon": "img/motion/dance/dance__up___down.png",
+        "name": "Dance Up & Down"
+      },
+      {
+        "id": 35,
+        "icon": "img/motion/dance/dance__wiggle.png",
+        "name": "Wiggle Dance"
+      },
+      {
+        "id": 36,
+        "icon": "img/motion/dance/dance__bstep.png",
+        "name": "Dance BStep"
+      },
+      {
+        "id": 37,
+        "icon": "img/motion/dance/dance__bow.png",
+        "name": "Dance Bow"
+      },
+      {
+        "id": 38,
+        "icon": "img/motion/dance/dance__twist.png",
+        "name": "Twist Dance"
+      },
+      {
+        "id": 70,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "img/motion/no_image.png",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "img/motion/no_image.png",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "img/motion/no_image.png",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "ROLLER SKATING",
+    "motions": [
+      {
+        "id": 40,
+        "icon": "img/motion/roller_skating/roller_skating__ina_bauer_lfoot.png",
+        "name": "Ina Bauer LFoot"
+      },
+      {
+        "id": 41,
+        "icon": "img/motion/roller_skating/roller_skating__brake_for_forward.png",
+        "name": "Brake for Forward"
+      },
+      {
+        "id": 42,
+        "icon": "img/motion/roller_skating/roller_skating__ina_bauer_rfoot.png",
+        "name": "Ina Bauer RFoot"
+      },
+      {
+        "id": 43,
+        "icon": "img/motion/roller_skating/roller_skating__balance_on_lfoot.png",
+        "name": "Balance on LFoot"
+      },
+      {
+        "id": 44,
+        "icon": "img/motion/roller_skating/roller_skating__upright.png",
+        "name": "Upright"
+      },
+      {
+        "id": 45,
+        "icon": "img/motion/roller_skating/roller_skating__balance_on_rfoot.png",
+        "name": "Balance on RFoot"
+      },
+      {
+        "id": 46,
+        "icon": "img/motion/roller_skating/roller_skating__heel___toe_lfoot.png",
+        "name": "Heel & Toe LFoot"
+      },
+      {
+        "id": 47,
+        "icon": "img/motion/roller_skating/roller_skating__brake_for_back.png",
+        "name": "Brake for Back"
+      },
+      {
+        "id": 48,
+        "icon": "img/motion/roller_skating/roller_skating__heel___toe_rfoot.png",
+        "name": "Heel & Toe RFoot"
+      },
+      {
+        "id": 78,
+        "icon": "img/motion/no_image.png",
+        "name": "Skating Forward"
+      },
+      {
+        "id": 79,
+        "icon": "img/motion/no_image.png",
+        "name": "Skating LTurn"
+      },
+      {
+        "id": 80,
+        "icon": "img/motion/no_image.png",
+        "name": "Skating RTurn"
+      },
+      {
+        "id": 81,
+        "icon": "img/motion/no_image.png",
+        "name": "Skating Back"
+      }
+    ]
+  }
+]
