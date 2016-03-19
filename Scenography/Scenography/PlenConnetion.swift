@@ -105,7 +105,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name!)")
+        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name)")
         logger.verbose("\(peripheral)")
         
         peripheral.discoverServices([Resources.UUID.PlenControlService])
@@ -114,14 +114,14 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name!), error:\(error ?? "nil")")
+        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name), error:\(error)")
         logger.verbose("\(peripheral), error:\(error ?? "nil")")
         
         _rx_peripheral.value = peripheral
     }
     
     func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name!)")
+        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name)")
         logger.verbose("\(peripheral), error:\(error ?? "nil")")
         
         _rx_peripheral.value = peripheral
@@ -142,7 +142,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
-        logger.verbose("\(peripheral), service: \(service), error:\(error ?? "nil")")
+        logger.verbose("\(peripheral), service: \(service), error:\(error)")
         
         guard let characteristics = service.characteristics else {return}
         logger.verbose("characteristics: \(characteristics)")
@@ -154,7 +154,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-        logger.verbose("\(peripheral), characteristic: \(characteristic), error:\(error ?? "nil")")
+        logger.verbose("\(peripheral), characteristic: \(characteristic), error:\(error)")
         
         assert(_writer?.txCharacteristic == characteristic)
         _writer?.didWriteValueForCharacteristic()

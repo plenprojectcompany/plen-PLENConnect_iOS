@@ -4,60 +4,138 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+ABORT_IN_DEBUG	Pods/Headers/Private/RxCocoa/_RX.h	/^#   define ABORT_IN_DEBUG /;"	d
+ABORT_IN_DEBUG	Pods/Headers/Private/RxCocoa/_RX.h	/^#   define ABORT_IN_DEBUG$/;"	d
 ABORT_IN_DEBUG	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#   define ABORT_IN_DEBUG /;"	d
 ABORT_IN_DEBUG	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#   define ABORT_IN_DEBUG$/;"	d
+CLASS_VALUE	Pods/Headers/Private/RxCocoa/_RX.h	/^#define CLASS_VALUE(/;"	d
 CLASS_VALUE	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define CLASS_VALUE(/;"	d
+DLOG	Pods/Headers/Private/RxCocoa/_RX.h	/^#   define DLOG(/;"	d
 DLOG	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#   define DLOG(/;"	d
+IMP_VALUE	Pods/Headers/Private/RxCocoa/_RX.h	/^#define IMP_VALUE(/;"	d
 IMP_VALUE	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define IMP_VALUE(/;"	d
+JLToastLongDelay	Pods/Headers/Private/JLToast/JLToast.h	/^static NSTimeInterval const JLToastLongDelay = 3.5;$/;"	v
 JLToastLongDelay	Pods/JLToast/JLToast/JLToast.h	/^static NSTimeInterval const JLToastLongDelay = 3.5;$/;"	v
+JLToastShortDelay	Pods/Headers/Private/JLToast/JLToast.h	/^static NSTimeInterval const JLToastShortDelay = 2.0;$/;"	v
 JLToastShortDelay	Pods/JLToast/JLToast/JLToast.h	/^static NSTimeInterval const JLToastShortDelay = 2.0;$/;"	v
+JLToastVersionNumber	Pods/Headers/Private/JLToast/JLToast.h	/^FOUNDATION_EXPORT double JLToastVersionNumber;$/;"	v
 JLToastVersionNumber	Pods/JLToast/JLToast/JLToast.h	/^FOUNDATION_EXPORT double JLToastVersionNumber;$/;"	v
+JLToastVersionNumber	Pods/Target Support Files/JLToast/JLToast-umbrella.h	/^FOUNDATION_EXPORT double JLToastVersionNumber;$/;"	v
+JLToastVersionString	Pods/Headers/Private/JLToast/JLToast.h	/^FOUNDATION_EXPORT const unsigned char JLToastVersionString[];$/;"	v
 JLToastVersionString	Pods/JLToast/JLToast/JLToast.h	/^FOUNDATION_EXPORT const unsigned char JLToastVersionString[];$/;"	v
+JLToastVersionString	Pods/Target Support Files/JLToast/JLToast-umbrella.h	/^FOUNDATION_EXPORT const unsigned char JLToastVersionString[];$/;"	v
+JLToastViewBackgroundColorAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewBackgroundColorAttributeName = @"JLToastViewBackgroundColorAttributeName";$/;"	v
 JLToastViewBackgroundColorAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewBackgroundColorAttributeName = @"JLToastViewBackgroundColorAttributeName";$/;"	v
+JLToastViewCornerRadiusAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewCornerRadiusAttributeName = @"JLToastViewCornerRadiusAttributeName";$/;"	v
 JLToastViewCornerRadiusAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewCornerRadiusAttributeName = @"JLToastViewCornerRadiusAttributeName";$/;"	v
+JLToastViewFontAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewFontAttributeName = @"JLToastViewFontAttributeName";$/;"	v
 JLToastViewFontAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewFontAttributeName = @"JLToastViewFontAttributeName";$/;"	v
+JLToastViewLandscapeOffsetYAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewLandscapeOffsetYAttributeName = @"JLToastViewLandscapeOffsetYAttributeName";$/;"	v
 JLToastViewLandscapeOffsetYAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewLandscapeOffsetYAttributeName = @"JLToastViewLandscapeOffsetYAttributeName";$/;"	v
+JLToastViewPortraitOffsetYAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewPortraitOffsetYAttributeName = @"JLToastViewPortraitOffsetYAttributeName";$/;"	v
 JLToastViewPortraitOffsetYAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewPortraitOffsetYAttributeName = @"JLToastViewPortraitOffsetYAttributeName";$/;"	v
+JLToastViewTextColorAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewTextColorAttributeName = @"JLToastViewTextColorAttributeName";$/;"	v
 JLToastViewTextColorAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewTextColorAttributeName = @"JLToastViewTextColorAttributeName";$/;"	v
+JLToastViewTextInsetsAttributeName	Pods/Headers/Private/JLToast/JLToast.h	/^static NSString * const JLToastViewTextInsetsAttributeName = @"JLToastViewTextInsetsAttributeName";$/;"	v
 JLToastViewTextInsetsAttributeName	Pods/JLToast/JLToast/JLToast.h	/^static NSString * const JLToastViewTextInsetsAttributeName = @"JLToastViewTextInsetsAttributeName";$/;"	v
+MaterialKitVersionNumber	Pods/Target Support Files/MaterialKit/MaterialKit-umbrella.h	/^FOUNDATION_EXPORT double MaterialKitVersionNumber;$/;"	v
+MaterialKitVersionString	Pods/Target Support Files/MaterialKit/MaterialKit-umbrella.h	/^FOUNDATION_EXPORT const unsigned char MaterialKitVersionString[];$/;"	v
+NS_ENUM	Pods/Headers/Private/RxCocoa/_RXObjCRuntime.h	/^typedef NS_ENUM(NSInteger, RXObjCRuntimeError) {$/;"	f
 NS_ENUM	Pods/RxCocoa/RxCocoa/Common/_RXObjCRuntime.h	/^typedef NS_ENUM(NSInteger, RXObjCRuntimeError) {$/;"	f
+Pods_ScenographyVersionNumber	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-umbrella.h	/^FOUNDATION_EXPORT double Pods_ScenographyVersionNumber;$/;"	v
+Pods_ScenographyVersionString	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-umbrella.h	/^FOUNDATION_EXPORT const unsigned char Pods_ScenographyVersionString[];$/;"	v
+RX_CAT2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_CAT2(/;"	d
 RX_CAT2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_CAT2(/;"	d
+RX_COUNT	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_COUNT(/;"	d
 RX_COUNT	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_COUNT(/;"	d
+RX_ELEMENT_AT	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_ELEMENT_AT(/;"	d
 RX_ELEMENT_AT	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_ELEMENT_AT(/;"	d
+RX_FOR	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_FOR(/;"	d
 RX_FOR	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_FOR(/;"	d
+RX_FOR_COMMA	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_FOR_COMMA(/;"	d
 RX_FOR_COMMA	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_FOR_COMMA(/;"	d
+RX_INC	Pods/Headers/Private/RxCocoa/_RX.h	/^#define RX_INC(/;"	d
 RX_INC	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define RX_INC(/;"	d
+RxBlockingVersionNumber	Pods/Target Support Files/RxBlocking/RxBlocking-umbrella.h	/^FOUNDATION_EXPORT double RxBlockingVersionNumber;$/;"	v
+RxBlockingVersionString	Pods/Target Support Files/RxBlocking/RxBlocking-umbrella.h	/^FOUNDATION_EXPORT const unsigned char RxBlockingVersionString[];$/;"	v
+RxCocoaVersionNumber	Pods/Headers/Private/RxCocoa/RxCocoa.h	/^FOUNDATION_EXPORT double RxCocoaVersionNumber;$/;"	v
 RxCocoaVersionNumber	Pods/RxCocoa/RxCocoa/RxCocoa.h	/^FOUNDATION_EXPORT double RxCocoaVersionNumber;$/;"	v
+RxCocoaVersionNumber	Pods/Target Support Files/RxCocoa/RxCocoa-umbrella.h	/^FOUNDATION_EXPORT double RxCocoaVersionNumber;$/;"	v
+RxCocoaVersionString	Pods/Headers/Private/RxCocoa/RxCocoa.h	/^FOUNDATION_EXPORT const unsigned char RxCocoaVersionString[];/;"	v
 RxCocoaVersionString	Pods/RxCocoa/RxCocoa/RxCocoa.h	/^FOUNDATION_EXPORT const unsigned char RxCocoaVersionString[];/;"	v
+RxCocoaVersionString	Pods/Target Support Files/RxCocoa/RxCocoa-umbrella.h	/^FOUNDATION_EXPORT const unsigned char RxCocoaVersionString[];$/;"	v
+RxSwiftVersionNumber	Pods/Target Support Files/RxSwift/RxSwift-umbrella.h	/^FOUNDATION_EXPORT double RxSwiftVersionNumber;$/;"	v
+RxSwiftVersionString	Pods/Target Support Files/RxSwift/RxSwift-umbrella.h	/^FOUNDATION_EXPORT const unsigned char RxSwiftVersionString[];$/;"	v
+SEL_VALUE	Pods/Headers/Private/RxCocoa/_RX.h	/^#define SEL_VALUE(/;"	d
 SEL_VALUE	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define SEL_VALUE(/;"	d
+SwiftyJSONVersionNumber	Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h	/^FOUNDATION_EXPORT double SwiftyJSONVersionNumber;$/;"	v
+SwiftyJSONVersionString	Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h	/^FOUNDATION_EXPORT const unsigned char SwiftyJSONVersionString[];$/;"	v
+XCGLoggerVersionNumber	Pods/Target Support Files/XCGLogger/XCGLogger-umbrella.h	/^FOUNDATION_EXPORT double XCGLoggerVersionNumber;$/;"	v
+XCGLoggerVersionString	Pods/Target Support Files/XCGLogger/XCGLogger-umbrella.h	/^FOUNDATION_EXPORT const unsigned char XCGLoggerVersionString[];$/;"	v
+_RX_CAT2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_CAT2(/;"	d
 _RX_CAT2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_CAT2(/;"	d
+_RX_ELEMENT_AT_0	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_0(/;"	d
 _RX_ELEMENT_AT_0	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_0(/;"	d
+_RX_ELEMENT_AT_1	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_1(/;"	d
 _RX_ELEMENT_AT_1	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_1(/;"	d
+_RX_ELEMENT_AT_2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_2(/;"	d
 _RX_ELEMENT_AT_2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_2(/;"	d
+_RX_ELEMENT_AT_3	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_3(/;"	d
 _RX_ELEMENT_AT_3	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_3(/;"	d
+_RX_ELEMENT_AT_4	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_4(/;"	d
 _RX_ELEMENT_AT_4	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_4(/;"	d
+_RX_ELEMENT_AT_5	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_5(/;"	d
 _RX_ELEMENT_AT_5	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_5(/;"	d
+_RX_ELEMENT_AT_6	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_ELEMENT_AT_6(/;"	d
 _RX_ELEMENT_AT_6	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_ELEMENT_AT_6(/;"	d
+_RX_FOR_0	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_0(/;"	d
 _RX_FOR_0	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_0(/;"	d
+_RX_FOR_1	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_1(/;"	d
 _RX_FOR_1	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_1(/;"	d
+_RX_FOR_2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_2(/;"	d
 _RX_FOR_2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_2(/;"	d
+_RX_FOR_3	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_3(/;"	d
 _RX_FOR_3	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_3(/;"	d
+_RX_FOR_4	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_4(/;"	d
 _RX_FOR_4	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_4(/;"	d
+_RX_FOR_5	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_5(/;"	d
 _RX_FOR_5	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_5(/;"	d
+_RX_FOR_6	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_6(/;"	d
 _RX_FOR_6	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_6(/;"	d
+_RX_FOR_COMMA_0	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_0(/;"	d
 _RX_FOR_COMMA_0	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_0(/;"	d
+_RX_FOR_COMMA_1	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_1(/;"	d
 _RX_FOR_COMMA_1	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_1(/;"	d
+_RX_FOR_COMMA_2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_2(/;"	d
 _RX_FOR_COMMA_2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_2(/;"	d
+_RX_FOR_COMMA_3	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_3(/;"	d
 _RX_FOR_COMMA_3	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_3(/;"	d
+_RX_FOR_COMMA_4	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_4(/;"	d
 _RX_FOR_COMMA_4	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_4(/;"	d
+_RX_FOR_COMMA_5	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_5(/;"	d
 _RX_FOR_COMMA_5	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_5(/;"	d
+_RX_FOR_COMMA_6	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_FOR_COMMA_6(/;"	d
 _RX_FOR_COMMA_6	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_FOR_COMMA_6(/;"	d
+_RX_INC_0	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_0 /;"	d
 _RX_INC_0	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_0 /;"	d
+_RX_INC_1	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_1 /;"	d
 _RX_INC_1	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_1 /;"	d
+_RX_INC_2	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_2 /;"	d
 _RX_INC_2	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_2 /;"	d
+_RX_INC_3	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_3 /;"	d
 _RX_INC_3	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_3 /;"	d
+_RX_INC_4	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_4 /;"	d
 _RX_INC_4	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_4 /;"	d
+_RX_INC_5	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_5 /;"	d
 _RX_INC_5	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_5 /;"	d
+_RX_INC_6	Pods/Headers/Private/RxCocoa/_RX.h	/^#define _RX_INC_6 /;"	d
 _RX_INC_6	Pods/RxCocoa/RxCocoa/Common/_RX.h	/^#define _RX_INC_6 /;"	d
+_forwardToDelegate	Pods/Headers/Private/RxCocoa/_RXDelegateProxy.h	/^@property (nonatomic, assign, readonly) id _forwardToDelegate;$/;"	v
 _forwardToDelegate	Pods/RxCocoa/RxCocoa/Common/_RXDelegateProxy.h	/^@property (nonatomic, assign, readonly) id _forwardToDelegate;$/;"	v
+code_sign_if_enabled	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-frameworks.sh	/^code_sign_if_enabled() {$/;"	f
+install_framework	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-frameworks.sh	/^install_framework()$/;"	f
+install_resource	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-resources.sh	/^install_resource()$/;"	f
+realpath	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-resources.sh	/^realpath() {$/;"	f
+strip_invalid_archs	Pods/Target Support Files/Pods-Scenography/Pods-Scenography-frameworks.sh	/^strip_invalid_archs() {$/;"	f
+targetImplementation	Pods/Headers/Private/RxCocoa/_RXObjCRuntime.h	/^@property (nonatomic, assign, readonly) IMP __nonnull targetImplementation;$/;"	v
 targetImplementation	Pods/RxCocoa/RxCocoa/Common/_RXObjCRuntime.h	/^@property (nonatomic, assign, readonly) IMP __nonnull targetImplementation;$/;"	v
