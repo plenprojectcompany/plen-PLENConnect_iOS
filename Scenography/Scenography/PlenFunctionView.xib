@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlenFunctionView" customModule="Scenography" customModuleProvider="target">
+            <connections>
+                <outlet property="loopCountField" destination="cJo-Bq-Hqi" id="dxg-tE-Da0"/>
+                <outlet property="motionView" destination="Rcv-Yw-hb4" id="RrA-Vt-EXt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcv-Yw-hb4" customClass="PlenMotionView" customModule="Scenography" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="×" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6na-c1-pDB">
+                    <rect key="frame" x="239" y="23" width="11" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.1484375" green="0.078125" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvv-kR-abf">
+                    <rect key="frame" x="255" y="42" width="25" height="1"/>
+                    <color key="backgroundColor" red="0.1484375" green="0.078125" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="JNi-uG-cAX"/>
+                        <constraint firstAttribute="height" constant="1" id="xVs-eB-vHl"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="255" placeholder="1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cJo-Bq-Hqi">
+                    <rect key="frame" x="255" y="25" width="30" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="cRN-Qf-7YW"/>
+                    </constraints>
+                    <color key="textColor" red="0.1484375" green="0.078125" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="6na-c1-pDB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="644-dM-seH"/>
+                <constraint firstAttribute="trailing" secondItem="cJo-Bq-Hqi" secondAttribute="trailing" constant="15" id="Qbx-Cx-nhO"/>
+                <constraint firstAttribute="trailing" secondItem="Rcv-Yw-hb4" secondAttribute="trailing" id="TRu-Oe-LAf"/>
+                <constraint firstItem="Dvv-kR-abf" firstAttribute="top" secondItem="cJo-Bq-Hqi" secondAttribute="bottom" id="U2N-rr-vsS"/>
+                <constraint firstItem="cJo-Bq-Hqi" firstAttribute="leading" secondItem="6na-c1-pDB" secondAttribute="trailing" constant="5" id="Ueb-XS-ZAZ"/>
+                <constraint firstItem="Rcv-Yw-hb4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Y37-IW-hZa"/>
+                <constraint firstAttribute="bottom" secondItem="Rcv-Yw-hb4" secondAttribute="bottom" id="aon-jQ-Uxm"/>
+                <constraint firstItem="Rcv-Yw-hb4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dSi-26-6uY"/>
+                <constraint firstItem="cJo-Bq-Hqi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dY4-h8-bve"/>
+                <constraint firstAttribute="trailing" secondItem="Dvv-kR-abf" secondAttribute="trailing" constant="20" id="sz9-em-11v"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

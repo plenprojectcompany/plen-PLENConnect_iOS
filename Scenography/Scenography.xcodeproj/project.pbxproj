@@ -1,0 +1,830 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AA1C8E3E5200E41185 /* AppDelegate.swift */; };
+		F81542AD1C8E3E5200E41185 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AC1C8E3E5200E41185 /* ViewController.swift */; };
+		F81542B01C8E3E5200E41185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542AE1C8E3E5200E41185 /* Main.storyboard */; };
+		F81542B21C8E3E5200E41185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81542B11C8E3E5200E41185 /* Assets.xcassets */; };
+		F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */; };
+		F81542C01C8E3E5200E41185 /* ScenographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */; };
+		F81542CB1C8E3E5200E41185 /* ScenographyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */; };
+		F81542EF1C8E3F3700E41185 /* PlenMotionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */; };
+		F81542F01C8E3F3700E41185 /* PlenMotionPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */; };
+		F81542F11C8E3F3700E41185 /* PlenFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542DD1C8E3F3700E41185 /* PlenFunction.swift */; };
+		F81542F21C8E3F3700E41185 /* PlenFunctionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542DE1C8E3F3700E41185 /* PlenFunctionView.swift */; };
+		F81542F31C8E3F3700E41185 /* PlenFunctionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542DF1C8E3F3700E41185 /* PlenFunctionView.xib */; };
+		F81542F41C8E3F3700E41185 /* PlenMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E01C8E3F3700E41185 /* PlenMotion.swift */; };
+		F81542F51C8E3F3700E41185 /* PlenMotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E11C8E3F3700E41185 /* PlenMotionCell.swift */; };
+		F81542F61C8E3F3700E41185 /* PlenMotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542E21C8E3F3700E41185 /* PlenMotionCell.xib */; };
+		F81542F71C8E3F3700E41185 /* PlenMotionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E31C8E3F3700E41185 /* PlenMotionTableViewController.swift */; };
+		F81542F81C8E3F3700E41185 /* PlenMotionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542E41C8E3F3700E41185 /* PlenMotionTableViewController.xib */; };
+		F81542F91C8E3F3700E41185 /* PlenMotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E51C8E3F3700E41185 /* PlenMotionView.swift */; };
+		F81542FA1C8E3F3700E41185 /* PlenMotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542E61C8E3F3700E41185 /* PlenMotionView.xib */; };
+		F81542FB1C8E3F3700E41185 /* PLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E71C8E3F3700E41185 /* PLPageViewController.swift */; };
+		F81542FC1C8E3F3700E41185 /* RxUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E81C8E3F3700E41185 /* RxUtils.swift */; };
+		F81542FD1C8E3F3700E41185 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E91C8E3F3700E41185 /* Resources.swift */; };
+		F81542FE1C8E3F3700E41185 /* SwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */; };
+		F81542FF1C8E3F3700E41185 /* UIKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */; };
+		F81543071C8E41AC00E41185 /* json in Resources */ = {isa = PBXBuildFile; fileRef = F81543051C8E41AC00E41185 /* json */; };
+		F840BF521C9BB7DB009DD90E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F840BF511C9BB7DB009DD90E /* Settings.bundle */; };
+		F840BFE71C9BF5DC009DD90E /* Pods_Scenography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F840BFE61C9BF5DC009DD90E /* Pods_Scenography.framework */; };
+		F840BFEA1C9BF836009DD90E /* DebugUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFE91C9BF836009DD90E /* DebugUtils.swift */; };
+		F840BFEE1C9BFAC2009DD90E /* CoreBluetoothUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */; };
+		F840BFEF1C9BFAC2009DD90E /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFEC1C9BFAC2009DD90E /* OvalView.swift */; };
+		F840BFF01C9BFAC2009DD90E /* PlenConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */; };
+		F873CA1E1C90B9AD00B1B74C /* img in Resources */ = {isa = PBXBuildFile; fileRef = F873CA1D1C90B9AD00B1B74C /* img */; };
+		F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962471C8F130600ADF45D /* PlenFunctionCell.swift */; };
+		F879624A1C8F130600ADF45D /* PlenFunctionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87962481C8F130600ADF45D /* PlenFunctionCell.xib */; };
+		F87962521C8F148400ADF45D /* PlenProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962501C8F148400ADF45D /* PlenProgramViewController.swift */; };
+		F87962531C8F148400ADF45D /* PlenProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87962511C8F148400ADF45D /* PlenProgramViewController.xib */; };
+		F87962551C8F321400ADF45D /* PlenMotionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962541C8F321400ADF45D /* PlenMotionCategory.swift */; };
+		F87962591C8F375800ADF45D /* PlenProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962581C8F375800ADF45D /* PlenProgram.swift */; };
+		F8A4B2AD1C9AC94C00F46573 /* PlenConnectionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */; };
+		F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB79891C95B976003E948F /* PlenJSONUtils.swift */; };
+		F8C3C87B1C9381F0001E0590 /* PlenConnetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C87A1C9381F0001E0590 /* PlenConnetion.swift */; };
+		F8C3C8831C93E45B001E0590 /* PlenScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8821C93E45B001E0590 /* PlenScanner.swift */; };
+		F8C3C8871C93E55A001E0590 /* PlenTxCharacteristicWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */; };
+		F8C3C8891C93F000001E0590 /* PlenWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8881C93F000001E0590 /* PlenWalk.swift */; };
+		F8CDD2341C90F90600431E9E /* JoystickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD2321C90F90600431E9E /* JoystickViewController.swift */; };
+		F8CDD2351C90F90600431E9E /* JoystickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8CDD2331C90F90600431E9E /* JoystickViewController.xib */; };
+		F8CDD23F1C91E4F500431E9E /* DragEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD23E1C91E4F500431E9E /* DragEvent.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F81542BC1C8E3E5200E41185 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F815429F1C8E3E5100E41185 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81542A61C8E3E5200E41185;
+			remoteInfo = Scenography;
+		};
+		F81542C71C8E3E5200E41185 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F815429F1C8E3E5100E41185 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F81542A61C8E3E5200E41185;
+			remoteInfo = Scenography;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		235EE081DF350B58131D857C /* Pods_Scenography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scenography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1836EF393588814CE58D80C /* Pods-Scenography.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scenography.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scenography/Pods-Scenography.release.xcconfig"; sourceTree = "<group>"; };
+		B33E2F7C8B7D78DA1C3A3FDA /* Pods-Scenography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scenography.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scenography/Pods-Scenography.debug.xcconfig"; sourceTree = "<group>"; };
+		F81542A71C8E3E5200E41185 /* Scenography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenography.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542AA1C8E3E5200E41185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F81542AC1C8E3E5200E41185 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F81542AF1C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F81542B11C8E3E5200E41185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F81542B41C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F81542B61C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenographyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyTests.swift; sourceTree = "<group>"; };
+		F81542C11C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenographyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyUITests.swift; sourceTree = "<group>"; };
+		F81542CC1C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionPageViewController.swift; sourceTree = "<group>"; };
+		F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionPageViewController.xib; sourceTree = "<group>"; };
+		F81542DD1C8E3F3700E41185 /* PlenFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenFunction.swift; sourceTree = "<group>"; };
+		F81542DE1C8E3F3700E41185 /* PlenFunctionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenFunctionView.swift; sourceTree = "<group>"; };
+		F81542DF1C8E3F3700E41185 /* PlenFunctionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenFunctionView.xib; sourceTree = "<group>"; };
+		F81542E01C8E3F3700E41185 /* PlenMotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotion.swift; sourceTree = "<group>"; };
+		F81542E11C8E3F3700E41185 /* PlenMotionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionCell.swift; sourceTree = "<group>"; };
+		F81542E21C8E3F3700E41185 /* PlenMotionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionCell.xib; sourceTree = "<group>"; };
+		F81542E31C8E3F3700E41185 /* PlenMotionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionTableViewController.swift; sourceTree = "<group>"; };
+		F81542E41C8E3F3700E41185 /* PlenMotionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionTableViewController.xib; sourceTree = "<group>"; };
+		F81542E51C8E3F3700E41185 /* PlenMotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionView.swift; sourceTree = "<group>"; };
+		F81542E61C8E3F3700E41185 /* PlenMotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionView.xib; sourceTree = "<group>"; };
+		F81542E71C8E3F3700E41185 /* PLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPageViewController.swift; sourceTree = "<group>"; };
+		F81542E81C8E3F3700E41185 /* RxUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxUtils.swift; sourceTree = "<group>"; };
+		F81542E91C8E3F3700E41185 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUtils.swift; sourceTree = "<group>"; };
+		F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitUtils.swift; sourceTree = "<group>"; };
+		F81543051C8E41AC00E41185 /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; path = json; sourceTree = "<group>"; };
+		F81543081C8E485D00E41185 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		F840BF511C9BB7DB009DD90E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F840BFE61C9BF5DC009DD90E /* Pods_Scenography.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Scenography.framework; path = "Pods/../build/Debug-iphoneos/Pods_Scenography.framework"; sourceTree = "<group>"; };
+		F840BFE91C9BF836009DD90E /* DebugUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugUtils.swift; sourceTree = "<group>"; };
+		F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreBluetoothUtils.swift; sourceTree = "<group>"; };
+		F840BFEC1C9BFAC2009DD90E /* OvalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
+		F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionError.swift; sourceTree = "<group>"; };
+		F873CA1D1C90B9AD00B1B74C /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		F87962471C8F130600ADF45D /* PlenFunctionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenFunctionCell.swift; sourceTree = "<group>"; };
+		F87962481C8F130600ADF45D /* PlenFunctionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenFunctionCell.xib; sourceTree = "<group>"; };
+		F87962501C8F148400ADF45D /* PlenProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenProgramViewController.swift; sourceTree = "<group>"; };
+		F87962511C8F148400ADF45D /* PlenProgramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenProgramViewController.xib; sourceTree = "<group>"; };
+		F87962541C8F321400ADF45D /* PlenMotionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionCategory.swift; sourceTree = "<group>"; };
+		F87962581C8F375800ADF45D /* PlenProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenProgram.swift; sourceTree = "<group>"; };
+		F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionLog.swift; sourceTree = "<group>"; };
+		F8AB79891C95B976003E948F /* PlenJSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenJSONUtils.swift; sourceTree = "<group>"; };
+		F8C3C87A1C9381F0001E0590 /* PlenConnetion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnetion.swift; sourceTree = "<group>"; };
+		F8C3C8821C93E45B001E0590 /* PlenScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenScanner.swift; sourceTree = "<group>"; };
+		F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenTxCharacteristicWriter.swift; sourceTree = "<group>"; };
+		F8C3C8881C93F000001E0590 /* PlenWalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenWalk.swift; sourceTree = "<group>"; };
+		F8CDD2321C90F90600431E9E /* JoystickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickViewController.swift; sourceTree = "<group>"; };
+		F8CDD2331C90F90600431E9E /* JoystickViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoystickViewController.xib; sourceTree = "<group>"; };
+		F8CDD23E1C91E4F500431E9E /* DragEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragEvent.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F81542A41C8E3E5200E41185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F840BFE71C9BF5DC009DD90E /* Pods_Scenography.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542B81C8E3E5200E41185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542C31C8E3E5200E41185 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1E97BC6B9C71A56BF0F3280 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B33E2F7C8B7D78DA1C3A3FDA /* Pods-Scenography.debug.xcconfig */,
+				A1836EF393588814CE58D80C /* Pods-Scenography.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F815429E1C8E3E5100E41185 = {
+			isa = PBXGroup;
+			children = (
+				F873CA1D1C90B9AD00B1B74C /* img */,
+				F81543051C8E41AC00E41185 /* json */,
+				F81542A91C8E3E5200E41185 /* Scenography */,
+				F81542BE1C8E3E5200E41185 /* ScenographyTests */,
+				F81542C91C8E3E5200E41185 /* ScenographyUITests */,
+				F81542A81C8E3E5200E41185 /* Products */,
+				A1E97BC6B9C71A56BF0F3280 /* Pods */,
+				FCE415AB9153170ADF5D033B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F81542A81C8E3E5200E41185 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F81542A71C8E3E5200E41185 /* Scenography.app */,
+				F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */,
+				F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F81542A91C8E3E5200E41185 /* Scenography */ = {
+			isa = PBXGroup;
+			children = (
+				F873CA1F1C90E5EA00B1B74C /* Application */,
+				F840BFE81C9BF7F3009DD90E /* Framework */,
+				F8C3C8791C9381CE001E0590 /* Bluetooth */,
+				F81543011C8E3F8800E41185 /* Utils */,
+				F81543031C8E3FD500E41185 /* Entities */,
+				F81543001C8E3F6000E41185 /* ViewControllers */,
+				F81543021C8E3FAC00E41185 /* Views */,
+				F81543081C8E485D00E41185 /* MyPlayground.playground */,
+			);
+			path = Scenography;
+			sourceTree = "<group>";
+		};
+		F81542BE1C8E3E5200E41185 /* ScenographyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */,
+				F81542C11C8E3E5200E41185 /* Info.plist */,
+			);
+			path = ScenographyTests;
+			sourceTree = "<group>";
+		};
+		F81542C91C8E3E5200E41185 /* ScenographyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */,
+				F81542CC1C8E3E5200E41185 /* Info.plist */,
+			);
+			path = ScenographyUITests;
+			sourceTree = "<group>";
+		};
+		F81543001C8E3F6000E41185 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F81542AC1C8E3E5200E41185 /* ViewController.swift */,
+				F81542E71C8E3F3700E41185 /* PLPageViewController.swift */,
+				F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */,
+				F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */,
+				F81542E31C8E3F3700E41185 /* PlenMotionTableViewController.swift */,
+				F81542E41C8E3F3700E41185 /* PlenMotionTableViewController.xib */,
+				F87962501C8F148400ADF45D /* PlenProgramViewController.swift */,
+				F87962511C8F148400ADF45D /* PlenProgramViewController.xib */,
+				F8CDD2321C90F90600431E9E /* JoystickViewController.swift */,
+				F8CDD2331C90F90600431E9E /* JoystickViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F81543011C8E3F8800E41185 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */,
+				F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */,
+				F81542E81C8E3F3700E41185 /* RxUtils.swift */,
+				F8AB79891C95B976003E948F /* PlenJSONUtils.swift */,
+				F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */,
+				F840BFE91C9BF836009DD90E /* DebugUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F81543021C8E3FAC00E41185 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F879624B1C8F13FD00ADF45D /* TableViewCells */,
+				F840BFEC1C9BFAC2009DD90E /* OvalView.swift */,
+				F81542DE1C8E3F3700E41185 /* PlenFunctionView.swift */,
+				F81542DF1C8E3F3700E41185 /* PlenFunctionView.xib */,
+				F81542E51C8E3F3700E41185 /* PlenMotionView.swift */,
+				F81542E61C8E3F3700E41185 /* PlenMotionView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F81543031C8E3FD500E41185 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F81542DD1C8E3F3700E41185 /* PlenFunction.swift */,
+				F81542E01C8E3F3700E41185 /* PlenMotion.swift */,
+				F87962541C8F321400ADF45D /* PlenMotionCategory.swift */,
+				F87962581C8F375800ADF45D /* PlenProgram.swift */,
+				F8C3C8881C93F000001E0590 /* PlenWalk.swift */,
+				F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		F840BFE81C9BF7F3009DD90E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDD23E1C91E4F500431E9E /* DragEvent.swift */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		F873CA1F1C90E5EA00B1B74C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F81542AA1C8E3E5200E41185 /* AppDelegate.swift */,
+				F81542AE1C8E3E5200E41185 /* Main.storyboard */,
+				F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */,
+				F81542E91C8E3F3700E41185 /* Resources.swift */,
+				F81542B11C8E3E5200E41185 /* Assets.xcassets */,
+				F81542B61C8E3E5200E41185 /* Info.plist */,
+				F840BF511C9BB7DB009DD90E /* Settings.bundle */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		F879624B1C8F13FD00ADF45D /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F81542E11C8E3F3700E41185 /* PlenMotionCell.swift */,
+				F81542E21C8E3F3700E41185 /* PlenMotionCell.xib */,
+				F87962471C8F130600ADF45D /* PlenFunctionCell.swift */,
+				F87962481C8F130600ADF45D /* PlenFunctionCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		F8C3C8791C9381CE001E0590 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */,
+				F8C3C87A1C9381F0001E0590 /* PlenConnetion.swift */,
+				F8C3C8821C93E45B001E0590 /* PlenScanner.swift */,
+				F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		FCE415AB9153170ADF5D033B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F840BFE61C9BF5DC009DD90E /* Pods_Scenography.framework */,
+				235EE081DF350B58131D857C /* Pods_Scenography.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F81542A61C8E3E5200E41185 /* Scenography */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "Scenography" */;
+			buildPhases = (
+				E68E07711CB1E72CAECCB33F /* Check Pods Manifest.lock */,
+				F81542A31C8E3E5200E41185 /* Sources */,
+				F81542A41C8E3E5200E41185 /* Frameworks */,
+				F81542A51C8E3E5200E41185 /* Resources */,
+				24FC9FA3995D2B7FF8E3D1B3 /* Embed Pods Frameworks */,
+				FB86B3B922696914306A2432 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scenography;
+			productName = Scenography;
+			productReference = F81542A71C8E3E5200E41185 /* Scenography.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F81542BA1C8E3E5200E41185 /* ScenographyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyTests" */;
+			buildPhases = (
+				F81542B71C8E3E5200E41185 /* Sources */,
+				F81542B81C8E3E5200E41185 /* Frameworks */,
+				F81542B91C8E3E5200E41185 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81542BD1C8E3E5200E41185 /* PBXTargetDependency */,
+			);
+			name = ScenographyTests;
+			productName = ScenographyTests;
+			productReference = F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F81542C51C8E3E5200E41185 /* ScenographyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyUITests" */;
+			buildPhases = (
+				F81542C21C8E3E5200E41185 /* Sources */,
+				F81542C31C8E3E5200E41185 /* Frameworks */,
+				F81542C41C8E3E5200E41185 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F81542C81C8E3E5200E41185 /* PBXTargetDependency */,
+			);
+			name = ScenographyUITests;
+			productName = ScenographyUITests;
+			productReference = F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F815429F1C8E3E5100E41185 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "PLEN Project";
+				TargetAttributes = {
+					F81542A61C8E3E5200E41185 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = GG4Q336Y69;
+					};
+					F81542BA1C8E3E5200E41185 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = F81542A61C8E3E5200E41185;
+					};
+					F81542C51C8E3E5200E41185 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = F81542A61C8E3E5200E41185;
+					};
+				};
+			};
+			buildConfigurationList = F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "Scenography" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F815429E1C8E3E5100E41185;
+			productRefGroup = F81542A81C8E3E5200E41185 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F81542A61C8E3E5200E41185 /* Scenography */,
+				F81542BA1C8E3E5200E41185 /* ScenographyTests */,
+				F81542C51C8E3E5200E41185 /* ScenographyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F81542A51C8E3E5200E41185 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F873CA1E1C90B9AD00B1B74C /* img in Resources */,
+				F81543071C8E41AC00E41185 /* json in Resources */,
+				F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */,
+				F81542F31C8E3F3700E41185 /* PlenFunctionView.xib in Resources */,
+				F87962531C8F148400ADF45D /* PlenProgramViewController.xib in Resources */,
+				F81542B21C8E3E5200E41185 /* Assets.xcassets in Resources */,
+				F879624A1C8F130600ADF45D /* PlenFunctionCell.xib in Resources */,
+				F840BF521C9BB7DB009DD90E /* Settings.bundle in Resources */,
+				F81542FA1C8E3F3700E41185 /* PlenMotionView.xib in Resources */,
+				F8CDD2351C90F90600431E9E /* JoystickViewController.xib in Resources */,
+				F81542F01C8E3F3700E41185 /* PlenMotionPageViewController.xib in Resources */,
+				F81542F81C8E3F3700E41185 /* PlenMotionTableViewController.xib in Resources */,
+				F81542F61C8E3F3700E41185 /* PlenMotionCell.xib in Resources */,
+				F81542B01C8E3E5200E41185 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542B91C8E3E5200E41185 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542C41C8E3E5200E41185 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24FC9FA3995D2B7FF8E3D1B3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scenography/Pods-Scenography-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68E07711CB1E72CAECCB33F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB86B3B922696914306A2432 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scenography/Pods-Scenography-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F81542A31C8E3E5200E41185 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81542F11C8E3F3700E41185 /* PlenFunction.swift in Sources */,
+				F87962551C8F321400ADF45D /* PlenMotionCategory.swift in Sources */,
+				F81542AD1C8E3E5200E41185 /* ViewController.swift in Sources */,
+				F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */,
+				F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */,
+				F81542FD1C8E3F3700E41185 /* Resources.swift in Sources */,
+				F8CDD23F1C91E4F500431E9E /* DragEvent.swift in Sources */,
+				F8C3C87B1C9381F0001E0590 /* PlenConnetion.swift in Sources */,
+				F81542F91C8E3F3700E41185 /* PlenMotionView.swift in Sources */,
+				F81542EF1C8E3F3700E41185 /* PlenMotionPageViewController.swift in Sources */,
+				F840BFEA1C9BF836009DD90E /* DebugUtils.swift in Sources */,
+				F8A4B2AD1C9AC94C00F46573 /* PlenConnectionLog.swift in Sources */,
+				F81542F51C8E3F3700E41185 /* PlenMotionCell.swift in Sources */,
+				F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */,
+				F81542FB1C8E3F3700E41185 /* PLPageViewController.swift in Sources */,
+				F8CDD2341C90F90600431E9E /* JoystickViewController.swift in Sources */,
+				F81542FE1C8E3F3700E41185 /* SwiftUtils.swift in Sources */,
+				F87962591C8F375800ADF45D /* PlenProgram.swift in Sources */,
+				F840BFEF1C9BFAC2009DD90E /* OvalView.swift in Sources */,
+				F81542FC1C8E3F3700E41185 /* RxUtils.swift in Sources */,
+				F8C3C8831C93E45B001E0590 /* PlenScanner.swift in Sources */,
+				F8C3C8871C93E55A001E0590 /* PlenTxCharacteristicWriter.swift in Sources */,
+				F81542F71C8E3F3700E41185 /* PlenMotionTableViewController.swift in Sources */,
+				F840BFF01C9BFAC2009DD90E /* PlenConnectionError.swift in Sources */,
+				F87962521C8F148400ADF45D /* PlenProgramViewController.swift in Sources */,
+				F840BFEE1C9BFAC2009DD90E /* CoreBluetoothUtils.swift in Sources */,
+				F81542F21C8E3F3700E41185 /* PlenFunctionView.swift in Sources */,
+				F81542F41C8E3F3700E41185 /* PlenMotion.swift in Sources */,
+				F8C3C8891C93F000001E0590 /* PlenWalk.swift in Sources */,
+				F81542FF1C8E3F3700E41185 /* UIKitUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542B71C8E3E5200E41185 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81542C01C8E3E5200E41185 /* ScenographyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F81542C21C8E3E5200E41185 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F81542CB1C8E3E5200E41185 /* ScenographyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F81542BD1C8E3E5200E41185 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81542A61C8E3E5200E41185 /* Scenography */;
+			targetProxy = F81542BC1C8E3E5200E41185 /* PBXContainerItemProxy */;
+		};
+		F81542C81C8E3E5200E41185 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F81542A61C8E3E5200E41185 /* Scenography */;
+			targetProxy = F81542C71C8E3E5200E41185 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F81542AE1C8E3E5200E41185 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F81542AF1C8E3E5200E41185 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F81542B41C8E3E5200E41185 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F81542CD1C8E3E5200E41185 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F81542CE1C8E3E5200E41185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F81542D01C8E3E5200E41185 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B33E2F7C8B7D78DA1C3A3FDA /* Pods-Scenography.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = Scenography/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.Scenography;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		F81542D11C8E3E5200E41185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1836EF393588814CE58D80C /* Pods-Scenography.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = Scenography/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.Scenography;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		F81542D31C8E3E5200E41185 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScenographyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenography.app/Scenography";
+			};
+			name = Debug;
+		};
+		F81542D41C8E3E5200E41185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ScenographyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenography.app/Scenography";
+			};
+			name = Release;
+		};
+		F81542D61C8E3E5200E41185 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScenographyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Scenography;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F81542D71C8E3E5200E41185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ScenographyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Scenography;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "Scenography" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81542CD1C8E3E5200E41185 /* Debug */,
+				F81542CE1C8E3E5200E41185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "Scenography" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81542D01C8E3E5200E41185 /* Debug */,
+				F81542D11C8E3E5200E41185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81542D31C8E3E5200E41185 /* Debug */,
+				F81542D41C8E3E5200E41185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F81542D61C8E3E5200E41185 /* Debug */,
+				F81542D71C8E3E5200E41185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F815429F1C8E3E5100E41185 /* Project object */;
+}
