@@ -11,8 +11,8 @@ import UIKit
 
 @IBDesignable
 class OvalView: UIView {
-    @IBInspectable var fillColor: UIColor = UIColor.whiteColor()
-    @IBInspectable var strokeColor: UIColor = UIColor.clearColor()
+    @IBInspectable var fillColor: UIColor = UIColor.white
+    @IBInspectable var strokeColor: UIColor = UIColor.clear
     @IBInspectable var strokeWidth: CGFloat = 1
     @IBInspectable var startAngleDegree: CGFloat = 0
     @IBInspectable var endAngleDegree: CGFloat = 360
@@ -28,8 +28,8 @@ class OvalView: UIView {
         set(value) {endAngleDegree = value * CGFloat(180 / M_PI)}
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let center = CGPoint(
             x: (rect.maxX - rect.minX) / 2,
@@ -41,11 +41,11 @@ class OvalView: UIView {
             startAngle: startAngle,
             endAngle: endAngle,
             clockwise: clockwise)
-        clip.addLineToPoint(center)
-        clip.closePath()
+        clip.addLine(to: center)
+        clip.close()
         clip.addClip()
         
-        let path = UIBezierPath(ovalInRect: CGRect(
+        let path = UIBezierPath(ovalIn: CGRect(
             x: rect.minX + strokeWidth / 2,
             y: rect.minY + strokeWidth / 2,
             width: rect.width - strokeWidth,

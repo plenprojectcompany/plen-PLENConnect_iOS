@@ -12,12 +12,12 @@ import UIKit
 // MARK: - DragEvent
 
 enum DragEventState {
-    case Began
-    case Entered
-    case Moved
-    case Exited
-    case Drop(clipData: Any?)
-    case Ended
+    case began
+    case entered
+    case moved
+    case exited
+    case drop(clipData: Any?)
+    case ended
 }
 
 struct DragEvent {
@@ -27,52 +27,52 @@ struct DragEvent {
 }
 
 protocol DragEventListener: class {
-    func respondToDragEvent(event: DragEvent) -> Bool
+    func respondToDragEvent(_ event: DragEvent) -> Bool
 }
 
 struct DragEventCenter {
-    private static var _listeners = NSMapTable.weakToWeakObjectsMapTable()
+    fileprivate static var _listeners = NSMapTable<AnyObject, AnyObject>.weakToWeakObjects()
     
-    private init() {}
+    fileprivate init() {}
     
-    static func setListener(view: UIView, listener: DragEventListener) {
+    static func setListener(_ view: UIView, listener: DragEventListener) {
         _listeners.setObject(listener, forKey: view)
     }
     
-    static func setListener(view: UIView, respondToDragEvent: DragEvent -> Bool) {
+    static func setListener(_ view: UIView, respondToDragEvent: @escaping (DragEvent) -> Bool) {
         _listeners.setObject(DragEventListenerImpl(respondToDragEvent: respondToDragEvent), forKey: view)
     }
     
-    static func removeListener(view: UIView) {
-        _listeners.removeObjectForKey(view)
+    static func removeListener(_ view: UIView) {
+        _listeners.removeObject(forKey: view)
     }
     
-    private static func postEventToView(view: UIView?, gestureRecognizer: UIGestureRecognizer, state: DragEventState) -> Bool {
-        guard let listener = _listeners.objectForKey(view) as? DragEventListener else {return false}
+    fileprivate static func postEventToView(_ view: UIView?, gestureRecognizer: UIGestureRecognizer, state: DragEventState) -> Bool {
+        guard let listener = _listeners.object(forKey: view) as? DragEventListener else {return false}
         let event = DragEvent(gestureRecognizer: gestureRecognizer, state: state, source: view)
         return listener.respondToDragEvent(event)
     }
     
-    private static func postEventToViews(views: [UIView], gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
+    fileprivate static func postEventToViews(_ views: [UIView], gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
         views
             .filter {postEventToView($0, gestureRecognizer: gestureRecognizer, state: state)}
             .first
     }
     
-    private static func postEventToAllViews(gestureRecognizer gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
+    fileprivate static func postEventToAllViews(gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
         _listeners.keyEnumerator()
             .forEach {postEventToView($0 as? UIView, gestureRecognizer: gestureRecognizer, state: state)}
     }
 }
 
 private class DragEventListenerImpl: DragEventListener {
-    let _respondToDragEvent: DragEvent -> Bool
+    let _respondToDragEvent: (DragEvent) -> Bool
     
-    init(respondToDragEvent: DragEvent -> Bool) {
+    init(respondToDragEvent: @escaping (DragEvent) -> Bool) {
         _respondToDragEvent = respondToDragEvent
     }
     
-    func respondToDragEvent(event: DragEvent) -> Bool {
+    func respondToDragEvent(_ event: DragEvent) -> Bool {
         return _respondToDragEvent(event)
     }
 }
@@ -80,24 +80,24 @@ private class DragEventListenerImpl: DragEventListener {
 // MARK: - DragGestureRecognizerTarget
 
 protocol DragGestureRecognizerTargetDelegate: class {
-    func dragGestureRecognizerTargetShouldCreateDragShadow(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer) -> UIView?
-    func dragGestureRecognizerTargetShouldCreateClipData(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any?
-    func dragGestureRecognizerTarget(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, shouldUpdateDragShadow dragShadow: UIView) -> Bool
+    func dragGestureRecognizerTargetShouldCreateDragShadow(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer) -> UIView?
+    func dragGestureRecognizerTargetShouldCreateClipData(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any?
+    func dragGestureRecognizerTarget(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, shouldUpdateDragShadow dragShadow: UIView) -> Bool
 }
 
 extension DragGestureRecognizerTargetDelegate {
-    func dragGestureRecognizerTargetShouldCreateClipData(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any? {
+    func dragGestureRecognizerTargetShouldCreateClipData(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any? {
         return nil
     }
     
-    func dragGestureRecognizerTarget(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, shouldUpdateDragShadow dragShadow: UIView) -> Bool {
-        dragShadow.center = gestureRecognizer.locationInView(dragShadow.superview)
+    func dragGestureRecognizerTarget(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, shouldUpdateDragShadow dragShadow: UIView) -> Bool {
+        dragShadow.center = gestureRecognizer.location(in: dragShadow.superview)
         return true
     }
 }
 
 class DragGestureRecognizerTarget {
-    private let _actualTargets = NSMapTable.weakToStrongObjectsMapTable()
+    fileprivate let _actualTargets = NSMapTable<AnyObject, AnyObject>.weakToStrongObjects()
     
     weak var delegate: DragGestureRecognizerTargetDelegate?
     
@@ -108,8 +108,8 @@ class DragGestureRecognizerTarget {
         self.delegate = delegate
     }
     
-    func addGestureRecognizerTargetTo(gestureRecognizer: UIGestureRecognizer) {
-        guard _actualTargets.objectForKey(gestureRecognizer) == nil else {return}
+    func addGestureRecognizerTargetTo(_ gestureRecognizer: UIGestureRecognizer) {
+        guard _actualTargets.object(forKey: gestureRecognizer) == nil else {return}
         
         let actualTarget = _ActualDragGestureRecognizerTarget(compositTarget: self)
         
@@ -117,8 +117,8 @@ class DragGestureRecognizerTarget {
         _actualTargets.setObject(actualTarget, forKey: gestureRecognizer)
     }
     
-    func removeFromGestureRecognizer(gestureRecognizer: UIGestureRecognizer) {
-        _actualTargets.removeObjectForKey(gestureRecognizer)
+    func removeFromGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+        _actualTargets.removeObject(forKey: gestureRecognizer)
     }
     
     func removeFromAllGestureRecognizers() {
@@ -127,28 +127,28 @@ class DragGestureRecognizerTarget {
 }
 
 class _ActualDragGestureRecognizerTarget: NSObject {
-    private static let _action = Selector("respondToDragGesture:")
-    private weak var _dragShadow: UIView?
-    private var _viewsUnderShadow: [Weak<UIView>] = []
-    private var _compositTarget: DragGestureRecognizerTarget
+    fileprivate static let _action = Selector(("respondToDragGesture:"))
+    fileprivate weak var _dragShadow: UIView?
+    fileprivate var _viewsUnderShadow: [Weak<UIView>] = []
+    fileprivate var _compositTarget: DragGestureRecognizerTarget
     
-    private init(compositTarget: DragGestureRecognizerTarget) {
+    fileprivate init(compositTarget: DragGestureRecognizerTarget) {
         self._compositTarget = compositTarget
         super.init()
     }
     
     // MARK: respond to gesture
     
-    func respondToDragGesture(gestureRecognizer: UIGestureRecognizer) {
+    func respondToDragGesture(_ gestureRecognizer: UIGestureRecognizer) {
         switch gestureRecognizer.state {
-        case .Began:
+        case .began:
             // create drag shadow
             guard let dragShadow = createDragShadow(gestureRecognizer) else {break}
             
             // display drag shadow
             let root = UIViewUtil.root(gestureRecognizer.view!)
             root.addSubview(dragShadow)
-            root.bringSubviewToFront(dragShadow)
+            root.bringSubview(toFront: dragShadow)
             
             // Began
             self._dragShadow = dragShadow
@@ -158,11 +158,11 @@ class _ActualDragGestureRecognizerTarget: NSObject {
             // Enterd, Moved
             respondToDragGestureChanged(gestureRecognizer)
             
-        case .Changed:
+        case .changed:
             // Exited, Enterd, Moved
             respondToDragGestureChanged(gestureRecognizer)
             
-        case .Ended:
+        case .ended:
             // Drop
             postDropEvent(gestureRecognizer)
             
@@ -178,15 +178,15 @@ class _ActualDragGestureRecognizerTarget: NSObject {
         }
     }
     
-    private func respondToDragGestureChanged(gestureRecognizer: UIGestureRecognizer) {
+    fileprivate func respondToDragGestureChanged(_ gestureRecognizer: UIGestureRecognizer) {
         updateDragShadow(gestureRecognizer)
         
         // Exited, Entered
         guard let dragShadow = _dragShadow else {return}
         let root = UIViewUtil.root(dragShadow)
         let oldViews = _viewsUnderShadow.flatMap {$0.value}
-        let newViews = UIViewUtil.find(root) {!$0.contains(dragShadow) && $0.last!.pointInside(gestureRecognizer.locationInView($0.last!), withEvent: nil)}
-            .reverse()
+        let newViews = UIViewUtil.find(root) {!$0.contains(dragShadow) && $0.last!.point(inside: gestureRecognizer.location(in: $0.last!), with: nil)}
+            .reversed()
             .flatMap {$0.last}
         let exitedViews = oldViews.filter {!newViews.contains($0)}
         let enteredViews = newViews.filter {!oldViews.contains($0)}
@@ -201,46 +201,46 @@ class _ActualDragGestureRecognizerTarget: NSObject {
     
     // MARK: post evenet
     
-    private func broadcastDragBeganEvent(gestureRecognizer: UIGestureRecognizer) {
-        DragEventCenter.postEventToAllViews(gestureRecognizer: gestureRecognizer, state: .Began)
+    fileprivate func broadcastDragBeganEvent(_ gestureRecognizer: UIGestureRecognizer) {
+        DragEventCenter.postEventToAllViews(gestureRecognizer: gestureRecognizer, state: .began)
     }
     
-    private func postEnteredEvent(gestureRecognizer: UIGestureRecognizer, toViews enteredViews: [UIView]) {
-        DragEventCenter.postEventToViews(enteredViews, gestureRecognizer: gestureRecognizer, state: .Entered)
+    fileprivate func postEnteredEvent(_ gestureRecognizer: UIGestureRecognizer, toViews enteredViews: [UIView]) {
+        DragEventCenter.postEventToViews(enteredViews, gestureRecognizer: gestureRecognizer, state: .entered)
     }
     
-    private func postMovedEvent(gestureRecognizer: UIGestureRecognizer) {
+    fileprivate func postMovedEvent(_ gestureRecognizer: UIGestureRecognizer) {
         DragEventCenter.postEventToViews(_viewsUnderShadow.flatMap {$0.value},
             gestureRecognizer: gestureRecognizer,
-            state: .Moved)
+            state: .moved)
     }
     
-    private func postExitedEvent(gestureRecognizer: UIGestureRecognizer, toViews exitedViews: [UIView]) {
+    fileprivate func postExitedEvent(_ gestureRecognizer: UIGestureRecognizer, toViews exitedViews: [UIView]) {
         DragEventCenter.postEventToViews(exitedViews,
             gestureRecognizer: gestureRecognizer,
-            state: .Exited)
+            state: .exited)
     }
     
-    private func postDropEvent(gestureRecognizer: UIGestureRecognizer) {
+    fileprivate func postDropEvent(_ gestureRecognizer: UIGestureRecognizer) {
         let clipData = createClipData(gestureRecognizer)
         
         DragEventCenter.postEventToViews(_viewsUnderShadow.flatMap {$0.value},
             gestureRecognizer: gestureRecognizer,
-            state: .Drop(clipData: clipData))
+            state: .drop(clipData: clipData))
     }
     
-    private func broadcastDragEndedEvent(gestureRecognizer: UIGestureRecognizer) {
-        DragEventCenter.postEventToAllViews(gestureRecognizer: gestureRecognizer, state: .Ended)
+    fileprivate func broadcastDragEndedEvent(_ gestureRecognizer: UIGestureRecognizer) {
+        DragEventCenter.postEventToAllViews(gestureRecognizer: gestureRecognizer, state: .ended)
     }
     
     // MARK: delegate
     
-    private func createDragShadow(gestureRecognizer: UIGestureRecognizer) -> UIView? {
+    fileprivate func createDragShadow(_ gestureRecognizer: UIGestureRecognizer) -> UIView? {
         return _compositTarget.delegate?.dragGestureRecognizerTargetShouldCreateDragShadow(_compositTarget,
             gestureRecognizer: gestureRecognizer)
     }
     
-    private func updateDragShadow(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    fileprivate func updateDragShadow(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let dragShadow = _dragShadow else {return false}
         
         return _compositTarget.delegate?.dragGestureRecognizerTarget(_compositTarget,
@@ -248,7 +248,7 @@ class _ActualDragGestureRecognizerTarget: NSObject {
             shouldUpdateDragShadow: dragShadow) ?? false
     }
     
-    private func createClipData(gestureRecognizer: UIGestureRecognizer) -> Any? {
+    fileprivate func createClipData(_ gestureRecognizer: UIGestureRecognizer) -> Any? {
         guard let dragShadow = _dragShadow else {return nil}
         
         return _compositTarget.delegate?.dragGestureRecognizerTargetShouldCreateClipData(_compositTarget,

@@ -19,11 +19,11 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         set(value) {rx_program.value = value}
     }
     
-    private let _emptyCellData = PlenFunction.Nop
-    private let _disposeBag = DisposeBag()
-    private var _disposeMap = [UIView: DisposeBag]() // for ReuseCell
+    fileprivate let _emptyCellData = PlenFunction.Nop
+    fileprivate let _disposeBag = DisposeBag()
+    fileprivate var _disposeMap = [UIView: DisposeBag]() // for ReuseCell
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -42,7 +42,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         initBindings()
     }
     
-    private func initBindings() {
+    fileprivate func initBindings() {
         // auto reloadData
         rx_program.asObservable()
             .scan(PlenProgram.Empty) {[weak self] (oldValue, newValue) in
@@ -55,13 +55,13 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         // auto scroll on DragEvent
         Observable<Int>
             .interval(Resources.Time.TableViewAutoScrollInterval,
-                scheduler: SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Default))
+                scheduler: SerialDispatchQueueScheduler(qos: .default))
             .observeOn(MainScheduler.instance)
-            .subscribeNext {[weak self] _ in self?.scrollTableView()}
+            .subscribe(onNext: {[weak self] _ in self?.scrollTableView()})
             .addDisposableTo(_disposeBag)
     }
     
-    private func reloadData(oldValue oldValue: PlenProgram, newValue: PlenProgram) {
+    fileprivate func reloadData(oldValue: PlenProgram, newValue: PlenProgram) {
         guard oldValue != newValue else {
             return
         }
@@ -74,7 +74,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
             return
         }
         
-        guard scrollDirection == .None else {
+        guard scrollDirection == .none else {
             tableView.reloadData()
             return
         }
@@ -82,40 +82,40 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         assert(oldSequence.filter {$0 == _emptyCellData}.count <= 1)
         assert(newSequence.filter {$0 == _emptyCellData}.count <= 1)
         
-        switch (oldSequence.indexOf(_emptyCellData), newSequence.indexOf(_emptyCellData)) {
+        switch (oldSequence.index(of: _emptyCellData), newSequence.index(of: _emptyCellData)) {
         case let (oldEmptyIndex?, nil):
-            tableView.deleteRowsAtIndexPaths(
-                [NSIndexPath(forRow: oldEmptyIndex, inSection: 0)],
-                withRowAnimation: .Fade)
+            tableView.deleteRows(
+                at: [IndexPath(row: oldEmptyIndex, section: 0)],
+                with: .fade)
         case let (nil, newEmptyIndex?):
-            tableView.insertRowsAtIndexPaths(
-                [NSIndexPath(forRow: newEmptyIndex, inSection: 0)],
-                withRowAnimation: .Fade)
+            tableView.insertRows(
+                at: [IndexPath(row: newEmptyIndex, section: 0)],
+                with: .fade)
         case let (oldEmptyIndex?, newEmptyIndex?) where oldEmptyIndex != newEmptyIndex:
-            tableView.moveRowAtIndexPath(NSIndexPath(forRow: newEmptyIndex, inSection: 0),
-                toIndexPath: NSIndexPath(forRow: oldEmptyIndex, inSection: 0))
+            tableView.moveRow(at: IndexPath(row: newEmptyIndex, section: 0),
+                to: IndexPath(row: oldEmptyIndex, section: 0))
         default:
             break
         }
     }
     
-    private func initCell(cell: Cell, function: PlenFunction) {
-        cell.backgroundColor = UIColor.clearColor()
+    fileprivate func initCell(_ cell: Cell, function: PlenFunction) {
+        cell.backgroundColor = UIColor.clear
         cell.functionView.function = function
-        cell.functionView.hidden = (function == _emptyCellData)
+        cell.functionView.isHidden = (function == _emptyCellData)
     }
     
     // MARK: - UITableViewDataSource
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return program.sequence.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewUtil.dequeueCell(tableView, type: Cell.self, indexPath: indexPath)!
         
         // 1. dispose old disposables
@@ -126,47 +126,47 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         initCell(cell, function: program.sequence[indexPath.row])
         
         // 3. bind
-        cell.functionView.rx_deallocated
-            .subscribeNext {[weak self] in self?._disposeMap.removeValueForKey(cell.functionView)}
+        cell.functionView.rx.deallocated
+            .subscribe(onNext: {[weak self] in self?._disposeMap.removeValue(forKey: cell.functionView)})
             .addDisposableTo(bag)
         cell.functionView.rx_function.asObservable()
-            .subscribeNext {[weak self] in self?.program.sequence[indexPath.row] = $0}
+            .subscribe(onNext: {[weak self] in self?.program.sequence[indexPath.row] = $0})
             .addDisposableTo(bag)
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Resources.Dimen.PlenMotionCellHeight
     }
     
     // MARK: - DragEventListener
     
-    private func initDragEventListener() {
+    fileprivate func initDragEventListener() {
         DragEventCenter.setListener(tableView, listener: self)
     }
     
-    func respondToDragEvent(event: DragEvent) -> Bool {
+    func respondToDragEvent(_ event: DragEvent) -> Bool {
         switch event.state {
-        case .Moved:
+        case .moved:
             assert(program.sequence.filter {$0 == _emptyCellData}.count <= 1)
             
             var sequence = program.sequence.filter {$0 != _emptyCellData}
-            let location = event.gestureRecognizer.locationInView(tableView)
-            if let row = tableView.indexPathForRowAtPoint(location)?.row where 0 ..< program.sequence.count ~= row {
-                sequence.insert(_emptyCellData, atIndex: row)
+            let location = event.gestureRecognizer.location(in: tableView)
+            if let row = tableView.indexPathForRow(at: location)?.row, 0 ..< program.sequence.count ~= row {
+                sequence.insert(_emptyCellData, at: row)
             } else {
                 sequence.append(_emptyCellData)
             }
             program.sequence = sequence
             
-        case .Drop(let function as PlenFunction):
-            program.sequence[program.sequence.indexOf(_emptyCellData)!] = function
+        case .drop(let function as PlenFunction):
+            program.sequence[program.sequence.index(of: _emptyCellData)!] = function
         
-        case .Drop(let motion as PlenMotion):
-            program.sequence[program.sequence.indexOf(_emptyCellData)!] = PlenFunction(motion: motion, loopCount: 1)
+        case .drop(let motion as PlenMotion):
+            program.sequence[program.sequence.index(of: _emptyCellData)!] = PlenFunction(motion: motion, loopCount: 1)
             
-        case .Exited:
+        case .exited:
             program.sequence = program.sequence.filter {$0 != _emptyCellData}
             
         default:
@@ -179,103 +179,103 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
     
     // MARK: - DragGestureRecognizerTargetDelegate
     
-    private func initDragGestureRecognizerTarget() {
+    fileprivate func initDragGestureRecognizerTarget() {
         let dragGestureRecognizer = UILongPressGestureRecognizer()
         DragGestureRecognizerTarget(delegate: self).addGestureRecognizerTargetTo(dragGestureRecognizer)
         dragGestureRecognizer.minimumPressDuration = Resources.Time.DragGestureMinimumPressDuration
         tableView.addGestureRecognizer(dragGestureRecognizer)
     }
     
-    func dragGestureRecognizerTargetShouldCreateDragShadow(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer) -> UIView? {
+    func dragGestureRecognizerTargetShouldCreateDragShadow(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer) -> UIView? {
         // TODO: Don't repeat yourself
         
-        let location = gestureRecognizer.locationInView(tableView)
-        guard let indexPath = tableView.indexPathForRowAtPoint(location) else {return nil}
+        let location = gestureRecognizer.location(in: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: location) else {return nil}
         
-        let touchedCell = tableView.cellForRowAtIndexPath(indexPath) as! Cell
+        let touchedCell = tableView.cellForRow(at: indexPath) as! Cell
         let touchedButtons = UIViewUtil.find(touchedCell)
             .flatMap {$0.last as? UIButton}
-            .filter {$0.pointInside(gestureRecognizer.locationInView($0), withEvent: nil)}
+            .filter {$0.point(inside: gestureRecognizer.location(in: $0), with: nil)}
         guard touchedButtons.isEmpty else {return nil}
         
         let dragShadow = UIViewUtil.loadXib(Cell.self)!
         initCell(dragShadow, function: touchedCell.functionView.function)
-        dragShadow.separater.hidden = true
+        dragShadow.separater.isHidden = true
         
         dragShadow.frame.size = CGSize(
             width: tableView.frame.width,
             height: Resources.Dimen.PlenMotionCellHeight)
         
-        dragShadow.backgroundColor = UIColor.clearColor()
+        dragShadow.backgroundColor = UIColor.clear
         dragShadow.contentView.layer.cornerRadius = 10
         dragShadow.contentView.backgroundColor = Resources.Color.PlenGreen.alpha(0.3)
         
         // replace by a empty cell
-        program.sequence[tableView.indexPathForCell(touchedCell)!.row] = _emptyCellData
+        program.sequence[tableView.indexPath(for: touchedCell)!.row] = _emptyCellData
         
         return dragShadow
     }
     
-    func dragGestureRecognizerTargetShouldCreateClipData(target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any? {
+    func dragGestureRecognizerTargetShouldCreateClipData(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer, dragShadow: UIView) -> Any? {
         return (dragShadow as! Cell).functionView.function
     }
     
     // MARK: - auto scroll
     
-    private enum ScrollDirection {
-        case Top
-        case Bottom
-        case None
+    fileprivate enum ScrollDirection {
+        case top
+        case bottom
+        case none
     }
     
-    private var scrollDirection = ScrollDirection.None
+    fileprivate var scrollDirection = ScrollDirection.none
     
-    private func updateScrollDirection(gestureRecognizer: UIGestureRecognizer) {
+    fileprivate func updateScrollDirection(_ gestureRecognizer: UIGestureRecognizer) {
         guard program.sequence.contains(_emptyCellData) else {
-            scrollDirection = .None
+            scrollDirection = .none
             return
         }
         
-        let touchY = gestureRecognizer.locationInView(tableView).y
+        let touchY = gestureRecognizer.location(in: tableView).y
         let scrollAreaHeight = Resources.Dimen.PlenMotionCellHeight
         switch touchY {
         case tableView.bounds.minY ..< tableView.bounds.minY + scrollAreaHeight:
-            scrollDirection = .Top
+            scrollDirection = .top
         case tableView.bounds.maxY - scrollAreaHeight ..< tableView.bounds.maxY:
-            scrollDirection = .Bottom
+            scrollDirection = .bottom
         default:
-            scrollDirection = .None
+            scrollDirection = .none
         }
     }
     
-    private func scrollTableView() {
-        if scrollDirection == .None {return}
+    fileprivate func scrollTableView() {
+        if scrollDirection == .none {return}
         
         let visibleRows = tableView?.indexPathsForVisibleRows
         var sequence = program.sequence.filter {$0 != _emptyCellData}
         
         switch scrollDirection {
-        case .Top:
+        case .top:
             guard let indexPath = visibleRows?.first else {break}
             let row = max(0, indexPath.row - 1)
             
-            tableView?.scrollToRowAtIndexPath(
-                NSIndexPath(forRow: row, inSection: indexPath.section),
-                atScrollPosition: row > 0 ? .Top : .Bottom,
+            tableView?.scrollToRow(
+                at: IndexPath(row: row, section: indexPath.section),
+                at: row > 0 ? .top : .bottom,
                 animated: true)
             
-            sequence.insert(_emptyCellData, atIndex: row)
+            sequence.insert(_emptyCellData, at: row)
             
-        case .Bottom:
+        case .bottom:
             guard let indexPath = visibleRows?.last else {break}
             let row = min(indexPath.row + 1, program.sequence.count - 1)
             
-            tableView?.scrollToRowAtIndexPath(
-                NSIndexPath(forRow: row, inSection: indexPath.section),
-                atScrollPosition: row < program.sequence.count - 1 ? .Bottom : .Top,
+            tableView?.scrollToRow(
+                at: IndexPath(row: row, section: indexPath.section),
+                at: row < program.sequence.count - 1 ? .bottom : .top,
                 animated: true)
             
-            sequence.insert(_emptyCellData, atIndex: row)
+            sequence.insert(_emptyCellData, at: row)
             
         default:
             return

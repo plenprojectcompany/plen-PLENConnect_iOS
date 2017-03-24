@@ -12,8 +12,8 @@ import UIKit
 // TODO: https://github.com/HighBay/PageMenu で置き換えたほうが良い
 
 enum PLTabStyle {
-    case None
-    case InactiveFaded(fadedAlpha: CGFloat)
+    case none
+    case inactiveFaded(fadedAlpha: CGFloat)
 }
 
 // MARK: -
@@ -27,21 +27,21 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     var pageViewScrollDelegate: UIScrollViewDelegate?
     
     // MARK: Pager
-    private(set) var pageCount = 0
-    private(set) var currentPageIndex = 0
-    private(set) var pager: UIPageViewController!
-    private var _pageViewControllers: [Int: UIViewController] = [:]
+    fileprivate(set) var pageCount = 0
+    fileprivate(set) var currentPageIndex = 0
+    fileprivate(set) var pager: UIPageViewController!
+    fileprivate var _pageViewControllers: [Int: UIViewController] = [:]
     
     // MARK: Tabs
     var tabWidth: CGFloat {return view.bounds.width / 3.0}
     var tabIndicatorHeight: CGFloat {return 2.0}
-    var tabIndicatorColor: UIColor {return UIColor.lightGrayColor()}
+    var tabIndicatorColor: UIColor {return UIColor.lightGray}
     var tabMargin: CGFloat {return 0.0}
-    var tabStyle: PLTabStyle {return .InactiveFaded(fadedAlpha: 0.566)}
-    static private let _tabReuseIdentifier = "TabCell"
+    var tabStyle: PLTabStyle {return .inactiveFaded(fadedAlpha: 0.566)}
+    static fileprivate let _tabReuseIdentifier = "TabCell"
     
     // MARK: TabBar
-    private(set) var tabBar: UICollectionView!
+    fileprivate(set) var tabBar: UICollectionView!
     
     // MARK: - UIViewController
     
@@ -51,7 +51,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         super.init(coder: aDecoder)
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -66,7 +66,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         layoutView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         reloadData()
@@ -74,17 +74,17 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: - PageViewControllerDataSource
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return indexForViewController(viewController).flatMap {viewControllerAtIndex($0 - 1)}
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return indexForViewController(viewController).flatMap {viewControllerAtIndex($0 + 1)}
     }
     
     // MARK: - UIPageViewControllerDelegate
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished && completed, let index = pager.viewControllers?.first.flatMap(indexForViewController) {
             scrollToPageAtIndex(index, updatePage: false, animated: true)
         }
@@ -92,18 +92,18 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: - UICollectionViewDataSource
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pageCount
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            PLPageViewController._tabReuseIdentifier,
-            forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PLPageViewController._tabReuseIdentifier,
+            for: indexPath)
         
         if let tabView = tabViewAtIndex(indexPath.row) {
             cell.contentView.subviews.forEach {$0.removeFromSuperview()}
@@ -116,7 +116,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: - UICollectionViewDelegate
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if currentPageIndex != indexPath.row {
             scrollToPageAtIndex(indexPath.row, updatePage: true, animated: true)
         }
@@ -124,63 +124,63 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: delegate?.widthForTabAtIndex?(indexPath.row) ?? tabWidth,
             height: tabBar.bounds.height)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return tabMargin
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return tabMargin
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: tabMargin / 2, bottom: 0, right: tabMargin / 2)
     }
     
     // MARK: - UIToolbarDelegate
     
-    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
-        return .Any
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .any
     }
     
     // MARK: - UIScrollViewDelegate
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidScroll?(scrollView)
     }
     
-    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         guard scrollView != tabBar else {return false}
         
         return pageViewScrollDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? false
     }
     
-    func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidScrollToTop?(scrollView)
     }
     
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidEndScrollingAnimation?(scrollView)
     }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
     
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewWillEndDragging?(scrollView,
@@ -188,51 +188,51 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
             targetContentOffset: targetContentOffset)
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewWillBeginDecelerating?(scrollView)
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     
-    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?) {
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         guard scrollView != tabBar else {return}
         
-        pageViewScrollDelegate?.scrollViewWillBeginZooming?(scrollView, withView: view)
+        pageViewScrollDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
     }
     
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         guard scrollView != tabBar else {return}
         
         pageViewScrollDelegate?.scrollViewDidZoom?(scrollView)
     }
     
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         guard scrollView != tabBar else {return}
         
-        pageViewScrollDelegate?.scrollViewDidEndZooming?(scrollView, withView: view, atScale: scale)
+        pageViewScrollDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         guard scrollView != tabBar else {return nil}
         
-        return pageViewScrollDelegate?.viewForZoomingInScrollView?(scrollView)
+        return pageViewScrollDelegate?.viewForZooming?(in: scrollView)
     }
     
     // MARK: - Scroll programatically
     
-    func scrollToPageAtIndex(index: Int, animated: Bool) {
+    func scrollToPageAtIndex(_ index: Int, animated: Bool) {
         scrollToPageAtIndex(index, updatePage: true, animated: animated)
     }
     
@@ -243,8 +243,8 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         _pageViewControllers.removeAll()
         tabBar.reloadData()
         
-        pager.view.hidden = (pageCount == 0)
-        if !pager.view.hidden {
+        pager.view.isHidden = (pageCount == 0)
+        if !pager.view.isHidden {
             scrollToPageAtIndex(currentPageIndex, updatePage: true, animated: false)
         }
     }
@@ -253,14 +253,14 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: Load
     
-    private func loadPager() {
+    fileprivate func loadPager() {
         pager = UIPageViewController(
-            transitionStyle: UIPageViewControllerTransitionStyle.Scroll,
-            navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal,
+            transitionStyle: UIPageViewControllerTransitionStyle.scroll,
+            navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal,
             options: nil)
         
         addChildViewController(pager)
-        pager.didMoveToParentViewController(self)
+        pager.didMove(toParentViewController: self)
         
         // TODO: このへんの処理の順番が謎
         let pagerScrollView = pager.view.subviews.first as! UIScrollView
@@ -272,18 +272,18 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         pager.delegate = self
     }
     
-    private func loadTabBar() {
+    fileprivate func loadTabBar() {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .Horizontal
+        flowLayout.scrollDirection = .horizontal
         tabBar = UICollectionView(frame: CGRect(), collectionViewLayout: flowLayout)
         
-        tabBar.scrollEnabled = false
-        tabBar.backgroundColor = UIColor.clearColor()
+        tabBar.isScrollEnabled = false
+        tabBar.backgroundColor = UIColor.clear
         tabBar.scrollsToTop = false
-        tabBar.opaque = false
+        tabBar.isOpaque = false
         tabBar.showsHorizontalScrollIndicator = false
         tabBar.showsVerticalScrollIndicator = false
-        tabBar.registerClass(
+        tabBar.register(
             UICollectionViewCell.self,
             forCellWithReuseIdentifier: PLPageViewController._tabReuseIdentifier)
         
@@ -291,18 +291,18 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         tabBar.delegate = self
     }
     
-    private func layoutView() {
+    fileprivate func layoutView() {
         view.addSubview(pager.view)
         UIViewUtil.constrain(by: view, subview: pager.view)
     }
     
     // MARK: Find
     
-    private func indexForViewController(viewController: UIViewController) -> Int? {
+    fileprivate func indexForViewController(_ viewController: UIViewController) -> Int? {
         return _pageViewControllers.flatMap {$0.1 === viewController ? $0.0 : nil}.first
     }
     
-    private func tabViewAtIndex(index: Int) -> PLTabView? {
+    fileprivate func tabViewAtIndex(_ index: Int) -> PLTabView? {
         guard let tabViewContent: UIView = datasource?.tabViewForPageAtIndex(self, index: index) else {return nil}
         
         let width: CGFloat = delegate?.widthForTabAtIndex?(index) ?? tabWidth
@@ -318,7 +318,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         return tabView
     }
     
-    private func viewControllerAtIndex(index: Int) -> UIViewController? {
+    fileprivate func viewControllerAtIndex(_ index: Int) -> UIViewController? {
         guard 0 ..< pageCount ~= index else {return nil}
         if let vc = _pageViewControllers[index] {return vc}
         
@@ -328,7 +328,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     
     // MARK: Update
     
-    private func scrollToPageAtIndex(index: Int, updatePage: Bool, animated: Bool) {
+    fileprivate func scrollToPageAtIndex(_ index: Int, updatePage: Bool, animated: Bool) {
         assert(0 ..< pageCount ~= index)
         
         updateTabBar(index, animated: animated)
@@ -341,17 +341,17 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         delegate?.didChangePageToIndex?(index)
     }
     
-    private func updateTabBar(index: Int, animated: Bool) {
+    fileprivate func updateTabBar(_ index: Int, animated: Bool) {
         assert(0 ..< pageCount ~= index)
         
-        let currentIndexPath = NSIndexPath(forRow: currentPageIndex, inSection: 0)
-        let currentTabCell = tabBar.cellForItemAtIndexPath(currentIndexPath)
+        let currentIndexPath = IndexPath(row: currentPageIndex, section: 0)
+        let currentTabCell = tabBar.cellForItem(at: currentIndexPath)
         if let currentTabView = currentTabCell?.contentView.subviews.first as? PLTabView {
             currentTabView.selected = false
         }
         
-        let newTabCell = tabBar.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-            ?? collectionView(tabBar, cellForItemAtIndexPath: NSIndexPath(forRow: index, inSection: 0))
+        let newTabCell = tabBar.cellForItem(at: IndexPath(row: index, section: 0))
+            ?? collectionView(tabBar, cellForItemAt: IndexPath(row: index, section: 0))
         
         let newTabFrame = CGRect(
             x: newTabCell.frame.origin.x - (index == 0 ? tabMargin : tabMargin / 2.0),
@@ -359,31 +359,29 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
             width: newTabCell.frame.size.width + tabMargin,
             height: newTabCell.frame.size.height)
         
-        let newTabIsVisible = CGRectContainsRect(
-            tabBar.frame,
-            tabBar.convertRect(newTabCell.frame, toView: tabBar.superview))
+        let newTabIsVisible = tabBar.frame.contains(tabBar.convert(newTabCell.frame, to: tabBar.superview))
         
         if !newTabIsVisible {
-            tabBar.selectItemAtIndexPath(
-                NSIndexPath(forRow: index, inSection: 0),
+            tabBar.selectItem(
+                at: IndexPath(row: index, section: 0),
                 animated: animated,
-                scrollPosition: index > currentPageIndex ? .Right : .Left)
+                scrollPosition: index > currentPageIndex ? .right : .left)
             tabBar.scrollRectToVisible(newTabFrame, animated: animated)
         }
         
-        tabBar.scrollToItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0),
-            atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
+        tabBar.scrollToItem(at: IndexPath(row: index, section: 0),
+            at: UICollectionViewScrollPosition.centeredHorizontally,
             animated: true)
         
         (newTabCell.contentView.subviews.first as! PLTabView).selected = true
     }
     
-    private func updatePager(index: Int, animated: Bool) {
+    fileprivate func updatePager(_ index: Int, animated: Bool) {
         assert(0 ..< pageCount ~= index)
         guard let vc = viewControllerAtIndex(index) else {return}
         
         pager.setViewControllers([vc],
-            direction: index < currentPageIndex ? .Reverse : .Forward,
+            direction: index < currentPageIndex ? .reverse : .forward,
             animated: animated && index != currentPageIndex,
             completion: nil)
     }
@@ -396,7 +394,7 @@ private class PLTabView: UIView {
     var selected = false {
         didSet {
             switch style {
-            case .InactiveFaded(let fadedAlpha):
+            case .inactiveFaded(let fadedAlpha):
                 alpha = selected ? 1.0 : fadedAlpha
             default:
                 break
@@ -405,8 +403,8 @@ private class PLTabView: UIView {
         }
     }
     var indicatorHeight = CGFloat(2.0)
-    var indicatorColor = UIColor.lightGrayColor()
-    var style = PLTabStyle.None
+    var indicatorColor = UIColor.lightGray
+    var style = PLTabStyle.none
     
     // MARK: - Methods
     
@@ -427,17 +425,17 @@ private class PLTabView: UIView {
     }
     
     func commonInit() {
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         guard selected else {return}
         
         let bezierPath = UIBezierPath()
         
-        bezierPath.moveToPoint(CGPoint(x: 0, y: rect.height - indicatorHeight / 2))
-        bezierPath.addLineToPoint(CGPoint(x: rect.width, y: rect.height - indicatorHeight / 2.0))
+        bezierPath.move(to: CGPoint(x: 0, y: rect.height - indicatorHeight / 2))
+        bezierPath.addLine(to: CGPoint(x: rect.width, y: rect.height - indicatorHeight / 2.0))
         bezierPath.lineWidth = indicatorHeight
         
         indicatorColor.setStroke()
@@ -453,7 +451,7 @@ protocol PLPageViewControllerDataSource {
     /// - parameter pageViewController: the PLPageViewController instance that's subject to
     ///
     /// - returns: the total number of pages
-    func numberOfPagesForViewController(pageViewController: PLPageViewController) -> Int
+    func numberOfPagesForViewController(_ pageViewController: PLPageViewController) -> Int
     
     /// Asks dataSource to give a view to display as a tab item.
     ///
@@ -461,7 +459,7 @@ protocol PLPageViewControllerDataSource {
     /// - parameter index: the index of the tab whose view is asked
     ///
     /// - returns: a UIView instance that will be shown as tab at the given index
-    func tabViewForPageAtIndex(pageViewController: PLPageViewController, index: Int) -> UIView
+    func tabViewForPageAtIndex(_ pageViewController: PLPageViewController, index: Int) -> UIView
     
     /// The content for any tab. Return a UIViewController instance and PLPageViewController will use its view to show as content.
     ///
@@ -469,7 +467,7 @@ protocol PLPageViewControllerDataSource {
     /// - parameter index: the index of the content whose view is asked
     ///
     /// - returns: a UIViewController instance whose view will be shown as content
-    func viewControllerForPageAtIndex(pageViewController: PLPageViewController, index: Int) -> UIViewController?
+    func viewControllerForPageAtIndex(_ pageViewController: PLPageViewController, index: Int) -> UIViewController?
 }
 
 // MARK: - PLPageViewControllerDelegate
@@ -478,16 +476,16 @@ protocol PLPageViewControllerDelegate {
     /// Delegate objects can implement this method if want to be informed when a page changed.
     ///
     /// - parameter index: the index of the active page
-    optional func willChangePageToIndex(index: Int, fromIndex from: Int)
+    @objc optional func willChangePageToIndex(_ index: Int, fromIndex from: Int)
     
     /// Delegate objects can implement this method if want to be informed when a page changed.
     ///
     /// - parameter index: the index of the active page
-    optional func didChangePageToIndex(index: Int)
+    @objc optional func didChangePageToIndex(_ index: Int)
     
     /// Delegate objects can implement this method if tabs use dynamic width.
     ///
     /// - parameter index: the index of the tab
     /// - returns: the width for the tab at the given index
-    optional func widthForTabAtIndex(index: Int) -> CGFloat
+    @objc optional func widthForTabAtIndex(_ index: Int) -> CGFloat
 }

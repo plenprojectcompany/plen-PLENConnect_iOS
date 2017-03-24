@@ -16,19 +16,19 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var peripheral: CBPeripheral? {return _rx_peripheral.value}
     var rx_peripheralState: Observable<CBPeripheralState> {
         return _rx_peripheral.asObservable()
-            .map {$0?.state ?? .Disconnected}
+            .map {$0?.state ?? .disconnected}
             .distinctUntilChanged()
     }
     
-    private let _centralManager = CBCentralManager()
-    private let _rx_centralManagerState = PublishSubject<CBCentralManagerState>()
-    private var _writer: PlenTxCharacteristicWriter?
+    fileprivate let _centralManager = CBCentralManager()
+    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()//PublishSubject<CBCentralManagerState>()
+    fileprivate var _writer: PlenTxCharacteristicWriter?
     
-    private let _rx_peripheral = Variable<CBPeripheral?>(nil)
-    private let _disposeBag = DisposeBag()
-    private let _backgroundScheduler = SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Background)
+    fileprivate let _rx_peripheral = Variable<CBPeripheral?>(nil)
+    fileprivate let _disposeBag = DisposeBag()
+    fileprivate let _backgroundScheduler = SerialDispatchQueueScheduler(qos: .background)
     
-    private let _rx_task = PublishSubject<() -> ()>()
+    fileprivate let _rx_task = PublishSubject<() -> ()>()
     
     override init() {
         super.init()
@@ -36,7 +36,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         
         _rx_task
             .waitUntil(_rx_centralManagerState)
-            .subscribeNext {$0()}
+            .subscribe(onNext: {$0()})
             .addDisposableTo(_disposeBag)
     }
     
@@ -44,7 +44,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         return PlenConnectionDefaultInstance
     }
     
-    func connectPlen(peripheral: CBPeripheral) {
+    func connectPlen(_ peripheral: CBPeripheral) {
         logger.verbose("\(peripheral.identifier)")
         
         _rx_task.onNext {[weak self] in
@@ -54,11 +54,10 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             
             s._rx_peripheral.value = peripheral
             
-            s._centralManager.scanForPeripheralsWithServices([Resources.UUID.PlenControlService], options: nil)
-            
+            s._centralManager.scanForPeripherals(withServices: [Resources.UUID.PlenControlService], options: nil)
             Observable<Int>
                 .timer(Resources.Time.ScannigPlenDuration, scheduler: s._backgroundScheduler)
-                .doOnCompleted {_ in s._centralManager.stopScan()}
+                .do(onCompleted: {_ in s._centralManager.stopScan()})
                 .subscribe()
                 .addDisposableTo(s._disposeBag)
         }
@@ -75,7 +74,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func writeValue(text: String) {
+    func writeValue(_ text: String) {
         logger.info("\(text)")
         
         _rx_task.onNext {[weak self] in
@@ -85,13 +84,13 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     // MARK: CBCentralManagerDelegate
     
-    func centralManagerDidUpdateState(central: CBCentralManager) {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
         logger.verbose("\(central.state)")
         
         _rx_centralManagerState.onNext(central.state)
     }
     
-    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         logger.verbose("periferal:\(peripheral), advertisementData:\(advertisementData), RSSI:\(RSSI)")
         
         guard peripheral.identifier == self.peripheral?.identifier else {return}
@@ -99,13 +98,13 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _centralManager.stopScan()
         
         peripheral.delegate = self
-        _centralManager.connectPeripheral(peripheral, options: nil)
+        _centralManager.connect(peripheral, options: nil)
         
         _rx_peripheral.value = peripheral
     }
     
-    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name)")
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
         logger.verbose("\(peripheral)")
         
         peripheral.discoverServices([Resources.UUID.PlenControlService])
@@ -113,47 +112,47 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _rx_peripheral.value = peripheral
     }
     
-    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name), error:\(error)")
-        logger.verbose("\(peripheral), error:\(error ?? "nil")")
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name), error:\(error)")
+        logger.verbose("\(peripheral), error:\(error)")
         
         _rx_peripheral.value = peripheral
     }
     
-    func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name)")
-        logger.verbose("\(peripheral), error:\(error ?? "nil")")
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
+        logger.verbose("\(peripheral), error:\(error)")
         
         _rx_peripheral.value = peripheral
     }
     
     // MARK: CBPeripheralDelegate
     
-    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
-        logger.verbose("\(peripheral), error:\(error ?? "nil")")
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        logger.verbose("\(peripheral), error:\(error)")
         
         guard let services = peripheral.services else {return}
         logger.verbose("services: \(services)")
         
-        guard let plenControlService = services.filter({$0.UUID == Resources.UUID.PlenControlService}).first else {return}
-        peripheral.discoverCharacteristics([Resources.UUID.PlenTxCharacteristic], forService: plenControlService)
+        guard let plenControlService = services.filter({$0.uuid == Resources.UUID.PlenControlService}).first else {return}
+        peripheral.discoverCharacteristics([Resources.UUID.PlenTxCharacteristic], for: plenControlService)
         
         _rx_peripheral.value = peripheral
     }
     
-    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         logger.verbose("\(peripheral), service: \(service), error:\(error)")
         
         guard let characteristics = service.characteristics else {return}
         logger.verbose("characteristics: \(characteristics)")
         
-        guard let txCharacteristic = characteristics.filter({$0.UUID == Resources.UUID.PlenTxCharacteristic}).first else {return}
+        guard let txCharacteristic = characteristics.filter({$0.uuid == Resources.UUID.PlenTxCharacteristic}).first else {return}
         _writer = PlenTxCharacteristicWriter(txCharacteristic: txCharacteristic)
         
         _rx_peripheral.value = peripheral
     }
     
-    func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         logger.verbose("\(peripheral), characteristic: \(characteristic), error:\(error)")
         
         assert(_writer?.txCharacteristic == characteristic)

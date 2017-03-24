@@ -22,7 +22,7 @@ class PlenFunctionView: UIView, UITextFieldDelegate {
         set(value) {rx_function.value = value}
     }
     
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +44,7 @@ class PlenFunctionView: UIView, UITextFieldDelegate {
         initBindings()
     }
     
-    private func initBindings() {
+    fileprivate func initBindings() {
         // motion
         rx_function.asObservable()
             .map {$0.motion}
@@ -56,13 +56,13 @@ class PlenFunctionView: UIView, UITextFieldDelegate {
         rx_function.asObservable()
             .map {String($0.loopCount)}
             .distinctUntilChanged()
-            .bindTo(loopCountField.rx_text)
+            .bindTo(loopCountField.rx.text)
             .addDisposableTo(disposeBag)
     }
     
     // MARK: - UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         let input = min(max(1, textField.text.flatMap {Int($0)} ?? 0), 255)
         textField.text = String(input)
         function = PlenFunction(motion: function.motion, loopCount: input)

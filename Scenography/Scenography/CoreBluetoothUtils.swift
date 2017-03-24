@@ -12,12 +12,12 @@ import CoreBluetooth
 extension CBCentralManagerState: CustomStringConvertible {
     public var description: String {
         switch self  {
-        case .PoweredOn:    return "PoweredOn"
-        case .PoweredOff:   return "PoweredOff"
-        case .Resetting:    return "Resetting"
-        case .Unauthorized: return "Unauthorized"
-        case .Unknown:      return "Unknown"
-        case .Unsupported:  return "Unsupported"
+        case .poweredOn:    return "PoweredOn"
+        case .poweredOff:   return "PoweredOff"
+        case .resetting:    return "Resetting"
+        case .unauthorized: return "Unauthorized"
+        case .unknown:      return "Unknown"
+        case .unsupported:  return "Unsupported"
         }
     }
 }
@@ -25,10 +25,10 @@ extension CBCentralManagerState: CustomStringConvertible {
 extension CBPeripheralState: CustomStringConvertible {
     public var description: String {
         switch self  {
-        case .Connecting:    return "Connecting"
-        case .Connected:     return "Connected"
-        case .Disconnecting: return "Disconnecting"
-        case .Disconnected:  return "Disconnected"
+        case .connecting:    return "Connecting"
+        case .connected:     return "Connected"
+        case .disconnecting: return "Disconnecting"
+        case .disconnected:  return "Disconnected"
         }
     }
 }

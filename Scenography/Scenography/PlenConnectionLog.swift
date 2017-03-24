@@ -11,7 +11,7 @@ import Foundation
 struct PlenConnectionLog: Hashable {
     var peripheralIdentifier: String
     var connectedCount: Int
-    var lastConnectedTime: NSDate?
+    var lastConnectedTime: Date?
     
     var hashValue: Int {
         return HashableUtil.combine(peripheralIdentifier.hashValue, connectedCount)

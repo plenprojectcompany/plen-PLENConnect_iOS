@@ -15,39 +15,39 @@ class JoystickViewController: UIViewController {
     @IBOutlet weak var joystickView: OvalView!
     @IBOutlet weak var directionIndicator: OvalView!
     
-    private let _rx_walkDirection = Variable(PlenWalkDirection.Stop)
+    fileprivate let _rx_walkDirection = Variable(PlenWalkDirection.stop)
     var rx_walkDirection: Observable<PlenWalkDirection> {return _rx_walkDirection.asObservable()}
     var walkDirection: PlenWalkDirection {
         get {return _rx_walkDirection.value}
         set(value) {_rx_walkDirection.value = value}
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         updateJoystick(nil, animated: false)
         initJoystickLayer(joystickView.layer)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         updateJoystick(touches.first, animated: true)
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         updateJoystick(touches.first, animated: false)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         updateJoystick(nil, animated: true)
     }
     
     // TODO: magic number
-    private func updateJoystick(touch: UITouch?, animated: Bool) {
+    fileprivate func updateJoystick(_ touch: UITouch?, animated: Bool) {
         let baseRadius = joystickBaseView.frame.width / 2
         let stickRadius = joystickView.frame.width / 2
         
         let neutralPosition = CGPoint(
             x: joystickView.superview!.frame.width / 2,
             y: joystickView.superview!.frame.height / 2)
-        let touchPoint = touch?.locationInView(joystickView.superview) ?? neutralPosition
+        let touchPoint = touch?.location(in: joystickView.superview) ?? neutralPosition
         let dx = touchPoint.x - neutralPosition.x
         let dy = touchPoint.y - neutralPosition.x
         
@@ -58,9 +58,9 @@ class JoystickViewController: UIViewController {
             y: neutralPosition.y + r * sin(theta))
         if animated {
             joystickView.layer.removeAllAnimations()
-            UIView.animateWithDuration(Double(r) / 2.0e3) {[weak self] in
+            UIView.animate(withDuration: Double(r) / 2.0e3, animations: {[weak self] in
                 self?.joystickView.center = nextCenter
-            }
+            }) 
         } else {
             joystickView.center = nextCenter
         }
@@ -70,16 +70,16 @@ class JoystickViewController: UIViewController {
         if r > thresholdRadius {
             switch Double(theta) / M_PI * 180 {
             case -135.0 ..< -45.0:
-                walkDirection = .Forward
+                walkDirection = .forward
                 indicatorDirection = -90
             case -45.0 ..< 45.0:
-                walkDirection = .Right
+                walkDirection = .right
                 indicatorDirection = 0
             case 45.0 ..< 135.0:
-                walkDirection = .Back
+                walkDirection = .back
                 indicatorDirection = 90
             default:
-                walkDirection = .Left
+                walkDirection = .left
                 indicatorDirection = 180
             }
             
@@ -87,17 +87,17 @@ class JoystickViewController: UIViewController {
             directionIndicator.startAngleDegree = indicatorDirection - indicatorAngle / 2
             directionIndicator.endAngleDegree = indicatorDirection + indicatorAngle / 2
             
-            directionIndicator.hidden = false
+            directionIndicator.isHidden = false
         } else {
-            walkDirection = .Stop
-            directionIndicator.hidden = true
+            walkDirection = .stop
+            directionIndicator.isHidden = true
         }
         directionIndicator.setNeedsDisplay()
     }
     
     // TODO: Don't repeat yourself
-    private func initJoystickLayer(layer: CALayer) {
-        layer.rasterizationScale = UIScreen.mainScreen().scale;
+    fileprivate func initJoystickLayer(_ layer: CALayer) {
+        layer.rasterizationScale = UIScreen.main.scale;
         layer.shadowRadius = 10.0
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 0, height: 1);

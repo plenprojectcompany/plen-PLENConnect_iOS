@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 struct UIViewUtil {
-    private init() {}
+    fileprivate init() {}
     
     static func constrain(by view: UIView, format: String, options opts: NSLayoutFormatOptions, metrics: [String : AnyObject]?, views: [String : AnyObject]) {
         
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format,
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format,
             options: opts,
             metrics: metrics,
             views: views))
@@ -23,7 +23,7 @@ struct UIViewUtil {
     }
     
     static func constrain(by view: UIView, format: String, views: [String: AnyObject]) {
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format,
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format,
             options: NSLayoutFormatOptions(),
             metrics: nil,
             views: views))
@@ -33,7 +33,7 @@ struct UIViewUtil {
     
     static func constrain(by view: UIView, formats: [String], views: [String: AnyObject]) {
         for format in formats {
-            view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format,
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format,
                 options: NSLayoutFormatOptions(),
                 metrics: nil,
                 views: views))
@@ -46,28 +46,28 @@ struct UIViewUtil {
         constrain(by: view, formats: ["H:|[subview]|", "V:|[subview]|"], views: ["subview": subview])
     }
     
-    static func loadXib<T: UIView>(view: T, nibName: String? = nil) -> T {
-        let bundle = NSBundle(forClass: view.dynamicType)
+    static func loadXib<T: UIView>(_ view: T, nibName: String? = nil) -> T {
+        let bundle = Bundle(for: type(of: view))
         let nib = UINib(nibName: nibName ?? typeName(object: view), bundle: bundle)
-        let subview = nib.instantiateWithOwner(view, options: nil).first as! UIView
+        let subview = nib.instantiate(withOwner: view, options: nil).first as! UIView
         view.addSubview(subview)
         
         constrain(by: view, subview: subview)
         return view
     }
     
-    static func loadXib<T: UIView>(type: T.Type, nibName: String? = nil) -> T? {
-        let bundle = NSBundle(forClass: type)
+    static func loadXib<T: UIView>(_ type: T.Type, nibName: String? = nil) -> T? {
+        let bundle = Bundle(for: type)
         let nib = UINib(nibName: nibName ?? typeName(type: type), bundle: bundle)
-        let view = nib.instantiateWithOwner(nil, options: nil).first as! UIView
+        let view = nib.instantiate(withOwner: nil, options: nil).first as! UIView
         return view as? T
     }
     
-    static func find(root: UIView) -> [[UIView]] {
+    static func find(_ root: UIView) -> [[UIView]] {
         var paths: [[UIView]] = []
         var queue = [[root]]
         
-        while let path = queue.popLast(), view = path.last {
+        while let path = queue.popLast(), let view = path.last {
             paths.append(path)
             queue = view.subviews.map {path + [$0]} + queue
         }
@@ -75,11 +75,11 @@ struct UIViewUtil {
         return paths
     }
     
-    static func find(root: UIView, condition: [UIView] -> Bool) -> [[UIView]] {
+    static func find(_ root: UIView, condition: ([UIView]) -> Bool) -> [[UIView]] {
         var paths: [[UIView]] = []
         var queue = [[root]]
         
-        while let path = queue.popLast(), view = path.last {
+        while let path = queue.popLast(), let view = path.last {
             if condition(path) {
                 paths.append(path)
                 queue = view.subviews.map {path + [$0]} + queue
@@ -89,22 +89,23 @@ struct UIViewUtil {
         return paths
     }
     
-    static func abspath(view: UIView) -> [UIView] {
+    static func abspath(_ view: UIView) -> [UIView] {
         var path = [view]
         while let superview = path.first?.superview {
-            path.insert(superview, atIndex: 0)
+            path.insert(superview, at: 0)
         }
         return path
     }
     
-    static func root(var view: UIView) -> UIView {
+    static func root(_ view: UIView) -> UIView {
+        var view = view
         while let superview = view.superview {
             view = superview
         }
         return view
     }
     
-    static func simpleDescription(view: UIView) -> String {
+    static func simpleDescription(_ view: UIView) -> String {
         if let id = view.accessibilityIdentifier {
             return "\(typeName(object: view))[\(id)]"
         } else {
@@ -112,55 +113,55 @@ struct UIViewUtil {
         }
     }
     
-    static func simpleDescription(path: [UIView]) -> String {
-        return path.map(simpleDescription).joinWithSeparator("/")
+    static func simpleDescription(_ path: [UIView]) -> String {
+        return path.map(simpleDescription).joined(separator: "/")
     }
     
-    static func dumpViewTree(view: UIView) {
-        print(find(view).map(simpleDescription).joinWithSeparator("\n"))
+    static func dumpViewTree(_ view: UIView) {
+        print(find(view).map(simpleDescription).joined(separator: "\n"))
     }
 }
 
 struct UIViewControllerUtil {
-    private init() {}
+    fileprivate init() {}
     
-    static func loadXib<T: UIViewController>(type: T.Type) -> T {
+    static func loadXib<T: UIViewController>(_ type: T.Type) -> T {
         return type.init(
             nibName: typeName(type: type),
-            bundle: NSBundle(forClass: type))
+            bundle: Bundle(for: type))
     }
     
-    static func loadChildViewController<T: UIViewController>(parent: UIViewController, container: UIView, childType: T.Type) -> T {
+    static func loadChildViewController<T: UIViewController>(_ parent: UIViewController, container: UIView, childType: T.Type) -> T {
         let child = loadXib(childType)
         parent.addChildViewController(child)
         container.addSubview(child.view)
-        child.didMoveToParentViewController(parent)
+        child.didMove(toParentViewController: parent)
         UIViewUtil.constrain(by: container, subview: child.view)
         return child
     }
 }
 
 struct UITableViewUtil {
-    private init() {}
+    fileprivate init() {}
     
-    static func registerCell(tableView: UITableView, type: UITableViewCell.Type) {
+    static func registerCell(_ tableView: UITableView, type: UITableViewCell.Type) {
         let className = typeName(type: type)
         let nib = UINib(nibName: className, bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: className)
+        tableView.register(nib, forCellReuseIdentifier: className)
     }
     
-    static func registerCell(tableView: UITableView, type: UITableViewCell.Type, cellIdentifier: String) {
+    static func registerCell(_ tableView: UITableView, type: UITableViewCell.Type, cellIdentifier: String) {
         let className = typeName(type: type)
         let nib = UINib(nibName: className, bundle: nil)
-        tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
     }
     
-    static func dequeueCell<T: UITableViewCell>(tableView: UITableView, type: T.Type, indexPath: NSIndexPath) -> T? {
-        return tableView.dequeueReusableCellWithIdentifier(typeName(type: type), forIndexPath: indexPath) as? T
+    static func dequeueCell<T: UITableViewCell>(_ tableView: UITableView, type: T.Type, indexPath: IndexPath) -> T? {
+        return tableView.dequeueReusableCell(withIdentifier: typeName(type: type), for: indexPath) as? T
     }
     
-    static func dequeueCell<T: UITableViewCell>(tableView: UITableView, type: T.Type) -> T? {
-        return tableView.dequeueReusableCellWithIdentifier(typeName(type: type)) as? T
+    static func dequeueCell<T: UITableViewCell>(_ tableView: UITableView, type: T.Type) -> T? {
+        return tableView.dequeueReusableCell(withIdentifier: typeName(type: type)) as? T
     }
 }
 
@@ -182,7 +183,7 @@ extension UIColor {
             alpha: alpha)
     }
     
-    func alpha(newValue: CGFloat) -> UIColor {
+    func alpha(_ newValue: CGFloat) -> UIColor {
         return UIColor(base: self, alpha: newValue)
     }
 }
@@ -190,12 +191,12 @@ extension UIColor {
 extension UIGestureRecognizerState: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .Possible: return "Possible"
-        case .Began: return "Began"
-        case .Changed: return "Changed"
-        case .Ended: return "Ended"
-        case .Cancelled: return "Cancelled"
-        case .Failed: return "Failed"
+        case .possible: return "Possible"
+        case .began: return "Began"
+        case .changed: return "Changed"
+        case .ended: return "Ended"
+        case .cancelled: return "Cancelled"
+        case .failed: return "Failed"
         }
     }
 }

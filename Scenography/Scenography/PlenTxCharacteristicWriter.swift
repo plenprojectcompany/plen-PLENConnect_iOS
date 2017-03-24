@@ -19,12 +19,12 @@ class PlenTxCharacteristicWriter {
     init?(txCharacteristic: CBCharacteristic) {
         self.txCharacteristic = txCharacteristic
         
-        if txCharacteristic.UUID != Resources.UUID.PlenTxCharacteristic {
+        if txCharacteristic.uuid != Resources.UUID.PlenTxCharacteristic {
             return nil
         }
     }
     
-    func writeValue(ascii: String) {
+    func writeValue(_ ascii: String) {
         lock.lock(); defer {lock.unlock()}
         
         // push
@@ -41,7 +41,7 @@ class PlenTxCharacteristicWriter {
         writeNextValue()
     }
     
-    private func writeNextValue() {
+    fileprivate func writeNextValue() {
         lock.lock(); defer {lock.unlock()}
         
         guard isIdle && !queue.isEmpty else {return}
@@ -51,14 +51,14 @@ class PlenTxCharacteristicWriter {
         queue.removeFirst(min(Resources.Integer.BLEPacketSizeMax, queue.count))
         
         // must be ASCII
-        guard let data = packet.dataUsingEncoding(NSASCIIStringEncoding) else {
+        guard let data = packet.data(using: String.Encoding.ascii) else {
             logger.warning("ignore not ASCII string")
             return
         }
         
         // writeValue
         let peripheral = txCharacteristic.service.peripheral
-        peripheral.writeValue(data, forCharacteristic: txCharacteristic, type: .WithResponse)
+        peripheral.writeValue(data, for: txCharacteristic, type: .withResponse)
         
         isIdle = false
         

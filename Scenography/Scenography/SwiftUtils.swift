@@ -10,9 +10,10 @@ import Foundation
 
 // MARK: - SequenceType
 
-extension SequenceType where Generator.Element: Equatable {
-    func distinct() -> [Generator.Element] {
-        return reduce([]) { (var s, e) in
+extension Sequence where Iterator.Element: Equatable {
+    func distinct() -> [Iterator.Element] {
+        return reduce([]) { (_,e) in
+            var s = Array<Iterator.Element>()
             if !s.contains(e) {
                 s.append(e)
             }
@@ -42,22 +43,22 @@ func *(lhs: Int, rhs: String) -> String {
 
 // MARK: - typeName
 
-func typeName(value value: Any) -> String {
-    let typeName = _stdlib_getDemangledTypeName(value)
+func typeName(value: Any) -> String {
+    let typeName = String(describing: type(of: value))//_stdlib_getDemangledTypeName(value)
     
-    if let range = typeName.rangeOfString(".") {
-        return typeName.substringFromIndex(range.endIndex)
+    if let range = typeName.range(of: ".") {
+        return typeName.substring(from: range.upperBound)
     } else {
         return typeName
     }
 }
 
-func typeName(object object: AnyObject) -> String {
-    return typeName(type: object.dynamicType)
+func typeName(object: AnyObject) -> String {
+    return typeName(type: type(of: object))
 }
 
-func typeName(type type: AnyClass) -> String {
-    return NSStringFromClass(type).componentsSeparatedByString(".").last!
+func typeName(type: AnyClass) -> String {
+    return NSStringFromClass(type).components(separatedBy: ".").last!
 }
 
 // MARK: - weak
@@ -72,7 +73,7 @@ class Weak<T: AnyObject> {
 
 // MARK: - sleep
 
-func fsleep(seconds: Float) {
+func fsleep(_ seconds: Float) {
     if seconds >= 0 {
         let useconds = seconds * 1e6
         if useconds < Float(useconds_t.max) {
@@ -87,9 +88,9 @@ func fsleep(seconds: Float) {
 // MARK: - Hashable
 
 struct HashableUtil {
-    private init() {}
+    fileprivate init() {}
     
-    static func combine(hashValues: Int...) -> Int {
+    static func combine(_ hashValues: Int...) -> Int {
         return hashValues.reduce(17) {37 * $0 + $1}
     }
 }

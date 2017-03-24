@@ -50,49 +50,49 @@ extension Resources {
         
         static let stopMotion = "$SM"
         
-        static func playMotion(motionId: Int) -> String {
+        static func playMotion(_ motionId: Int) -> String {
             return String(format: "$PM%02X", motionId)
         }
         
-        static func pushFunction(function: PlenFunction) -> String {
+        static func pushFunction(_ function: PlenFunction) -> String {
             return String(format: "#PU%02X%02X", function.motion.id, function.loopCount)
         }
         
-        static func playProgram(program: PlenProgram) -> String {
+        static func playProgram(_ program: PlenProgram) -> String {
             let pushFunctions = program.sequence
                 .map(pushFunction)
-                .joinWithSeparator("")
+                .joined(separator: "")
             
             return resetInterpreter + pushFunctions + popFunction
         }
         
-        static func walk(direction: PlenWalkDirection, mode: PlenWalkMode) -> String {
+        static func walk(_ direction: PlenWalkDirection, mode: PlenWalkMode) -> String {
             switch mode {
-            case .Normal:
+            case .normal:
                 switch direction {
-                case .Forward: return playMotion(0x46)
-                case .Left:    return playMotion(0x47)
-                case .Right:   return playMotion(0x48)
-                case .Back:    return playMotion(0x49)
-                case .Stop:    return stopMotion
+                case .forward: return playMotion(0x46)
+                case .left:    return playMotion(0x47)
+                case .right:   return playMotion(0x48)
+                case .back:    return playMotion(0x49)
+                case .stop:    return stopMotion
                 }
                 
-            case .Box:
+            case .box:
                 switch direction {
-                case .Forward: return playMotion(0x4A)
-                case .Left:    return playMotion(0x4B)
-                case .Right:   return playMotion(0x4C)
-                case .Back:    return playMotion(0x4D)
-                case .Stop:    return stopMotion
+                case .forward: return playMotion(0x4A)
+                case .left:    return playMotion(0x4B)
+                case .right:   return playMotion(0x4C)
+                case .back:    return playMotion(0x4D)
+                case .stop:    return stopMotion
                 }
                 
-            case .RollerSkating:
+            case .rollerSkating:
                 switch direction {
-                case .Forward: return playMotion(0x4E)
-                case .Left:    return playMotion(0x4F)
-                case .Right:   return playMotion(0x50)
-                case .Back:    return playMotion(0x51)
-                case .Stop:    return stopMotion
+                case .forward: return playMotion(0x4E)
+                case .left:    return playMotion(0x4F)
+                case .right:   return playMotion(0x50)
+                case .back:    return playMotion(0x51)
+                case .stop:    return stopMotion
                 }
             }
         }

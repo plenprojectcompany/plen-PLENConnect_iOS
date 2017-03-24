@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol PlenConnectionErrorType: ErrorType {
+protocol PlenConnectionErrorType: Error {
 }
 
 enum PlenConnectionError: PlenConnectionErrorType {
-    case CentralManagerNotPoweredOn
+    case centralManagerNotPoweredOn
 }

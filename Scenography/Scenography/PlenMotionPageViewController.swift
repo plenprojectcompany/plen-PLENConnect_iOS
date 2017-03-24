@@ -23,9 +23,9 @@ class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDa
         didSet {reloadData()}
     }
     
-    private let _disposeBag = DisposeBag()
+    fileprivate let _disposeBag = DisposeBag()
     
-    private var _controllers = [PlenMotionTableViewController]()
+    fileprivate var _controllers = [PlenMotionTableViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,36 +36,36 @@ class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDa
         initBindings()
     }
     
-    private func initBindings() {
+    fileprivate func initBindings() {
         // auto reloadData
         rx_motionCategories.asObservable()
             .bindNext {[weak self] _ in self?.reloadData()}
             .addDisposableTo(_disposeBag)
     }
 
-    func numberOfPagesForViewController(pageViewController: PLPageViewController) -> Int {
+    func numberOfPagesForViewController(_ pageViewController: PLPageViewController) -> Int {
         return motionCategories.count
     }
 
-    func tabViewForPageAtIndex(pageViewController: PLPageViewController, index: Int) -> UIView {
+    func tabViewForPageAtIndex(_ pageViewController: PLPageViewController, index: Int) -> UIView {
         let tabTitle = UILabel()
         tabTitle.text = motionCategories[index].name
         tabTitle.font = UIFont(name: "HelveticaNeue", size: 10)
         tabTitle.sizeToFit()
-        tabTitle.textColor = UIColor.whiteColor()
+        tabTitle.textColor = UIColor.white
         return tabTitle
     }
     
-    func viewControllerForPageAtIndex(pageViewController: PLPageViewController, index: Int) -> UIViewController? {
+    func viewControllerForPageAtIndex(_ pageViewController: PLPageViewController, index: Int) -> UIViewController? {
         return _controllers[index]
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         reloadData()
         tabBar?.alpha = 1
     }
     
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         tabBar?.alpha = 0
     }
     

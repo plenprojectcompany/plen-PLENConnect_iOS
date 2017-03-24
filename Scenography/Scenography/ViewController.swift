@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import RxBlocking
 import CoreBluetooth
-import JLToast
+import Toaster
 
 // TODO: 全体的に汚い
 
@@ -30,11 +30,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var floatButton: MKButton!
     
-    private var programViewController: PlenProgramViewController!
-    private var joystickViewController: JoystickViewController!
-    private var motionPageViewController: PlenMotionPageViewController!
+    fileprivate var programViewController: PlenProgramViewController!
+    fileprivate var joystickViewController: JoystickViewController!
+    fileprivate var motionPageViewController: PlenMotionPageViewController!
     
-    private var connectionLogs = [String: PlenConnectionLog]()
+    fileprivate var connectionLogs = [String: PlenConnectionLog]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +54,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         // layout
         let tabBar = motionPageViewController.tabBar
-        tabBarHolder.addSubview(tabBar)
+        tabBarHolder.addSubview(tabBar!)
         
         let views = ["tabBar": motionPageViewController.tabBar]
-        tabBar.translatesAutoresizingMaskIntoConstraints = false
+        tabBar?.translatesAutoresizingMaskIntoConstraints = false
         UIViewUtil.constrain(
             by: tabBarHolder,
             formats: ["H:|-(-1)-[tabBar]-(-1)-|", "V:|[tabBar]|"],
-            views: views)
+            views: views as [String : AnyObject])
         
-        view.bringSubviewToFront(toolbar)
-        view.bringSubviewToFront(titleLabel)
+        view.bringSubview(toFront: toolbar)
+        view.bringSubview(toFront: titleLabel)
         makeShadow(toolbar.layer)
         makeShadow(tabBarHolder.layer)
         makeShadow(programTitleHolder.layer)
@@ -79,41 +79,41 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         //
         PlenConnection.defaultInstance().rx_peripheralState
-            .filter {$0 == .Connected}
-            .subscribeNext {[weak self] _ in
+            .filter {$0 == .connected}
+            .subscribe {[weak self] _ in
                 guard let s = self else {return}
                 
                 let peripheral = PlenConnection.defaultInstance().peripheral!
-                s.connectionLogs[peripheral.identifier.UUIDString]?.connectedCount++
-                s.connectionLogs[peripheral.identifier.UUIDString]?.lastConnectedTime = NSDate()
+                s.connectionLogs[peripheral.identifier.uuidString]?.connectedCount += 1
+                s.connectionLogs[peripheral.identifier.uuidString]?.lastConnectedTime = Date()
                 
-                JLToast.makeText("PLEN connected", duration: JLToastDelay.ShortDelay).show()
-                s.playButton.enabled = true
+                Toast.makeText("PLEN connected", duration: Delay.short/*ToastDelay.ShortDelay*/).show()
+                s.playButton.isEnabled = true
             }
             .addDisposableTo(_disposeBag)
         
         PlenConnection.defaultInstance().rx_peripheralState
-            .filter {$0 == .Disconnected}
-            .subscribeNext {[weak self] _ in
+            .filter {$0 == .disconnected}
+            .subscribe {[weak self] _ in
                 guard let s = self else {return}
                 
-                JLToast.makeText("PLEN disconnected", duration: JLToastDelay.ShortDelay).show()
-                s.playButton.enabled = false
+                Toast.makeText("PLEN disconnected", duration: Delay.short/*ToastDelay.ShortDelay*/).show()
+                s.playButton.isEnabled = false
             }
             .addDisposableTo(_disposeBag)
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         view.endEditing(true)
         return false
     }
     
     enum LeftContainerMode {
-        case Program
-        case Joystick
+        case program
+        case joystick
     }
     
-    var leftContainerMode = LeftContainerMode.Program {
+    var leftContainerMode = LeftContainerMode.program {
         didSet {updateMode()}
     }
     
@@ -123,11 +123,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         set(value) {rx_program.value = value}
     }
     
-    private let _disposeBag = DisposeBag()
+    fileprivate let _disposeBag = DisposeBag()
     
-    private var modeDisposeBag = DisposeBag()
+    fileprivate var modeDisposeBag = DisposeBag()
     
-    private func updateMode() {
+    fileprivate func updateMode() {
         programViewController?.removeFromParentViewController()
         joystickViewController?.removeFromParentViewController()
         leftContainer.subviews.forEach {$0.removeFromSuperview()}
@@ -135,10 +135,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         modeDisposeBag = DisposeBag()
         
         switch leftContainerMode {
-        case .Program:
+        case .program:
             motionPageViewController.draggable = true
             programTitle.text = "PROGRAM"
-            floatButton.setImage(UIImage(named: "img/icon/joystick_icon.png"), forState: .Normal)
+            floatButton.setImage(UIImage(named: "img/icon/joystick_icon.png"), for: .normal)
             
             programViewController = UIViewControllerUtil.loadChildViewController(self,
                 container: leftContainer,
@@ -147,16 +147,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             RxUtil.bind(rx_program, programViewController.rx_program)
                 .addDisposableTo(modeDisposeBag)
         
-        case .Joystick:
+        case .joystick:
             motionPageViewController.draggable = false
             programTitle.text = "JOYSTICK"
-            floatButton.setImage(UIImage(named: "img/icon/programming_icon.png"), forState: .Normal)
+            floatButton.setImage(UIImage(named: "img/icon/programming_icon.png"), for: .normal)
             
             joystickViewController = UIViewControllerUtil.loadChildViewController(self,
                 container: leftContainer,
                 childType: JoystickViewController.self)
             
-            let toPlenWalk: Any -> (direction: PlenWalkDirection, mode: PlenWalkMode)? = {[weak self] _ in
+            let toPlenWalk: (Any) -> (direction: PlenWalkDirection, mode: PlenWalkMode)? = {[weak self] _ in
                 guard let motionPageViewController = self?.motionPageViewController else {return nil}
                 guard let joystickViewController = self?.joystickViewController else {return nil}
                 let direction = joystickViewController.walkDirection
@@ -164,140 +164,140 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 switch motionPageViewController.motionCategories[categoryIndex].name {
                 case "BOX":
-                    return (direction, .Box)
+                    return (direction, .box)
                 case "ROLLER SKATING":
-                    return (direction, .RollerSkating)
+                    return (direction, .rollerSkating)
                 default:
-                    return (direction, .Normal)
+                    return (direction, .normal)
                 }
             }
             
             Observable<Int>
                 .interval(Resources.Time.walkMotionRepeatInterval,
-                    scheduler: SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
+                    scheduler:SerialDispatchQueueScheduler(qos: .background))
                 .map(toPlenWalk)
-                .distinctUntilChanged {$0.lhs?.direction == .Stop && $0.rhs?.direction == .Stop}
-                .subscribeNext {
+                .distinctUntilChanged({$0.0?.direction == .stop && $0.1?.direction == .stop})
+                .subscribe(onNext:{
                     guard let (direction, mode) = $0 else {return}
                     let command = Resources.PlenCommand.walk(direction, mode: mode)
                     PlenConnection.defaultInstance().writeValue(command)
-                }
+                })
                 .addDisposableTo(modeDisposeBag)
         }
     }
     
-    @IBAction func floatButtonTouched(sender: UIButton) {
+    @IBAction func floatButtonTouched(_ sender: UIButton) {
         switch leftContainerMode {
-        case .Program:
-            leftContainerMode = .Joystick
-        case .Joystick:
-            leftContainerMode = .Program
+        case .program:
+            leftContainerMode = .joystick
+        case .joystick:
+            leftContainerMode = .program
         }
     }
     
-    private enum JsonError: ErrorType {
-        case ParseError
+    fileprivate enum JsonError: Error {
+        case parseError
     }
     
-    private func loadMotionCategories() throws -> [PlenMotionCategory] {
-        guard let path = NSBundle.mainBundle().pathForResource("json/default_motions", ofType: "json") else {return []}
-        guard let data = NSData(contentsOfFile: path) else {return []}
+    fileprivate func loadMotionCategories() throws -> [PlenMotionCategory] {
+        guard let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json") else {return []}
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {return []}
         return try PlenMotionCategory.fromJSON(data)
     }
     
-    private func makeShadow(layer: CALayer) {
-        layer.rasterizationScale = UIScreen.mainScreen().scale;
+    fileprivate func makeShadow(_ layer: CALayer) {
+        layer.rasterizationScale = UIScreen.main.scale;
         layer.shadowRadius = 0.5
         layer.shadowOpacity = 0.3
         layer.shadowOffset = CGSize(width: 0, height: 1);
         layer.shouldRasterize = true
     }
     
-    private func makeShadow(layer: CALayer, z: Float) {
-        layer.rasterizationScale = UIScreen.mainScreen().scale;
+    fileprivate func makeShadow(_ layer: CALayer, z: Float) {
+        layer.rasterizationScale = UIScreen.main.scale;
         layer.shadowRadius = CGFloat(z)
         layer.shadowOpacity = 1 / sqrt(z)
         layer.shadowOffset = CGSize(width: 0, height: CGFloat(z));
         layer.shouldRasterize = true
     }
     
-    private var scanningDisposable: Disposable?
+    fileprivate var scanningDisposable: Disposable?
     
-    private var scanningAlertController: UIAlertController?
+    fileprivate var scanningAlertController: UIAlertController?
     
-    private var scanResults = [CBPeripheral]()
+    fileprivate var scanResults = [CBPeripheral]()
     
-    @IBAction func startScan(sender: UIBarButtonItem?) {
+    @IBAction func startScan(_ sender: UIBarButtonItem?) {
         PlenConnection.defaultInstance().disconnectPlen()
         
         scanResults.removeAll()
         scanningDisposable = PlenScanner().scanForPeripherals()
-            .take(2, scheduler: SerialDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .doOnNext {[weak self] in self?.scanResults.append($0)}
-            .doOnCompleted {[weak self] in
-                self?.dismissScanningAlert()
-                self?.presentScanResultsAlert()
-            }
-            .doOnError {[weak self] _ in
-                self?.dismissScanningAlert()
-            }
+            .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
+            .do(onNext: {[weak self] in self?.scanResults.append($0)},
+                onError: {[weak self] _ in
+                    self?.dismissScanningAlert()
+                },
+                onCompleted: {[weak self] in
+                    self?.dismissScanningAlert()
+                    self?.presentScanResultsAlert()
+                })
             .subscribe()
         
         scanningDisposable?.addDisposableTo(_disposeBag)
         presentScanningAlert()
     }
     
-    @IBAction func trashProgram(sender: AnyObject) {
+    @IBAction func trashProgram(_ sender: AnyObject) {
         if program.sequence.isEmpty {return}
         presentDeleteProgramAlert()
     }
     
-    @IBAction func playProgram(sender: AnyObject) {
+    @IBAction func playProgram(_ sender: AnyObject) {
         PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.playProgram(program))
     }
     
-    private func dismissScanningAlert() {
-        dismissViewControllerAnimated(true, completion: nil)
+    fileprivate func dismissScanningAlert() {
+        dismiss(animated: true, completion: nil)
     }
 
-    private func presentScanningAlert() {
+    fileprivate func presentScanningAlert() {
         let controller = UIAlertController(
             title: "Scanning PLEN",
             message: "\n",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(
             title: "Cancel",
-            style: .Cancel,
+            style: .cancel,
             handler: {[weak self] _ in self?.scanningDisposable?.dispose()}))
         
         let indicator = UIActivityIndicatorView(frame: controller.view.bounds)
-        indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        indicator.color = UIColor.grayColor()
+        indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        indicator.color = UIColor.gray
         
         controller.view.addSubview(indicator)
-        indicator.userInteractionEnabled = false
+        indicator.isUserInteractionEnabled = false
         indicator.startAnimating()
 
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         scanningAlertController = controller
     }
     
-    private var scanResultsAlertController: UIAlertController?
+    fileprivate var scanResultsAlertController: UIAlertController?
     
-    private func presentPlenNotFoundAlert() {
+    fileprivate func presentPlenNotFoundAlert() {
         let controller = UIAlertController(
             title: "PLEN not found",
             message: "Reboot the PLEN if you can not connect to it.",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
-        controller.addAction(UIAlertAction(title: "Retry", style: .Default) {[weak self] _ in self?.startScan(nil)})
-        controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: "Retry", style: .default) {[weak self] _ in self?.startScan(nil)})
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
-    private func presentScanResultsAlert() {
+    fileprivate func presentScanResultsAlert() {
         if scanResults.isEmpty {
             presentPlenNotFoundAlert()
             return
@@ -306,9 +306,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let controller = UIAlertController(
             title: "Select PLEN",
             message: nil,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
-        let connectedTimeToString: NSDate? -> String = {
+        let connectedTimeToString: (Date?) -> String = {
             switch $0?.timeIntervalSinceNow ?? 1 {
             case let t where t >= 0:
                 return "[new]"
@@ -323,66 +323,66 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        let lastConnectionTime: CBPeripheral -> NSTimeInterval = {[weak self] in
-            return self?.connectionLogs[$0.identifier.UUIDString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
+        let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+            return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
         }
         
-        scanResults.sort {lastConnectionTime($0) < lastConnectionTime($1)}.forEach {peripheral in
-                if !connectionLogs.keys.contains(peripheral.identifier.UUIDString) {
-                    connectionLogs[peripheral.identifier.UUIDString] = PlenConnectionLog(
-                        peripheralIdentifier: peripheral.identifier.UUIDString,
+        scanResults.sorted {lastConnectionTime($0) < lastConnectionTime($1)}.forEach {peripheral in
+                if !connectionLogs.keys.contains(peripheral.identifier.uuidString) {
+                    connectionLogs[peripheral.identifier.uuidString] = PlenConnectionLog(
+                        peripheralIdentifier: peripheral.identifier.uuidString,
                         connectedCount: 0,
                         lastConnectedTime: nil)
                 }
                 
-                let log = connectionLogs[peripheral.identifier.UUIDString]!
-                let title = peripheral.identifier.UUIDString + " :  " + connectedTimeToString(log.lastConnectedTime)
+                let log = connectionLogs[peripheral.identifier.uuidString]!
+                let title = peripheral.identifier.uuidString + " :  " + connectedTimeToString(log.lastConnectedTime as Date?)
                 
                 controller.addAction(UIAlertAction(
                     title: title,
-                    style: .Default,
+                    style: .default,
                     handler: {_ in PlenConnection.defaultInstance().connectPlen(peripheral)}))
         }
         
-        controller.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
-    private func presentDeleteProgramAlert() {
+    fileprivate func presentDeleteProgramAlert() {
         let controller = UIAlertController(
             title: "Are you sure you want to delete this program ?",
             message: nil,
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         controller.addAction(UIAlertAction(
             title: "OK",
-            style: .Default,
+            style: .default,
             handler: {[weak self] _ in self?.program.sequence.removeAll()}))
         
         controller.addAction(UIAlertAction(
             title: "Cancel",
-            style: .Default,
+            style: .default,
             handler: nil))
 
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
-    private var programPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] + "/program.json"
+    fileprivate var programPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/program.json"
     
     
-    private var connectionLogsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] + "/connectionLogs.json"
+    fileprivate var connectionLogsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/connectionLogs.json"
     
-    override func viewDidDisappear(animated: Bool) {
-        try! program.toData().writeToFile(programPath, atomically: false)
-        try! PlenConnectionLog.toData(connectionLogs.map {$0.1}).writeToFile(connectionLogsPath, atomically: false)
+    override func viewDidDisappear(_ animated: Bool) {
+        try! program.toData().write(to: URL(fileURLWithPath: programPath), options: [])
+        try! PlenConnectionLog.toData(connectionLogs.map {$0.1}).write(to: URL(fileURLWithPath: connectionLogsPath), options: [])
     }
     
-    override func viewDidAppear(animated: Bool) {
-        guard let data = NSData(contentsOfFile: programPath) else {return}
+    override func viewDidAppear(_ animated: Bool) {
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: programPath)) else {return}
         program = try! PlenProgram.fromJSON(data, motionCategories: motionPageViewController.motionCategories)
         
-        guard let data2 = NSData(contentsOfFile: connectionLogsPath) else {return}
+        guard let data2 = try? Data(contentsOf: URL(fileURLWithPath: connectionLogsPath)) else {return}
         connectionLogs = Dictionary(pairs: try! PlenConnectionLog.fromJSON(data2).map {($0.peripheralIdentifier, $0)})
     }
 }

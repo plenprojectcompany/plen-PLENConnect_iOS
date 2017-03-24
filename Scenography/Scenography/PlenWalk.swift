@@ -9,15 +9,15 @@
 import Foundation
 
 enum PlenWalkDirection {
-    case Forward
-    case Back
-    case Left
-    case Right
-    case Stop
+    case forward
+    case back
+    case left
+    case right
+    case stop
 }
 
 enum PlenWalkMode {
-    case Normal
-    case Box
-    case RollerSkating
+    case normal
+    case box
+    case rollerSkating
 }

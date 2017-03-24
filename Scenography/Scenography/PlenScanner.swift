@@ -10,10 +10,21 @@ import Foundation
 import CoreBluetooth
 import RxSwift
 
+struct DisposableWrapper: Disposable {
+    private let disposable: Disposable
+    init(disposable: Disposable) {
+        self.disposable = disposable
+    }
+    func dispose() {
+        disposable.dispose()
+    }
+}
+
+@available(iOS 10.0, *)
 class PlenScanner: NSObject, CBCentralManagerDelegate {
-    private let _centralManager = CBCentralManager()
-    private let _rx_centralManagerState = PublishSubject<CBCentralManagerState>()
-    private let _rx_discoveredPeripheral = PublishSubject<CBPeripheral>()
+    fileprivate let _centralManager = CBCentralManager()
+    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()//PublishSubject<CBCentralManagerState>()
+    fileprivate let _rx_discoveredPeripheral = PublishSubject<CBPeripheral>()
     
     override init() {
         super.init()
@@ -25,30 +36,36 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
             .take(1)
         
         let notScannableError = _rx_centralManagerState
-            .filter {$0 != .PoweredOn}
-            .map {_ in PlenConnectionError.CentralManagerNotPoweredOn}
+            .filter {$0 != .poweredOn}
+            .map {_ in PlenConnectionError.centralManagerNotPoweredOn}
             .flatMap(Observable<Any>.error)
 
         let scanResult = _rx_discoveredPeripheral
-            .distinctUntilChanged {$0.lhs.identifier == $0.rhs.identifier}
+            .distinctUntilChanged({$0.0.identifier == $0.1.identifier})
         
-        let resource = {AnonymousDisposable({[weak self] in self?.stopScan()})}
+        //let resource = Disposables.create {
+        //    [weak self] in self?.stopScan()
+        //}//AnonymousDisposable({[weak self] in self?.stopScan()})}
         
-        return Observable.using(resource, observableFactory: {_ in
+        return Observable.using({
+            return DisposableWrapper(disposable: Disposables.create(with: {
+                [weak self] in self?.stopScan()
+            }))
+        }, observableFactory: {_ in
             setupCentralManager.flatMap {_ in Observable.empty()}
-                .doOnCompleted {[weak self] _ in self?.startScan()}
+                .do(onCompleted:{[weak self] _ in self?.startScan()})
                 .concat(scanResult.takeUntil(notScannableError))
         })
     }
     
-    private func startScan() {
+    fileprivate func startScan() {
         logger.info("start scan")
         
         let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-        _centralManager.scanForPeripheralsWithServices([Resources.UUID.PlenControlService], options: options)
+        _centralManager.scanForPeripherals(withServices: [Resources.UUID.PlenControlService], options: options)
     }
     
-    private func stopScan() {
+    fileprivate func stopScan() {
         logger.info("stop scan")
         
         _centralManager.stopScan()
@@ -57,15 +74,15 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
     // MARK: CBCentralManagerDelegate
     
     @objc
-    func centralManagerDidUpdateState(central: CBCentralManager) {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
         logger.info("\(central.state)")
         
         _rx_centralManagerState.onNext(central.state)
     }
     
     @objc
-    func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String: AnyObject], RSSI: NSNumber) {
-        logger.info("UUID:\(peripheral.identifier.UUIDString), name:\(peripheral.name)")
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
         logger.verbose("periferal:\(peripheral), advertisementData:\(advertisementData), RSSI:\(RSSI)")
         
         _rx_discoveredPeripheral.onNext(peripheral)

@@ -24,7 +24,7 @@ class PlenMotionView: UIView {
         set(value) {rx_motion.value = value}
     }
     
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,37 +47,37 @@ class PlenMotionView: UIView {
         initBindings()
     }
     
-    @IBAction func iconViewTouched(sender: AnyObject) {
+    @IBAction func iconViewTouched(_ sender: AnyObject) {
         PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.playMotion(motion.id))
         PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.stopMotion)
     }
     
-    private func initBindings() {
+    fileprivate func initBindings() {
         // icon
         rx_motion.asObservable()
             .map {$0.iconPath}
             .distinctUntilChanged()
-            .subscribeNext { [weak self] in
-                self?.iconView.setImage(UIImage(named: $0), forState: .Normal)
-            }
+            .subscribe(onNext: { [weak self] in
+                self?.iconView.setImage(UIImage(named: $0), for: .normal)
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
         
         // id
         rx_motion.asObservable()
             .map {String(format: "%02X", $0.id)}
-            .bindTo(idLabel.rx_text)
+            .bindTo(idLabel.rx.text)
             .addDisposableTo(disposeBag)
         
         // name
         rx_motion.asObservable()
             .map {$0.name}
-            .bindTo(nameLabel.rx_text)
+            .bindTo(nameLabel.rx.text)
             .addDisposableTo(disposeBag)
     }
     
-    private func initIconLayer(layer: CALayer) {
+    fileprivate func initIconLayer(_ layer: CALayer) {
         // TODO: Don't repeat yourself
-        layer.rasterizationScale = UIScreen.mainScreen().scale;
+        layer.rasterizationScale = UIScreen.main.scale;
         layer.shadowRadius = 1.0
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 1);
