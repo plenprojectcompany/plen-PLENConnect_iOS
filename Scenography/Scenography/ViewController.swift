@@ -28,8 +28,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var leftContainer: UIView!
     @IBOutlet weak var rightContainer: UIView!
     
-    @IBOutlet weak var floatButton: MKButton!
-    
     fileprivate var programViewController: PlenProgramViewController!
     fileprivate var joystickViewController: JoystickViewController!
     fileprivate var motionPageViewController: PlenMotionPageViewController!
@@ -39,8 +37,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // float button
-        makeShadow(floatButton.layer, z: 5)
         
         // motion page view
         motionPageViewController = UIViewControllerUtil.loadChildViewController(self,
@@ -138,7 +134,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         case .program:
             motionPageViewController.draggable = true
             programTitle.text = "PROGRAM"
-            floatButton.setImage(UIImage(named: "img/icon/joystick_icon.png"), for: .normal)
             
             programViewController = UIViewControllerUtil.loadChildViewController(self,
                 container: leftContainer,
@@ -150,7 +145,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         case .joystick:
             motionPageViewController.draggable = false
             programTitle.text = "JOYSTICK"
-            floatButton.setImage(UIImage(named: "img/icon/programming_icon.png"), for: .normal)
             
             joystickViewController = UIViewControllerUtil.loadChildViewController(self,
                 container: leftContainer,

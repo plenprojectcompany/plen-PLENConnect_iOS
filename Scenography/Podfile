@@ -7,7 +7,7 @@ target 'Scenography' do
 	pod 'RxSwift',    '~> 3.0'
 	pod 'RxCocoa',    '~> 3.0'
 	pod 'RxBlocking', '~> 3.0'
-	
+
   pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
 	
 	pod 'XCGLogger', '~> 4.0.0'
@@ -15,6 +15,10 @@ target 'Scenography' do
 	pod 'Toaster', '~> 2.0'
 	
 	pod 'SwiftyJSON'
+
+  pod 'SVProgressHUD'
+  pod 'Fuzi'
+
 end
 
 target 'ScenographyTests' do

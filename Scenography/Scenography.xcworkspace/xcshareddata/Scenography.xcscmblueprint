@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9F1263610D341D3C8B2D27114C783EB50299A39C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9F1263610D341D3C8B2D27114C783EB50299A39C" : 9223372036854775807,
+    "2EDE34F1E18F4B26478A088174C70A099AB37034" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D189FDE8-4BEB-4386-B7B9-9EAB3DD121D5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9F1263610D341D3C8B2D27114C783EB50299A39C" : "plen-Scenography_iOS\/",
+    "2EDE34F1E18F4B26478A088174C70A099AB37034" : "PlenControl\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Scenography",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Scenography\/Scenography.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Tacha-S\/PlenControl.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2EDE34F1E18F4B26478A088174C70A099AB37034"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/plenprojectcompany\/plen-Scenography_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F1263610D341D3C8B2D27114C783EB50299A39C"
+    }
+  ]
+}
