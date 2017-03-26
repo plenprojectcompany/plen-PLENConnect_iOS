@@ -241,6 +241,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         presentScanningAlert()
     }
     
+    
+    
     @IBAction func trashProgram(_ sender: AnyObject) {
         if program.sequence.isEmpty {return}
         presentDeleteProgramAlert()

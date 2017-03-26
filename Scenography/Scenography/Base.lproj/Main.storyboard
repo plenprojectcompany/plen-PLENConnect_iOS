@@ -146,7 +146,6 @@
         <!--Main View Controller-->
         <scene sceneID="NYN-Ul-aI4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EVi-Zm-g2p" sceneMemberID="firstResponder"/>
                 <viewController id="NgP-qF-K4Z" customClass="MainViewController" customModule="Scenography" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kmR-Fa-gEU"/>
@@ -157,10 +156,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="Scenography" customModuleProvider="target">
-                                <rect key="frame" x="327" y="64" width="324" height="295"/>
+                                <rect key="frame" x="295" y="96" width="356" height="263"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-Aq-Amv" userLabel="Top Left Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="102.5" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113.5" height="82.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES"/>
                                         </accessibility>
@@ -171,8 +170,8 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="gbt-id-L5L"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-v5-T21" userLabel="Top Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="110.5" y="0.0" width="103" height="93"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-v5-T21" userLabel="Top Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
+                                        <rect key="frame" x="120" y="0.0" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -181,7 +180,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-fo-r9F" userLabel="Top Right Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="221.5" y="0.0" width="102.5" height="93"/>
+                                        <rect key="frame" x="242" y="0.0" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -190,7 +189,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQU-1u-xfw" userLabel="Middle Left Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="101" width="102.5" height="93"/>
+                                        <rect key="frame" x="0.0" y="90" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -198,8 +197,8 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="9ja-PA-zPu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-8R-zzz" userLabel="Middle Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="110.5" y="101" width="103" height="93"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-8R-zzz" userLabel="Middle Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
+                                        <rect key="frame" x="120" y="90" width="113.5" height="82.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES"/>
                                         </accessibility>
@@ -211,7 +210,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-Ms-R8O" userLabel="Bottom Left Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="202" width="102.5" height="93"/>
+                                        <rect key="frame" x="0.0" y="180" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -219,17 +218,8 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="6BG-Xw-sxB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-l1-k2c" userLabel="Bottom Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="110.5" y="202" width="103" height="93"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="sev-Qt-kek"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjT-e5-NOb" userLabel="Bottom Right Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="221.5" y="202" width="102.5" height="93"/>
+                                        <rect key="frame" x="242" y="180" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,12 +229,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-mX-3jB" userLabel="Middle Right Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="221.5" y="101" width="102.5" height="93"/>
+                                        <rect key="frame" x="242.5" y="90" width="113.5" height="82.5"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="h2B-tN-9gV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-l1-k2c" userLabel="Bottom Center Button" customClass="Button" customModule="Scenography" customModuleProvider="target">
+                                        <rect key="frame" x="120" y="180" width="113.5" height="82.5"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="sev-Qt-kek"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -294,7 +293,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-ur-oia" userLabel="Mode Segmented Control">
-                                <rect key="frame" x="16" y="20" width="635" height="29"/>
+                                <rect key="frame" x="16" y="52" width="635" height="29"/>
                                 <segments>
                                     <segment title="Normal"/>
                                     <segment title="Box"/>
@@ -308,10 +307,10 @@
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-sP-CMx" userLabel="Joystick Conteiner">
-                                <rect key="frame" x="16" y="64" width="295" height="295"/>
+                                <rect key="frame" x="16" y="96" width="263" height="263"/>
                                 <subviews>
                                     <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-WD-7Vk" userLabel="Joystick View" customClass="JoystickView" customModule="Scenography" customModuleProvider="target">
-                                        <rect key="frame" x="74" y="74" width="148" height="148"/>
+                                        <rect key="frame" x="57" y="57" width="148" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8L-5b-9hy" userLabel="Circe View">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="148"/>
@@ -349,19 +348,54 @@
                                     <constraint firstItem="dzx-WD-7Vk" firstAttribute="centerX" secondItem="LUR-sP-CMx" secondAttribute="centerX" id="eWA-2m-5Mo"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.65490196079999996" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wBT-qv-1wr"/>
+                                    <barButtonItem style="plain" id="9O8-J9-Qe2">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hzA-uK-ztW">
+                                            <rect key="frame" x="573" y="7" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="0Se-8i-011"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="search" id="VTO-VZ-HXy">
+                                        <connections>
+                                            <action selector="startScan:" destination="NgP-qF-K4Z" id="7DV-pA-0TG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.0" green="0.65490196079999996" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
+                                <rect key="frame" x="16" y="12" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.08235294118" green="0.61960784310000006" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eQH-yN-hwr" firstAttribute="top" secondItem="oid-5s-AIf" secondAttribute="top" id="2iG-pr-8Ct"/>
                             <constraint firstItem="hFv-lt-19c" firstAttribute="top" secondItem="sAB-ur-oia" secondAttribute="bottom" constant="16" id="33v-Jt-bWs"/>
                             <constraint firstAttribute="trailing" secondItem="sAB-ur-oia" secondAttribute="trailing" constant="16" id="4Mk-NU-z70"/>
                             <constraint firstItem="LUR-sP-CMx" firstAttribute="leading" secondItem="oid-5s-AIf" secondAttribute="leading" constant="16" id="57h-jn-fZi"/>
                             <constraint firstItem="M1j-8V-Drb" firstAttribute="top" secondItem="LUR-sP-CMx" secondAttribute="bottom" constant="16" id="9Z7-IF-4fR"/>
                             <constraint firstItem="sAB-ur-oia" firstAttribute="leading" secondItem="oid-5s-AIf" secondAttribute="leading" constant="16" id="DyO-Je-vhc"/>
+                            <constraint firstAttribute="trailing" secondItem="eQH-yN-hwr" secondAttribute="trailing" id="EV4-7J-8Yv"/>
                             <constraint firstAttribute="trailing" secondItem="hFv-lt-19c" secondAttribute="trailing" constant="16" id="Ok6-HL-ate"/>
+                            <constraint firstItem="wON-1X-aCL" firstAttribute="centerY" secondItem="eQH-yN-hwr" secondAttribute="centerY" id="V9D-Rd-BU7"/>
+                            <constraint firstItem="eQH-yN-hwr" firstAttribute="leading" secondItem="oid-5s-AIf" secondAttribute="leading" id="cGJ-Ru-vIb"/>
                             <constraint firstItem="LUR-sP-CMx" firstAttribute="top" secondItem="sAB-ur-oia" secondAttribute="bottom" constant="16" id="gMb-tS-4Ih"/>
                             <constraint firstItem="M1j-8V-Drb" firstAttribute="top" secondItem="hFv-lt-19c" secondAttribute="bottom" constant="16" id="lzY-nE-lVO"/>
+                            <constraint firstItem="sAB-ur-oia" firstAttribute="top" secondItem="eQH-yN-hwr" secondAttribute="bottom" constant="8" id="mIh-7M-rJN"/>
+                            <constraint firstItem="wON-1X-aCL" firstAttribute="leading" secondItem="oid-5s-AIf" secondAttribute="leading" constant="16" id="qE0-9y-LMn"/>
                             <constraint firstItem="hFv-lt-19c" firstAttribute="leading" secondItem="LUR-sP-CMx" secondAttribute="trailing" constant="16" id="snP-4Y-wv0"/>
-                            <constraint firstItem="sAB-ur-oia" firstAttribute="top" secondItem="oid-5s-AIf" secondAttribute="top" constant="20" id="tC6-qb-m9v"/>
                         </constraints>
                     </view>
                     <connections>
@@ -371,8 +405,9 @@
                         <outlet property="moveButtonContainer" destination="hFv-lt-19c" id="D8K-pu-7SB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVi-Zm-g2p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="1078"/>
+            <point key="canvasLocation" x="303.59820089955025" y="1077.5999999999999"/>
         </scene>
     </scenes>
 </document>
