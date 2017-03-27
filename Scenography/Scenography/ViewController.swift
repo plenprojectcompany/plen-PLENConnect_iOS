@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 s.connectionLogs[peripheral.identifier.uuidString]?.connectedCount += 1
                 s.connectionLogs[peripheral.identifier.uuidString]?.lastConnectedTime = Date()
                 
-                Toast.makeText("PLEN connected", duration: Delay.short/*ToastDelay.ShortDelay*/).show()
+                Toast(text: "PLEN connected", duration: Delay.short).show()
                 s.playButton.isEnabled = true
             }
             .addDisposableTo(_disposeBag)
@@ -93,7 +93,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             .subscribe {[weak self] _ in
                 guard let s = self else {return}
                 
-                Toast.makeText("PLEN disconnected", duration: Delay.short/*ToastDelay.ShortDelay*/).show()
+                Toast(text: "PLEN disconnected", duration: Delay.short).show()
                 s.playButton.isEnabled = false
             }
             .addDisposableTo(_disposeBag)

@@ -52,16 +52,16 @@ struct DragEventCenter {
         let event = DragEvent(gestureRecognizer: gestureRecognizer, state: state, source: view)
         return listener.respondToDragEvent(event)
     }
-    
+
     fileprivate static func postEventToViews(_ views: [UIView], gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
-        views
+        _ = views
             .filter {postEventToView($0, gestureRecognizer: gestureRecognizer, state: state)}
             .first
     }
     
     fileprivate static func postEventToAllViews(gestureRecognizer: UIGestureRecognizer, state: DragEventState) {
         _listeners.keyEnumerator()
-            .forEach {postEventToView($0 as? UIView, gestureRecognizer: gestureRecognizer, state: state)}
+            .forEach {_ = postEventToView($0 as? UIView, gestureRecognizer: gestureRecognizer, state: state)}
     }
 }
 
@@ -179,7 +179,7 @@ class _ActualDragGestureRecognizerTarget: NSObject {
     }
     
     fileprivate func respondToDragGestureChanged(_ gestureRecognizer: UIGestureRecognizer) {
-        updateDragShadow(gestureRecognizer)
+        _ = updateDragShadow(gestureRecognizer)
         
         // Exited, Entered
         guard let dragShadow = _dragShadow else {return}

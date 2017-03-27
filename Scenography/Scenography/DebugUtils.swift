@@ -49,7 +49,7 @@ final class Stopwatch: CustomStringConvertible {
 
 func timeit<T>(_ operation: () -> T) -> CFTimeInterval {
     let startTime = CFAbsoluteTimeGetCurrent()
-    operation()
+    _ = operation()
     return CFAbsoluteTimeGetCurrent() - startTime
 }
 

@@ -127,7 +127,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         
         // 3. bind
         cell.functionView.rx.deallocated
-            .subscribe(onNext: {[weak self] in self?._disposeMap.removeValue(forKey: cell.functionView)})
+            .subscribe(onNext: {[weak self] in _ = self?._disposeMap.removeValue(forKey: cell.functionView)})
             .addDisposableTo(bag)
         cell.functionView.rx_function.asObservable()
             .subscribe(onNext: {[weak self] in self?.program.sequence[indexPath.row] = $0})

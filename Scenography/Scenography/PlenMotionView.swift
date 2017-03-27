@@ -29,13 +29,13 @@ class PlenMotionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        UIViewUtil.loadXib(self)
+        _ = UIViewUtil.loadXib(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        UIViewUtil.loadXib(self)
+        _ = UIViewUtil.loadXib(self)
     }
     
     override func awakeFromNib() {
@@ -70,7 +70,7 @@ class PlenMotionView: UIView {
         
         // name
         rx_motion.asObservable()
-            .map {$0.name}
+            .map {NSLocalizedString($0.name, comment: "")}
             .bindTo(nameLabel.rx.text)
             .addDisposableTo(disposeBag)
     }

@@ -27,16 +27,16 @@ struct RxUtil {
     
     static func bind<E: Equatable>(_ lhs: Variable<E>, _ rhs: Variable<E>) -> Disposable {
         return CompositeDisposable(
-            lhs.asObservable().filter {[weak rhs] in (rhs?.value != $0) ?? false}.bindTo(rhs),
-            rhs.asObservable().filter {[weak lhs] in (lhs?.value != $0) ?? false}.bindTo(lhs)
+            lhs.asObservable().filter {[weak rhs] in (rhs?.value != $0)}.bindTo(rhs),
+            rhs.asObservable().filter {[weak lhs] in (lhs?.value != $0)}.bindTo(lhs)
         )
     }
     
     
     static func bind<E1: Equatable, E2: Equatable>(_ lhs: Variable<E1>, _ rhs: Variable<E2>, binder1: @escaping (E1) -> E2, binder2: @escaping (E2) -> E1) -> Disposable {
         return CompositeDisposable(
-            lhs.asObservable().map(binder1).filter {[weak rhs] in (rhs?.value != $0) ?? false}.bindTo(rhs),
-            rhs.asObservable().map(binder2).filter {[weak lhs] in (lhs?.value != $0) ?? false}.bindTo(lhs)
+            lhs.asObservable().map(binder1).filter {[weak rhs] in (rhs?.value != $0)}.bindTo(rhs),
+            rhs.asObservable().map(binder2).filter {[weak lhs] in (lhs?.value != $0)}.bindTo(lhs)
         )
     }
     

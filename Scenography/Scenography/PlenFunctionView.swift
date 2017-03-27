@@ -27,13 +27,13 @@ class PlenFunctionView: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        UIViewUtil.loadXib(self)
+        _ = UIViewUtil.loadXib(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        UIViewUtil.loadXib(self)
+        _ = UIViewUtil.loadXib(self)
     }
     
     override func awakeFromNib() {

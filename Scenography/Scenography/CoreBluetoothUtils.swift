@@ -9,7 +9,7 @@
 import Foundation
 import CoreBluetooth
 
-extension CBCentralManagerState: CustomStringConvertible {
+extension CBManagerState: CustomStringConvertible {
     public var description: String {
         switch self  {
         case .poweredOn:    return "PoweredOn"
