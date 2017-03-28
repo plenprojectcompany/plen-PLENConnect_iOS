@@ -62,8 +62,6 @@
 		F8C3C8831C93E45B001E0590 /* PlenScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8821C93E45B001E0590 /* PlenScanner.swift */; };
 		F8C3C8871C93E55A001E0590 /* PlenTxCharacteristicWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */; };
 		F8C3C8891C93F000001E0590 /* PlenWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C8881C93F000001E0590 /* PlenWalk.swift */; };
-		F8CDD2341C90F90600431E9E /* JoystickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD2321C90F90600431E9E /* JoystickViewController.swift */; };
-		F8CDD2351C90F90600431E9E /* JoystickViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8CDD2331C90F90600431E9E /* JoystickViewController.xib */; };
 		F8CDD23F1C91E4F500431E9E /* DragEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD23E1C91E4F500431E9E /* DragEvent.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,8 +151,6 @@
 		F8C3C8821C93E45B001E0590 /* PlenScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenScanner.swift; sourceTree = "<group>"; };
 		F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenTxCharacteristicWriter.swift; sourceTree = "<group>"; };
 		F8C3C8881C93F000001E0590 /* PlenWalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenWalk.swift; sourceTree = "<group>"; };
-		F8CDD2321C90F90600431E9E /* JoystickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickViewController.swift; sourceTree = "<group>"; };
-		F8CDD2331C90F90600431E9E /* JoystickViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoystickViewController.xib; sourceTree = "<group>"; };
 		F8CDD23E1C91E4F500431E9E /* DragEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragEvent.swift; sourceTree = "<group>"; };
 		FD09ED47466B4031EE41902D /* Pods-ScenographyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyTests/Pods-ScenographyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,8 +279,6 @@
 				F81542E41C8E3F3700E41185 /* PlenMotionTableViewController.xib */,
 				F87962501C8F148400ADF45D /* PlenProgramViewController.swift */,
 				F87962511C8F148400ADF45D /* PlenProgramViewController.xib */,
-				F8CDD2321C90F90600431E9E /* JoystickViewController.swift */,
-				F8CDD2331C90F90600431E9E /* JoystickViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -515,7 +509,6 @@
 				F840BF521C9BB7DB009DD90E /* Settings.bundle in Resources */,
 				F81542FA1C8E3F3700E41185 /* PlenMotionView.xib in Resources */,
 				F84B765A1E86324B00BE38EE /* map.xml in Resources */,
-				F8CDD2351C90F90600431E9E /* JoystickViewController.xib in Resources */,
 				F81542F01C8E3F3700E41185 /* PlenMotionPageViewController.xib in Resources */,
 				F81542F81C8E3F3700E41185 /* PlenMotionTableViewController.xib in Resources */,
 				F816B8F71E889FB7002B737C /* Localizable.strings in Resources */,
@@ -700,7 +693,6 @@
 				F81542F51C8E3F3700E41185 /* PlenMotionCell.swift in Sources */,
 				F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */,
 				F81542FB1C8E3F3700E41185 /* PLPageViewController.swift in Sources */,
-				F8CDD2341C90F90600431E9E /* JoystickViewController.swift in Sources */,
 				F81542FE1C8E3F3700E41185 /* SwiftUtils.swift in Sources */,
 				F87962591C8F375800ADF45D /* PlenProgram.swift in Sources */,
 				F89C37D21E86242200D920B2 /* MoveButtonContainer.swift in Sources */,

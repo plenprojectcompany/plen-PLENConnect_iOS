@@ -29,7 +29,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var rightContainer: UIView!
     
     fileprivate var programViewController: PlenProgramViewController!
-    fileprivate var joystickViewController: JoystickViewController!
     fileprivate var motionPageViewController: PlenMotionPageViewController!
     
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
@@ -129,7 +128,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate func updateMode() {
         programViewController?.removeFromParentViewController()
-        joystickViewController?.removeFromParentViewController()
         leftContainer.subviews.forEach {$0.removeFromSuperview()}
         
         modeDisposeBag = DisposeBag()
@@ -145,42 +143,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             
             RxUtil.bind(rx_program, programViewController.rx_program)
                 .addDisposableTo(modeDisposeBag)
-        
-        case .joystick:
-            motionPageViewController.draggable = false
-            programTitle.text = "JOYSTICK"
-            
-            joystickViewController = UIViewControllerUtil.loadChildViewController(self,
-                container: leftContainer,
-                childType: JoystickViewController.self)
-            
-            let toPlenWalk: (Any) -> (direction: PlenWalkDirection, mode: PlenWalkMode)? = {[weak self] _ in
-                guard let motionPageViewController = self?.motionPageViewController else {return nil}
-                guard let joystickViewController = self?.joystickViewController else {return nil}
-                let direction = joystickViewController.walkDirection
-                let categoryIndex = motionPageViewController.currentPageIndex
-                
-                switch motionPageViewController.motionCategories[categoryIndex].name {
-                case "BOX":
-                    return (direction, .box)
-                case "ROLLER SKATING":
-                    return (direction, .rollerSkating)
-                default:
-                    return (direction, .normal)
-                }
-            }
-            
-            Observable<Int>
-                .interval(Resources.Time.walkMotionRepeatInterval,
-                    scheduler:SerialDispatchQueueScheduler(qos: .background))
-                .map(toPlenWalk)
-                .distinctUntilChanged({$0.0?.direction == .stop && $0.1?.direction == .stop})
-                .subscribe(onNext:{
-                    guard let (direction, mode) = $0 else {return}
-                    let command = Resources.PlenCommand.walk(direction, mode: mode)
-                    PlenConnection.defaultInstance().writeValue(command)
-                })
-                .addDisposableTo(modeDisposeBag)
+        default:
+            break
         }
     }
     
