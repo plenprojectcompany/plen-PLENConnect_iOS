@@ -31,7 +31,7 @@ class JoystickView : UIScrollView, UIScrollViewDelegate{
         self.highlightView.layer.masksToBounds = true
         
         self.delegate = self
-
+        
     }
     
     func setHighighted(highlighted:Bool) {
@@ -59,7 +59,7 @@ class JoystickView : UIScrollView, UIScrollViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let radius = hypot(self.contentOffset.x, self.contentOffset.y) / hypot(((self.superview?.frame.width)! - self.frame.width) / 2, ((self.superview?.frame.height)! - self.frame.height) / 2)
-        let angle = atan2(-self.contentOffset.y, -self.contentOffset.x)
+        let angle = atan2(self.contentOffset.y, -self.contentOffset.x)
         
         if (self.joystickDelegate?.onJoystickMoved != nil) {
             self.joystickDelegate?.onJoystickMoved!(currentPoint:CGPoint(x:-self.contentOffset.x, y:-self.contentOffset.y),angle:angle,strength:radius)
@@ -73,4 +73,5 @@ class JoystickView : UIScrollView, UIScrollViewDelegate{
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.setHighighted(highlighted: false)
     }
+    
 }
