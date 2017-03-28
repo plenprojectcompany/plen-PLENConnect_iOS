@@ -9,68 +9,68 @@
 //Motion
 
 //Normal
-"LStep" = "LStep";
-"FStep" = "FStep";
-"RStep" = "RStep";
-"A-hem" = "A-hem";
-"Bow" = "Bow";
-"Propose" = "Propose";
-"Hug" = "Hug";
-"Clap" = "Clap";
-"High-five" = "High-five";
-"Walk Forward" = "Walk Forward";
-"LTurn" = "LTurn";
-"RTurn" = "RTurn";
-"Walk Back" = "Walk Back";
+"LStep" = "左ステップ";
+"FStep" = "前ステップ";
+"RStep" = "右ステップ";
+"A-hem" = "えっへん";
+"Bow" = "おじぎ";
+"Propose" = "こくはく";
+"Hug" = "ハグ";
+"Clap" = "はくしゅ";
+"High-five" = "ハイタッチ";
+"Walk Forward" = "前に進む";
+"LTurn" = "左に回る";
+"RTurn" = "右に回る";
+"Walk Back" = "後ろに進む";
 
 //Box
-"Shake a Box" = "Shake a Box";
-"Pick Up High" = "Pick Up High";
-"Pick Up Low" = "Pick Up Low";
-"Receive a Box" = "Receive a Box";
-"Present a Box" = "Present a Box";
-"Pass a Box" = "Pass a Box";
-"Throw a Box" = "Throw a Box";
-"Put Down High" = "Put Down High";
-"Put Down Low" = "Put Down Low";
-"Carry Forward" = "Carry Forward";
-"Carry LTurn" = "Carry LTurn";
-"Carry RTurn" = "Carry RTurn";
-"Carry Back" = "Carry Back";
+"Shake a Box" = "箱をふる";
+"Pick Up High" = "箱をとる(こしまで)";
+"Pick Up Low" = "箱をとる(あしまで)";
+"Receive a Box" = "箱をうけとる";
+"Present a Box" = "箱をささげる";
+"Pass a Box" = "箱をわたす";
+"Throw a Box" = "箱をなげる";
+"Put Down High" = "箱をおく(こしまで)";
+"Put Down Low" = "箱をおく(あしまで)";
+"Carry Forward" = "箱を持って前に進む";
+"Carry LTurn" = "箱を持って左に回る";
+"Carry RTurn" = "箱を持って右に回る";
+"Carry Back" = "箱を持って後ろに進む";
 
 //Soccer
-"Defense LStep" = "Defense LStep";
-"Dribble" = "Dribble";
-"Defense RStep" = "Defense RStep";
-"LKick" = "LKick";
-"Long Dribble" = "Long Dribble";
-"RKick" = "RKick";
-"Pass to Left" = "Pass to Left";
-"Pass it to Me!" = "Pass it to Me!";
-"Pass to Right" = "Pass to Right";
+"Defense LStep" = "左ステップ";
+"Dribble" = "ドリブル";
+"Defense RStep" = "右ステップ";
+"LKick" = "左キック";
+"Long Dribble" = "ロングドリブル";
+"RKick" = "右キック";
+"Pass to Left" = "左パス";
+"Pass it to Me!" = "パスをくれ";
+"Pass to Right" = "右パス";
 
 //Dance
-"Dance LStep" = "Dance LStep";
-"Dance FStep" = "Dance FStep";
-"Dance RStep" = "Dance RStep";
-"Dance Finish Pose" = "Dance Finish Pose";
-"Dance Up & Down" = "Dance Up & Down";
-"Wiggle Dance" = "Wiggle Dance";
-"Dance BStep" = "Dance BStep";
-"Dance Bow" = "Dance Bow";
-"Twist Dance" = "Twist Dance";
+"Dance LStep" = "ダンス左ステップ";
+"Dance FStep" = "ダンス前ステップ";
+"Dance RStep" = "ダンス右ステップ";
+"Dance Finish Pose" = "ダンスポーズ";
+"Dance Up & Down" = "ダンスアップダウン";
+"Wiggle Dance" = "ダンスくねくね";
+"Dance BStep" = "ダンス後ろステップ";
+"Dance Bow" = "ダンスおじぎ";
+"Twist Dance" = "ダンスツイスト";
 
 //Skate
-"Ina Bauer LFoot" = "Ina Bauer LFoot";
-"Brake for Forward" = "Brake for Forward";
-"Ina Bauer RFoot" = "Ina Bauer RFoot";
-"Balance on LFoot" = "Balance on LFoot";
-"Upright" = "Upright";
-"Balance on RFoot" = "Balance on RFoot";
-"Heel & Toe LFoot" = "Heel & Toe LFoot";
-"Brake for Back" = "Brake for Back";
-"Heel & Toe RFoot" = "Heel & Toe RFoot";
-"Skating Forward" = "Skating Forward";
-"Skating LTurn" = "Skating LTurn";
-"Skating RTurn" = "Skating RTurn";
-"Skating Back" = "Skating Back";
+"Ina Bauer LFoot" = "左イナバウアー";
+"Brake for Forward" = "前ブレーキ";
+"Ina Bauer RFoot" = "右イナバウアー";
+"Balance on LFoot" = "左大の字";
+"Upright" = "きをつけ";
+"Balance on RFoot" = "右大の字";
+"Heel & Toe LFoot" = "左ヒール＆トー";
+"Brake for Back" = "後ブレーキ";
+"Heel & Toe RFoot" = "右ヒール＆トー";
+"Skating Forward" = "スケートで前に進む";
+"Skating LTurn" = "スケートで左に回る";
+"Skating RTurn" = "スケートで右に回る";
+"Skating Back" = "スケートで後ろに進む";
