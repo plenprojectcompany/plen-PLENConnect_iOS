@@ -10,6 +10,7 @@ import UIKit
 import SVProgressHUD
 import RxSwift
 import CoreBluetooth
+import Toaster
 
 class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManagerDelegate*/{
     @IBOutlet weak private var modeSegmentedControl:UISegmentedControl?
@@ -59,7 +60,10 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         let moveImages = FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
         self.moveButtonContainer?.setTitles(titles: moveTitles)
         self.moveButtonContainer?.setImages(images: moveImages)
-
+        
+        if !PlenConnection.defaultInstance().isConnected(){
+            autoConnect()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,9 +82,12 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         // 方向の判定
         let actionKey = FunctionMapper.shared.wheelActionKeyForAngle(angle:angle, strength:strength)
         
-        // 前回と同じ方向であれば無視する
-        if (actionKey == self.previewWheelActionKey) {
-            return;
+        // 前回と同じ方向でなければストップモーションを挟む         あれば無視する
+        if (actionKey != self.previewWheelActionKey) {
+            PlenConnection.defaultInstance().writeValue(FunctionMapper.shared.valueForActionWithKey(actionKey:"center",
+                                                        type:CommandType.Wheel,
+                                                        modeIndex:currentModeIndex)!)
+            //return;
         }
         
         let value = FunctionMapper.shared.valueForActionWithKey(actionKey:actionKey,
@@ -124,6 +131,35 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         
         scanningDisposable?.addDisposableTo(_disposeBag)
         presentScanningAlert()
+    }
+    
+    func autoConnect(){
+        scanResults.removeAll()
+        
+        scanningDisposable = PlenScanner().scanForPeripherals()
+            .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
+            .do(onNext: {[weak self] in self?.scanResults.append($0)},
+                onCompleted:{[weak self] in
+                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+                    return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
+                    }
+                    
+                    self?.scanResults.sorted {lastConnectionTime($0) < lastConnectionTime($1)}.forEach {peripheral in
+                        if !(self?.connectionLogs.keys.contains(peripheral.identifier.uuidString))! {
+                            self?.connectionLogs[peripheral.identifier.uuidString] = PlenConnectionLog(
+                                peripheralIdentifier: peripheral.identifier.uuidString,
+                                connectedCount: 0,
+                                lastConnectedTime: nil)
+                        }
+                    }
+                    if !(self?.scanResults.isEmpty)! {
+                        PlenConnection.defaultInstance().connectPlen((self?.scanResults.first!)!)
+                        Toast(text: "PLEN connected", duration: Delay.short).show()
+                    }
+            })
+            .subscribe()
+        
+        scanningDisposable?.addDisposableTo(_disposeBag)
     }
     
     fileprivate func dismissScanningAlert() {

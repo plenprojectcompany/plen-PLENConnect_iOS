@@ -44,6 +44,10 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         return PlenConnectionDefaultInstance
     }
     
+    func isConnected()->Bool{
+        return self.peripheral?.state == .connected && _writer != nil
+    }
+    
     func connectPlen(_ peripheral: CBPeripheral) {
         logger.verbose("\(peripheral.identifier)")
         
@@ -72,6 +76,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             s._centralManager.cancelPeripheralConnection(peripheral)
             s._rx_peripheral.value = peripheral
         }
+        _writer = nil
     }
     
     func writeValue(_ text: String) {
