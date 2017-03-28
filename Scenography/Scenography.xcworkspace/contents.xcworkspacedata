@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Scenography.xcodeproj">
+      location = "group:/Users/plen/Documents/plen-Scenography_iOS/Scenography/PLEN Connect.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

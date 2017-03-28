@@ -93,17 +93,17 @@
 		EF4EEE3BCFDB044C4CCB0A92 /* Pods-ScenographyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyUITests/Pods-ScenographyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F29358ABEEB01A6807A2C136 /* Pods_ScenographyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScenographyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70FE39F359D820D2935AE57 /* Pods-Scenography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scenography.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scenography/Pods-Scenography.debug.xcconfig"; sourceTree = "<group>"; };
-		F81542A71C8E3E5200E41185 /* Scenography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenography.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542A71C8E3E5200E41185 /* PLEN Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PLEN Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81542AA1C8E3E5200E41185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F81542AC1C8E3E5200E41185 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F81542AF1C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F81542B11C8E3E5200E41185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81542B41C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F81542B61C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenographyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542BB1C8E3E5200E41185 /* PLEN ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PLEN ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyTests.swift; sourceTree = "<group>"; };
 		F81542C11C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScenographyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81542C61C8E3E5200E41185 /* PLEN ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PLEN ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyUITests.swift; sourceTree = "<group>"; };
 		F81542CC1C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionPageViewController.swift; sourceTree = "<group>"; };
@@ -216,9 +216,9 @@
 				F84B76581E86324B00BE38EE /* data */,
 				F873CA1D1C90B9AD00B1B74C /* img */,
 				F81543051C8E41AC00E41185 /* json */,
-				F81542A91C8E3E5200E41185 /* Scenography */,
-				F81542BE1C8E3E5200E41185 /* ScenographyTests */,
-				F81542C91C8E3E5200E41185 /* ScenographyUITests */,
+				F81542A91C8E3E5200E41185 /* Connect */,
+				F81542BE1C8E3E5200E41185 /* ConnectTests */,
+				F81542C91C8E3E5200E41185 /* ConnectUITests */,
 				F81542A81C8E3E5200E41185 /* Products */,
 				0423DEBB34C807FBEC714E38 /* Pods */,
 				55CCCA104B13D16480B6E659 /* Frameworks */,
@@ -228,14 +228,14 @@
 		F81542A81C8E3E5200E41185 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F81542A71C8E3E5200E41185 /* Scenography.app */,
-				F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */,
-				F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */,
+				F81542A71C8E3E5200E41185 /* PLEN Connect.app */,
+				F81542BB1C8E3E5200E41185 /* PLEN ConnectTests.xctest */,
+				F81542C61C8E3E5200E41185 /* PLEN ConnectUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F81542A91C8E3E5200E41185 /* Scenography */ = {
+		F81542A91C8E3E5200E41185 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
 				F873CA1F1C90E5EA00B1B74C /* Application */,
@@ -247,24 +247,27 @@
 				F81543021C8E3FAC00E41185 /* Views */,
 				F81543081C8E485D00E41185 /* MyPlayground.playground */,
 			);
+			name = Connect;
 			path = Scenography;
 			sourceTree = "<group>";
 		};
-		F81542BE1C8E3E5200E41185 /* ScenographyTests */ = {
+		F81542BE1C8E3E5200E41185 /* ConnectTests */ = {
 			isa = PBXGroup;
 			children = (
 				F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */,
 				F81542C11C8E3E5200E41185 /* Info.plist */,
 			);
+			name = ConnectTests;
 			path = ScenographyTests;
 			sourceTree = "<group>";
 		};
-		F81542C91C8E3E5200E41185 /* ScenographyUITests */ = {
+		F81542C91C8E3E5200E41185 /* ConnectUITests */ = {
 			isa = PBXGroup;
 			children = (
 				F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */,
 				F81542CC1C8E3E5200E41185 /* Info.plist */,
 			);
+			name = ConnectUITests;
 			path = ScenographyUITests;
 			sourceTree = "<group>";
 		};
@@ -387,9 +390,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F81542A61C8E3E5200E41185 /* Scenography */ = {
+		F81542A61C8E3E5200E41185 /* PLEN Connect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "Scenography" */;
+			buildConfigurationList = F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN Connect" */;
 			buildPhases = (
 				AADD3A84A1C3AA2AE0EFD72A /* [CP] Check Pods Manifest.lock */,
 				F81542A31C8E3E5200E41185 /* Sources */,
@@ -402,14 +405,14 @@
 			);
 			dependencies = (
 			);
-			name = Scenography;
+			name = "PLEN Connect";
 			productName = Scenography;
-			productReference = F81542A71C8E3E5200E41185 /* Scenography.app */;
+			productReference = F81542A71C8E3E5200E41185 /* PLEN Connect.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F81542BA1C8E3E5200E41185 /* ScenographyTests */ = {
+		F81542BA1C8E3E5200E41185 /* PLEN ConnectTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyTests" */;
+			buildConfigurationList = F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN ConnectTests" */;
 			buildPhases = (
 				CA29F7CA867AEB96B89A8756 /* [CP] Check Pods Manifest.lock */,
 				F81542B71C8E3E5200E41185 /* Sources */,
@@ -423,14 +426,14 @@
 			dependencies = (
 				F81542BD1C8E3E5200E41185 /* PBXTargetDependency */,
 			);
-			name = ScenographyTests;
+			name = "PLEN ConnectTests";
 			productName = ScenographyTests;
-			productReference = F81542BB1C8E3E5200E41185 /* ScenographyTests.xctest */;
+			productReference = F81542BB1C8E3E5200E41185 /* PLEN ConnectTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F81542C51C8E3E5200E41185 /* ScenographyUITests */ = {
+		F81542C51C8E3E5200E41185 /* PLEN ConnectUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyUITests" */;
+			buildConfigurationList = F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN ConnectUITests" */;
 			buildPhases = (
 				F853EF3CEAED0201203E556E /* [CP] Check Pods Manifest.lock */,
 				F81542C21C8E3E5200E41185 /* Sources */,
@@ -444,9 +447,9 @@
 			dependencies = (
 				F81542C81C8E3E5200E41185 /* PBXTargetDependency */,
 			);
-			name = ScenographyUITests;
+			name = "PLEN ConnectUITests";
 			productName = ScenographyUITests;
-			productReference = F81542C61C8E3E5200E41185 /* ScenographyUITests.xctest */;
+			productReference = F81542C61C8E3E5200E41185 /* PLEN ConnectUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -461,7 +464,7 @@
 				TargetAttributes = {
 					F81542A61C8E3E5200E41185 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = GG4Q336Y69;
+						DevelopmentTeam = YNFL33JF5R;
 						LastSwiftMigration = 0820;
 					};
 					F81542BA1C8E3E5200E41185 = {
@@ -476,7 +479,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "Scenography" */;
+			buildConfigurationList = F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "PLEN Connect" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -490,9 +493,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F81542A61C8E3E5200E41185 /* Scenography */,
-				F81542BA1C8E3E5200E41185 /* ScenographyTests */,
-				F81542C51C8E3E5200E41185 /* ScenographyUITests */,
+				F81542A61C8E3E5200E41185 /* PLEN Connect */,
+				F81542BA1C8E3E5200E41185 /* PLEN ConnectTests */,
+				F81542C51C8E3E5200E41185 /* PLEN ConnectUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -741,12 +744,12 @@
 /* Begin PBXTargetDependency section */
 		F81542BD1C8E3E5200E41185 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F81542A61C8E3E5200E41185 /* Scenography */;
+			target = F81542A61C8E3E5200E41185 /* PLEN Connect */;
 			targetProxy = F81542BC1C8E3E5200E41185 /* PBXContainerItemProxy */;
 		};
 		F81542C81C8E3E5200E41185 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F81542A61C8E3E5200E41185 /* Scenography */;
+			target = F81542A61C8E3E5200E41185 /* PLEN Connect */;
 			targetProxy = F81542C71C8E3E5200E41185 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -873,6 +876,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YNFL33JF5R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -880,7 +884,7 @@
 				INFOPLIST_FILE = Scenography/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = plenproject.Scenography;
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.PLENConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -895,6 +899,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YNFL33JF5R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -902,7 +907,7 @@
 				INFOPLIST_FILE = Scenography/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = plenproject.Scenography;
+				PRODUCT_BUNDLE_IDENTIFIER = plenproject.PLENConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -919,7 +924,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenography.app/Scenography";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PLEN Connect.app/PLEN Connect";
 			};
 			name = Debug;
 		};
@@ -933,7 +938,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scenography.app/Scenography";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PLEN Connect.app/PLEN Connect";
 			};
 			name = Release;
 		};
@@ -968,7 +973,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "Scenography" */ = {
+		F81542A21C8E3E5100E41185 /* Build configuration list for PBXProject "PLEN Connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F81542CD1C8E3E5200E41185 /* Debug */,
@@ -977,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "Scenography" */ = {
+		F81542CF1C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN Connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F81542D01C8E3E5200E41185 /* Debug */,
@@ -986,7 +991,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyTests" */ = {
+		F81542D21C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN ConnectTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F81542D31C8E3E5200E41185 /* Debug */,
@@ -995,7 +1000,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "ScenographyUITests" */ = {
+		F81542D51C8E3E5200E41185 /* Build configuration list for PBXNativeTarget "PLEN ConnectUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F81542D61C8E3E5200E41185 /* Debug */,
