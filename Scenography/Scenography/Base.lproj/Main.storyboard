@@ -153,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-ur-oia" userLabel="Mode Segmented Control">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" horizontalCompressionResistancePriority="725" verticalCompressionResistancePriority="725" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-ur-oia" userLabel="Mode Segmented Control">
                                 <rect key="frame" x="16" y="52" width="635" height="29"/>
                                 <segments>
                                     <segment title="Normal"/>
@@ -167,7 +167,7 @@
                                     <action selector="modeSegmentChangedWithSender:" destination="NgP-qF-K4Z" eventType="valueChanged" id="Hww-OP-tOM"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-sP-CMx" userLabel="Joystick Conteiner">
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-sP-CMx" userLabel="Joystick Conteiner">
                                 <rect key="frame" x="16" y="96" width="263" height="263"/>
                                 <subviews>
                                     <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-WD-7Vk" userLabel="Joystick View" customClass="JoystickView" customModule="PLEN_Connect" customModuleProvider="target">
@@ -209,7 +209,7 @@
                                     <constraint firstItem="dzx-WD-7Vk" firstAttribute="centerX" secondItem="LUR-sP-CMx" secondAttribute="centerX" id="eWA-2m-5Mo"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -233,13 +233,13 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
                                 <rect key="frame" x="16" y="12" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="PLEN_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="PLEN_Connect" customModuleProvider="target">
                                 <rect key="frame" x="388" y="96" width="263" height="263"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-Aq-Amv" userLabel="Top Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
@@ -420,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVi-Zm-g2p" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="797"/>
+            <point key="canvasLocation" x="304" y="1031"/>
         </scene>
     </scenes>
 </document>
