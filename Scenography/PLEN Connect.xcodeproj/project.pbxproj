@@ -42,7 +42,6 @@
 		F840BFEF1C9BFAC2009DD90E /* OvalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFEC1C9BFAC2009DD90E /* OvalView.swift */; };
 		F840BFF01C9BFAC2009DD90E /* PlenConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */; };
 		F84B765A1E86324B00BE38EE /* map.xml in Resources */ = {isa = PBXBuildFile; fileRef = F84B76591E86324B00BE38EE /* map.xml */; };
-		F873CA1E1C90B9AD00B1B74C /* img in Resources */ = {isa = PBXBuildFile; fileRef = F873CA1D1C90B9AD00B1B74C /* img */; };
 		F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962471C8F130600ADF45D /* PlenFunctionCell.swift */; };
 		F879624A1C8F130600ADF45D /* PlenFunctionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87962481C8F130600ADF45D /* PlenFunctionCell.xib */; };
 		F87962521C8F148400ADF45D /* PlenProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962501C8F148400ADF45D /* PlenProgramViewController.swift */; };
@@ -131,7 +130,6 @@
 		F840BFEC1C9BFAC2009DD90E /* OvalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalView.swift; sourceTree = "<group>"; };
 		F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionError.swift; sourceTree = "<group>"; };
 		F84B76591E86324B00BE38EE /* map.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map.xml; sourceTree = "<group>"; };
-		F873CA1D1C90B9AD00B1B74C /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		F87962471C8F130600ADF45D /* PlenFunctionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenFunctionCell.swift; sourceTree = "<group>"; };
 		F87962481C8F130600ADF45D /* PlenFunctionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenFunctionCell.xib; sourceTree = "<group>"; };
 		F87962501C8F148400ADF45D /* PlenProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenProgramViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				F84B76581E86324B00BE38EE /* data */,
-				F873CA1D1C90B9AD00B1B74C /* img */,
 				F81543051C8E41AC00E41185 /* json */,
 				F81542A91C8E3E5200E41185 /* Connect */,
 				F81542BE1C8E3E5200E41185 /* ConnectTests */,
@@ -499,7 +496,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F873CA1E1C90B9AD00B1B74C /* img in Resources */,
 				F81543071C8E41AC00E41185 /* json in Resources */,
 				F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */,
 				F81542F31C8E3F3700E41185 /* PlenFunctionView.xib in Resources */,
