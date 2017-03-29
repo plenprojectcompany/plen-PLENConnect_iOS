@@ -153,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" horizontalCompressionResistancePriority="725" verticalCompressionResistancePriority="725" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-ur-oia" userLabel="Mode Segmented Control">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="253" horizontalCompressionResistancePriority="725" verticalCompressionResistancePriority="725" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-ur-oia" userLabel="Mode Segmented Control">
                                 <rect key="frame" x="16" y="52" width="635" height="29"/>
                                 <segments>
                                     <segment title="Normal"/>
@@ -167,10 +167,10 @@
                                     <action selector="modeSegmentChangedWithSender:" destination="NgP-qF-K4Z" eventType="valueChanged" id="Hww-OP-tOM"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-sP-CMx" userLabel="Joystick Conteiner">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="LUR-sP-CMx" userLabel="Joystick Conteiner">
                                 <rect key="frame" x="16" y="96" width="263" height="263"/>
                                 <subviews>
-                                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-WD-7Vk" userLabel="Joystick View" customClass="JoystickView" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzx-WD-7Vk" userLabel="Joystick View" customClass="JoystickView" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="57" y="57" width="148" height="148"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8L-5b-9hy" userLabel="Circe View">
@@ -209,9 +209,12 @@
                                     <constraint firstItem="dzx-WD-7Vk" firstAttribute="centerX" secondItem="LUR-sP-CMx" secondAttribute="centerX" id="eWA-2m-5Mo"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2mp-gJ-1Ka"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wBT-qv-1wr"/>
                                     <barButtonItem style="plain" id="9O8-J9-Qe2">
@@ -233,16 +236,16 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
                                 <rect key="frame" x="16" y="12" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="PLEN_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="PLEN_Connect" customModuleProvider="target">
                                 <rect key="frame" x="388" y="96" width="263" height="263"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-Aq-Amv" userLabel="Top Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-Aq-Amv" userLabel="Top Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="82.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES"/>
@@ -257,7 +260,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="gbt-id-L5L"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-v5-T21" userLabel="Top Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpM-v5-T21" userLabel="Top Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="90" y="0.0" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tpM-v5-T21" secondAttribute="height" multiplier="1:1" id="fiA-h8-JMm"/>
@@ -269,7 +272,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="xyL-88-ICE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-fo-r9F" userLabel="Top Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-fo-r9F" userLabel="Top Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="180" y="0.0" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Epm-fo-r9F" secondAttribute="height" multiplier="1:1" id="rC9-bZ-3Xi"/>
@@ -281,7 +284,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="Xky-wr-Gsn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQU-1u-xfw" userLabel="Middle Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQU-1u-xfw" userLabel="Middle Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lQU-1u-xfw" secondAttribute="height" multiplier="1:1" id="Dio-KL-tND"/>
@@ -293,7 +296,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="9ja-PA-zPu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-8R-zzz" userLabel="Middle Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-8R-zzz" userLabel="Middle Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="90" y="90" width="82.5" height="82.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES"/>
@@ -308,7 +311,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="siY-LS-lDc"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-mX-3jB" userLabel="Middle Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-mX-3jB" userLabel="Middle Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="180" y="90" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZZ5-mX-3jB" secondAttribute="height" multiplier="1:1" id="j9B-vl-N0G"/>
@@ -320,7 +323,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="h2B-tN-9gV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-Ms-R8O" userLabel="Bottom Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVe-Ms-R8O" userLabel="Bottom Left Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OVe-Ms-R8O" secondAttribute="height" multiplier="1:1" id="sxw-f7-l6d"/>
@@ -332,7 +335,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="6BG-Xw-sxB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-l1-k2c" userLabel="Bottom Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCW-l1-k2c" userLabel="Bottom Center Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="90" y="180" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hCW-l1-k2c" secondAttribute="height" multiplier="1:1" id="cAK-PE-edK"/>
@@ -344,7 +347,7 @@
                                             <action selector="moveButtonTappedWithSender:" destination="NgP-qF-K4Z" eventType="touchUpInside" id="sev-Qt-kek"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjT-e5-NOb" userLabel="Bottom Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjT-e5-NOb" userLabel="Bottom Right Button" customClass="Button" customModule="PLEN_Connect" customModuleProvider="target">
                                         <rect key="frame" x="180" y="180" width="82.5" height="82.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fjT-e5-NOb" secondAttribute="height" multiplier="1:1" id="Nbm-8m-lhZ"/>
