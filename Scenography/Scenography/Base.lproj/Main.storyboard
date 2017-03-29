@@ -52,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="38" id="LNg-MB-jJU"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLS-Re-iCn">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLS-Re-iCn">
                                 <rect key="frame" x="0.0" y="20" width="667" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
@@ -209,7 +209,7 @@
                                     <constraint firstItem="dzx-WD-7Vk" firstAttribute="centerX" secondItem="LUR-sP-CMx" secondAttribute="centerX" id="eWA-2m-5Mo"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQH-yN-hwr">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -233,8 +233,8 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.08235294118" green="0.61960784310000006" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wON-1X-aCL">
                                 <rect key="frame" x="16" y="12" width="65" height="21"/>
