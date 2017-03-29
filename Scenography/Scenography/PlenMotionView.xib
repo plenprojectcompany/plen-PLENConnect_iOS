@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlenMotionView" customModule="Scenography" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlenMotionView" customModule="PLEN_Connect" customModuleProvider="target">
             <connections>
                 <outlet property="iconView" destination="Znm-OO-BVU" id="93i-oF-0Xl"/>
                 <outlet property="idLabel" destination="9lE-S6-pmI" id="mFu-nh-rg1"/>
@@ -23,23 +27,23 @@
                         <constraint firstAttribute="width" constant="20" id="kqw-4z-8Js"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.6171875" green="0.6171875" blue="0.6171875" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.6171875" green="0.6171875" blue="0.6171875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-c4-ku9">
                     <rect key="frame" x="110" y="23" width="103" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.1484375" green="0.078125" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.1484375" green="0.078125" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znm-OO-BVU" customClass="MKButton" customModule="MaterialKit">
                     <rect key="frame" x="10" y="3" width="60" height="60"/>
-                    <color key="backgroundColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="0UC-Zq-ZSR"/>
                         <constraint firstAttribute="width" constant="60" id="wMJ-MU-stF"/>
                     </constraints>
-                    <state key="normal" image="img/motion/no_image.png"/>
+                    <state key="normal" image="no_image"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <real key="value" value="5"/>
@@ -48,7 +52,7 @@
                             <real key="value" value="2"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="rippleLayerColor">
-                            <color key="value" red="0.0" green="0.65234375" blue="0.234375" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.0" green="0.65234375" blue="0.234375" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -70,6 +74,6 @@
         </view>
     </objects>
     <resources>
-        <image name="img/motion/no_image.png" width="144" height="144"/>
+        <image name="no_image" width="144" height="144"/>
     </resources>
 </document>

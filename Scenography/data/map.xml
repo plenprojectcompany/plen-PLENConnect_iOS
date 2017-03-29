@@ -63,9 +63,9 @@
     </Mode>
     <Mode type="basic" name="Dance" image="p_mode_dance" pressed="p_mode_dance_pressed">
         <Command type="Button">
-            <Action key="0" name="m0" value="$PM1E" image="p_dance_rhythm_rstep" pressed="p_dance_rhythm_lstep_pressed"/>
+            <Action key="0" name="m0" value="$PM1E" image="p_dance_rhythm_lstep" pressed="p_dance_rhythm_lstep_pressed"/>
             <Action key="1" name="m1" value="$PM1F" image="p_dance_rhythm_onestep" pressed="p_dance_rhythm_onestep_pressed"/>
-            <Action key="2" name="m2" value="$PM20" image="p_dance_rhythm_lstep" pressed="p_dance_rhythm_rstep_pressed"/>
+            <Action key="2" name="m2" value="$PM20" image="p_dance_rhythm_rstep" pressed="p_dance_rhythm_rstep_pressed"/>
             <Action key="3" name="m3" value="$PM21" image="p_dance_kimepose" pressed="p_dance_kimepose_pressed"/>
             <Action key="4" name="m4" value="$PM22" image="p_dance_kusshin" pressed="p_dance_kusshin_pressed"/>
             <Action key="5" name="m5" value="$PM23" image="p_dance_rhythm" pressed="p_dance_rhythm_pressed"/>

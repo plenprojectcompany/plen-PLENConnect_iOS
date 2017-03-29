@@ -17,7 +17,7 @@ struct PlenMotion: Hashable {
         return id
     }
     
-    static let None = PlenMotion(id: -1, name: "", iconPath: "img/motion/no_image.png")
+    static let None = PlenMotion(id: -1, name: "", iconPath: "no_image")
 }
 
 func ==(lhs: PlenMotion, rhs: PlenMotion) -> Bool {
