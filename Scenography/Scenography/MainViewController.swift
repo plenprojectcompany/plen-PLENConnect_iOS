@@ -17,16 +17,17 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
     @IBOutlet weak private var joystickView:JoystickView?
     @IBOutlet weak private var moveButtonContainer:MoveButtonContainer?
     @IBOutlet weak private var joystickContainer:UIView?
-    private var previewWheelActionKey:String
+    private var previousDirection:PlenWalkDirection
     private var currentModeIndex:Int
     fileprivate var scanningDisposable: Disposable?
     fileprivate var scanningAlertController: UIAlertController?
     fileprivate var scanResults = [CBPeripheral]()
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
     fileprivate let _disposeBag = DisposeBag()
+    fileprivate var motionCategories = [PlenMotionCategory]()
     
     required init?(coder aDecoder: NSCoder) {
-        previewWheelActionKey = String()
+        previousDirection = .stop
         currentModeIndex = Int()
         super.init(coder: aDecoder)
     }
@@ -44,10 +45,12 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         self.joystickContainer?.layer.cornerRadius = 4.0;
         
         // setup mode buttons
-        let modeTitles = FunctionMapper.shared.modeNames()
+        let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
+        self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
         self.modeSegmentedControl?.removeAllSegments()
-        for i in 0..<modeTitles.count{
-            let title = modeTitles[i]
+        for i in 0..<motionCategories.count{
+            let title = motionCategories[i].name
             self.modeSegmentedControl?.insertSegment(withTitle: title, at: i, animated: false)
         }
         
@@ -56,10 +59,17 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         self.modeSegmentedControl?.selectedSegmentIndex = currentModeIndex
         
         // setup move buttons
-        let moveTitles = FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
-        let moveImages = FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
-        self.moveButtonContainer?.setTitles(titles: moveTitles)
-        self.moveButtonContainer?.setImages(images: moveImages)
+        //let moveTitles = FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
+        var motionImages = Array<String>()
+        var motionIds = Array<String>()
+        for motion in motionCategories[currentModeIndex].motions {
+            motionImages.append(motion.iconPath)
+            motionIds.append(motion.id.description)
+        }
+        //FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
+        
+        self.moveButtonContainer?.setTitles(titles: motionIds)
+        self.moveButtonContainer?.setImages(images: motionImages)
         
         if !PlenConnection.defaultInstance().isConnected(){
             autoConnect()
@@ -80,36 +90,46 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
     
     func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
         // 方向の判定
-        let actionKey = FunctionMapper.shared.wheelActionKeyForAngle(angle:angle, strength:strength)
-        
-        // 前回と同じ方向でなければストップモーションを挟む         あれば無視する
-        if (actionKey != self.previewWheelActionKey) {
-            PlenConnection.defaultInstance().writeValue(FunctionMapper.shared.valueForActionWithKey(actionKey:"center",
-                                                        type:CommandType.Wheel,
-                                                        modeIndex:currentModeIndex)!)
-            //return;
+        let direction = wheelActionKeyForAngle(angle:angle, strength:strength)
+        var mode = PlenWalkMode.normal
+        if(currentModeIndex == 1){
+            mode = .box
+        }else if(currentModeIndex == 4){
+            mode = .rollerSkating
         }
         
-        let value = FunctionMapper.shared.valueForActionWithKey(actionKey:actionKey,
-            type:CommandType.Wheel,
-            modeIndex:currentModeIndex)
+        // 前回と同じ方向でなければストップモーションを挟む
+        if (direction != self.previousDirection) {
+            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))//FunctionMapper.shared.valueForActionWithKey(actionKey:"center",
+                                                        //type:CommandType.Wheel,
+                                                        //modeIndex:currentModeIndex)!)
+        }
         
-        PlenConnection.defaultInstance().writeValue(value!)
+        let value = Constants.PlenCommand.walk(direction, mode: mode)//FunctionMapper.shared.valueForActionWithKey(actionKey:actionKey,
+            //type:CommandType.Wheel,
+            //modeIndex:currentModeIndex)
+        
+        PlenConnection.defaultInstance().writeValue(value)
         //BLECentralManager.shared.writeValue(value: value!)
         
-        self.previewWheelActionKey = actionKey;
+        self.previousDirection = direction
     }
     
     @IBAction func modeSegmentChanged(sender:UISegmentedControl){
         currentModeIndex = sender.selectedSegmentIndex
-        
-        self.moveButtonContainer?.setImages(images: FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
-        self.moveButtonContainer?.setTitles(titles: FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
+        var motionImages = Array<String>()
+        var motionIds = Array<String>()
+        for motion in motionCategories[currentModeIndex].motions {
+            motionImages.append(motion.iconPath)
+            motionIds.append(motion.id.description)
+        }
+        self.moveButtonContainer?.setImages(images: motionImages)//FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
+        self.moveButtonContainer?.setTitles(titles: motionIds)//FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
     }
     
     @IBAction func moveButtonTapped(sender:UIButton){
-        let value = FunctionMapper.shared.valueForActionNamed(actionName: sender.title(for: UIControlState.normal)!, type: CommandType.Button, modeIndex: currentModeIndex)
-        PlenConnection.defaultInstance().writeValue(value!)
+        let value = Constants.PlenCommand.playMotion(Int(sender.title(for: .normal)!)!)//FunctionMapper.shared.valueForActionNamed(actionName: sender.title(for: UIControlState.normal)!, type: CommandType.Button, modeIndex: currentModeIndex)
+        PlenConnection.defaultInstance().writeValue(value)
         //BLECentralManager.shared.writeValue(value: value!)
     }
     
@@ -251,5 +271,26 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(controller, animated: true, completion: nil)
+    }
+    
+    fileprivate func wheelActionKeyForAngle(angle:CGFloat, strength:CGFloat)->PlenWalkDirection{
+        if (strength < Constants.Dimen.ThreasholdCenter) {
+            return .stop;
+        }
+        
+        if (angle >= CGFloat(-M_PI_4) && angle < CGFloat(M_PI_4)) {
+            return .right;
+        }
+        else if (angle >= CGFloat(M_PI_4) && angle < CGFloat(M_PI_4 * 3)) {
+            return .forward;
+        }
+        else if (angle >= CGFloat(M_PI_4 * 3) || angle <= CGFloat(-M_PI_4 * 3)) {
+            return .left;
+        }
+        else if (angle <= CGFloat(-M_PI_4) && angle > CGFloat(-M_PI_4 * 3)) {
+            return .back;
+        }
+        
+        return .stop;
     }
 }
