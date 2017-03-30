@@ -21,7 +21,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     fileprivate let _centralManager = CBCentralManager()
-    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()//PublishSubject<CBCentralManagerState>()
+    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()
     fileprivate var _writer: PlenTxCharacteristicWriter?
     
     fileprivate let _rx_peripheral = Variable<CBPeripheral?>(nil)

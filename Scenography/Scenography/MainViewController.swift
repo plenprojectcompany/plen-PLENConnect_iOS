@@ -11,7 +11,7 @@ import RxSwift
 import CoreBluetooth
 import Toaster
 
-class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManagerDelegate*/{
+class MainViewController : UIViewController, JoystickDelegate{
     @IBOutlet weak private var modeSegmentedControl:UISegmentedControl?
     @IBOutlet weak private var joystickView:JoystickView?
     @IBOutlet weak private var moveButtonContainer:MoveButtonContainer?
@@ -35,7 +35,6 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         super.viewDidLoad()
         
         // setup delegate
-        //BLECentralManager.shared.setDelegate(delegate: self)
         self.joystickView?.joystickDelegate = self;
         
         // setup appearances
@@ -58,14 +57,12 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         self.modeSegmentedControl?.selectedSegmentIndex = currentModeIndex
         
         // setup move buttons
-        //let moveTitles = FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
         var motionImages = Array<String>()
         var motionIds = Array<String>()
         for motion in motionCategories[currentModeIndex].motions {
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
-        //FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex)
         
         self.moveButtonContainer?.setTitles(titles: motionIds)
         self.moveButtonContainer?.setImages(images: motionImages)
@@ -79,14 +76,6 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
         super.didReceiveMemoryWarning()
     }
     
-//    func onConnectedPLEN(){
-//        SVProgressHUD.showSuccess(withStatus: "CONNECTED")
-//    }
-//    
-//    func onDisconnectedPLEN(){
-//        SVProgressHUD.showError(withStatus: "DISCONECTED")
-//    }
-    
     func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
         // 方向の判定
         let direction = wheelActionKeyForAngle(angle:angle, strength:strength)
@@ -97,19 +86,15 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
             mode = .rollerSkating
         }
         
-        // 前回と同じ方向でなければストップモーションを挟む
+        // 前回と同じ方向でなければストップモーションを2度挟む
         if (direction != self.previousDirection) {
-            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))//FunctionMapper.shared.valueForActionWithKey(actionKey:"center",
-                                                        //type:CommandType.Wheel,
-                                                        //modeIndex:currentModeIndex)!)
+            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
+            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
         }
         
-        let value = Constants.PlenCommand.walk(direction, mode: mode)//FunctionMapper.shared.valueForActionWithKey(actionKey:actionKey,
-            //type:CommandType.Wheel,
-            //modeIndex:currentModeIndex)
+        let value = Constants.PlenCommand.walk(direction, mode: mode)
         
         PlenConnection.defaultInstance().writeValue(value)
-        //BLECentralManager.shared.writeValue(value: value!)
         
         self.previousDirection = direction
     }
@@ -122,14 +107,13 @@ class MainViewController : UIViewController, JoystickDelegate/*, BLECentralManag
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
-        self.moveButtonContainer?.setImages(images: motionImages)//FunctionMapper.shared.actionImagesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
-        self.moveButtonContainer?.setTitles(titles: motionIds)//FunctionMapper.shared.actionNamesForCommandType(type: CommandType.Button, modeIndex: currentModeIndex))
+        self.moveButtonContainer?.setImages(images: motionImages)
+        self.moveButtonContainer?.setTitles(titles: motionIds)
     }
     
     @IBAction func moveButtonTapped(sender:UIButton){
-        let value = Constants.PlenCommand.playMotion(Int(sender.title(for: .normal)!)!)//FunctionMapper.shared.valueForActionNamed(actionName: sender.title(for: UIControlState.normal)!, type: CommandType.Button, modeIndex: currentModeIndex)
+        let value = Constants.PlenCommand.playMotion(Int(sender.title(for: .normal)!)!)
         PlenConnection.defaultInstance().writeValue(value)
-        //BLECentralManager.shared.writeValue(value: value!)
     }
     
     @IBAction func startScan(_ sender: UIBarButtonItem?) {

@@ -44,7 +44,7 @@ func *(lhs: Int, rhs: String) -> String {
 // MARK: - typeName
 
 func typeName(value: Any) -> String {
-    let typeName = String(describing: type(of: value))//_stdlib_getDemangledTypeName(value)
+    let typeName = String(describing: type(of: value))
     
     if let range = typeName.range(of: ".") {
         return typeName.substring(from: range.upperBound)

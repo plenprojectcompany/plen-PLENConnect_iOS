@@ -23,7 +23,7 @@ struct DisposableWrapper: Disposable {
 @available(iOS 10.0, *)
 class PlenScanner: NSObject, CBCentralManagerDelegate {
     fileprivate let _centralManager = CBCentralManager()
-    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()//PublishSubject<CBCentralManagerState>()
+    fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()
     fileprivate let _rx_discoveredPeripheral = PublishSubject<CBPeripheral>()
     
     override init() {
@@ -42,10 +42,6 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
 
         let scanResult = _rx_discoveredPeripheral
             .distinctUntilChanged({$0.0.identifier == $0.1.identifier})
-        
-        //let resource = Disposables.create {
-        //    [weak self] in self?.stopScan()
-        //}//AnonymousDisposable({[weak self] in self?.stopScan()})}
         
         return Observable.using({
             return DisposableWrapper(disposable: Disposables.create(with: {
