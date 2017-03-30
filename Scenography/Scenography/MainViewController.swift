@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 import RxSwift
 import CoreBluetooth
 import Toaster

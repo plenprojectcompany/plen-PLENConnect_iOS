@@ -3,7 +3,7 @@ platform :ios, '9.2'
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'Scenography' do
+target 'PLEN Connect' do
 	pod 'RxSwift',    '~> 3.0'
 	pod 'RxCocoa',    '~> 3.0'
 	pod 'RxBlocking', '~> 3.0'
@@ -15,21 +15,17 @@ target 'Scenography' do
 	pod 'Toaster', '~> 2.0'
 	
 	pod 'SwiftyJSON'
+end
 
-  pod 'SVProgressHUD'
-  pod 'Fuzi'
+target 'PLEN ConnectTests' do
 
 end
 
-target 'ScenographyTests' do
+target 'PLEN ConnectUITests' do
 
 end
 
-target 'ScenographyUITests' do
-
-end
-
-post_install do | installer |
-  require 'fileutils'
-  FileUtils.cp_r('Pods/Target Support Files/Pods-Scenography/Pods-Scenography-acknowledgements.plist', 'Scenography/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
-end
+#post_install do | installer |
+#  require 'fileutils'
+#  FileUtils.cp_r('Pods/Target Support Files/Pods-Scenography/Pods-Scenography-acknowledgements.plist', 'Scenography/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+#end
