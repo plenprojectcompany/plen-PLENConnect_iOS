@@ -132,7 +132,7 @@ class FunctionMapper : NSObject{
     }
     
     func wheelActionKeyForAngle(angle:CGFloat, strength:CGFloat)->String{
-        if (strength < Constants.ThreasholdCenter) {
+        if (strength < Constants.Dimen.ThreasholdCenter) {
             return "center";
         }
         

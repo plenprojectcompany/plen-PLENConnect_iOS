@@ -64,7 +64,7 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Resources.Dimen.PlenMotionCellHeight
+        return Constants.Dimen.PlenMotionCellHeight
     }
     
     // MARK: - DragGestureRecognizerTargetDelegate
@@ -72,7 +72,7 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
     fileprivate func initDragGestureRecognizerTarget() {
         let dragGestureRecognizer = UILongPressGestureRecognizer()
         DragGestureRecognizerTarget(delegate: self).addGestureRecognizerTargetTo(dragGestureRecognizer)
-        dragGestureRecognizer.minimumPressDuration = Resources.Time.DragGestureMinimumPressDuration
+        dragGestureRecognizer.minimumPressDuration = Constants.Time.DragGestureMinimumPressDuration
         tableView.addGestureRecognizer(dragGestureRecognizer)
     }
     
@@ -97,11 +97,11 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
         
         dragShadow.frame.size = CGSize(
             width: tableView.frame.width,
-            height: Resources.Dimen.PlenMotionCellHeight)
+            height: Constants.Dimen.PlenMotionCellHeight)
         
         dragShadow.backgroundColor = UIColor.clear
         dragShadow.contentView.layer.cornerRadius = 10
-        dragShadow.contentView.backgroundColor = Resources.Color.PlenGreen.alpha(0.3)
+        dragShadow.contentView.backgroundColor = Constants.Color.PlenGreenDark.alpha(0.3)
         
         return dragShadow
     }

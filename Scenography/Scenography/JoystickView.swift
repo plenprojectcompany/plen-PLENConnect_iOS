@@ -22,7 +22,7 @@ class JoystickView : UIScrollView, UIScrollViewDelegate{
         self.circleView.layer.cornerRadius = self.circleView.frame.size.width / 2
         self.circleView.layer.borderColor = UIColor.white.cgColor
         self.circleView.layer.borderWidth = 4.0
-        self.circleView.layer.backgroundColor = Constants.MainColor.cgColor
+        self.circleView.layer.backgroundColor = Constants.Color.PlenGreenDark.cgColor
         self.circleView.layer.masksToBounds = true
         
         self.highlightView.layer.cornerRadius = self.circleView.frame.size.width / 2

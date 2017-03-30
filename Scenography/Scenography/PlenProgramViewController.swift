@@ -54,7 +54,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         
         // auto scroll on DragEvent
         Observable<Int>
-            .interval(Resources.Time.TableViewAutoScrollInterval,
+            .interval(Constants.Time.TableViewAutoScrollInterval,
                 scheduler: SerialDispatchQueueScheduler(qos: .default))
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in self?.scrollTableView()})
@@ -137,7 +137,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Resources.Dimen.PlenMotionCellHeight
+        return Constants.Dimen.PlenMotionCellHeight
     }
     
     // MARK: - DragEventListener
@@ -182,7 +182,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
     fileprivate func initDragGestureRecognizerTarget() {
         let dragGestureRecognizer = UILongPressGestureRecognizer()
         DragGestureRecognizerTarget(delegate: self).addGestureRecognizerTargetTo(dragGestureRecognizer)
-        dragGestureRecognizer.minimumPressDuration = Resources.Time.DragGestureMinimumPressDuration
+        dragGestureRecognizer.minimumPressDuration = Constants.Time.DragGestureMinimumPressDuration
         tableView.addGestureRecognizer(dragGestureRecognizer)
     }
     
@@ -204,11 +204,11 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         
         dragShadow.frame.size = CGSize(
             width: tableView.frame.width,
-            height: Resources.Dimen.PlenMotionCellHeight)
+            height: Constants.Dimen.PlenMotionCellHeight)
         
         dragShadow.backgroundColor = UIColor.clear
         dragShadow.contentView.layer.cornerRadius = 10
-        dragShadow.contentView.backgroundColor = Resources.Color.PlenGreen.alpha(0.3)
+        dragShadow.contentView.backgroundColor = Constants.Color.PlenGreenDark.alpha(0.3)
         
         // replace by a empty cell
         program.sequence[tableView.indexPath(for: touchedCell)!.row] = _emptyCellData
@@ -237,7 +237,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
         }
         
         let touchY = gestureRecognizer.location(in: tableView).y
-        let scrollAreaHeight = Resources.Dimen.PlenMotionCellHeight
+        let scrollAreaHeight = Constants.Dimen.PlenMotionCellHeight
         switch touchY {
         case tableView.bounds.minY ..< tableView.bounds.minY + scrollAreaHeight:
             scrollDirection = .top

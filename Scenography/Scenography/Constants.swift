@@ -1,19 +1,18 @@
 //
-//  Resources.swift
+//  Constants.swift
 //  Scenography
 //
-//  Created by PLEN Project on 2016/03/04.
-//  Copyright © 2016年 PLEN Project. All rights reserved.
+//  Created by PLEN Project on 2017/03/30.
+//  Copyright © 2017年 PLEN Project. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreBluetooth
 
-enum Resources {
+enum Constants {
     enum Color {
-        static var PlenGreen: UIColor {return UIColor(hex: 0x00A73C)}
-        static var PlenGreenDark: UIColor {return UIColor(hex: 0x00983A)}
+        static var PlenGreenDark: UIColor {return UIColor(hex: 0x159D49)}
         
         static var ScenographyWhite: UIColor {return UIColor(hex: 0xFFFDFB)}
         static var ScenographyBlack: UIColor {return UIColor(hex: 0x261400)}
@@ -22,6 +21,7 @@ enum Resources {
     
     enum Dimen {
         static let PlenMotionCellHeight: CGFloat = 77
+        static let ThreasholdCenter:CGFloat = 0.3
     }
     
     enum Time {
@@ -42,7 +42,7 @@ enum Resources {
     }
 }
 
-extension Resources {
+extension Constants {
     enum PlenCommand {
         static let resetInterpreter = "#RI" + "#RI"
         

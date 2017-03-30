@@ -62,7 +62,7 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
         logger.info("start scan")
         
         let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]
-        _centralManager.scanForPeripherals(withServices: [Resources.UUID.PlenControlService], options: options)
+        _centralManager.scanForPeripherals(withServices: [Constants.UUID.PlenControlService], options: options)
     }
     
     fileprivate func stopScan() {

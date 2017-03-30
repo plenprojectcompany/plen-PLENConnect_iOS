@@ -19,7 +19,7 @@ class PlenTxCharacteristicWriter {
     init?(txCharacteristic: CBCharacteristic) {
         self.txCharacteristic = txCharacteristic
         
-        if txCharacteristic.uuid != Resources.UUID.PlenTxCharacteristic {
+        if txCharacteristic.uuid != Constants.UUID.PlenTxCharacteristic {
             return nil
         }
     }
@@ -47,8 +47,8 @@ class PlenTxCharacteristicWriter {
         guard isIdle && !queue.isEmpty else {return}
         
         // pop
-        let packet = String(queue.prefix(Resources.Integer.BLEPacketSizeMax))
-        queue.removeFirst(min(Resources.Integer.BLEPacketSizeMax, queue.count))
+        let packet = String(queue.prefix(Constants.Integer.BLEPacketSizeMax))
+        queue.removeFirst(min(Constants.Integer.BLEPacketSizeMax, queue.count))
         
         // must be ASCII
         guard let data = packet.data(using: String.Encoding.ascii) else {

@@ -31,7 +31,7 @@
 		F81542FA1C8E3F3700E41185 /* PlenMotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542E61C8E3F3700E41185 /* PlenMotionView.xib */; };
 		F81542FB1C8E3F3700E41185 /* PLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E71C8E3F3700E41185 /* PLPageViewController.swift */; };
 		F81542FC1C8E3F3700E41185 /* RxUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E81C8E3F3700E41185 /* RxUtils.swift */; };
-		F81542FD1C8E3F3700E41185 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E91C8E3F3700E41185 /* Resources.swift */; };
+		F81542FD1C8E3F3700E41185 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542E91C8E3F3700E41185 /* Constants.swift */; };
 		F81542FE1C8E3F3700E41185 /* SwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */; };
 		F81542FF1C8E3F3700E41185 /* UIKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */; };
 		F81543071C8E41AC00E41185 /* json in Resources */ = {isa = PBXBuildFile; fileRef = F81543051C8E41AC00E41185 /* json */; };
@@ -51,9 +51,7 @@
 		F89C37D01E86242200D920B2 /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CC1E86242200D920B2 /* JoystickView.swift */; };
 		F89C37D11E86242200D920B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CD1E86242200D920B2 /* MainViewController.swift */; };
 		F89C37D21E86242200D920B2 /* MoveButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CE1E86242200D920B2 /* MoveButtonContainer.swift */; };
-		F89C37D41E86244200D920B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37D31E86244200D920B2 /* Constants.swift */; };
 		F8A4B2AD1C9AC94C00F46573 /* PlenConnectionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */; };
-		F8A9E57E1E8628A900D19E9F /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A9E57D1E8628A900D19E9F /* UIImageExtension.swift */; };
 		F8A9E5801E8628C500D19E9F /* FunctionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A9E57F1E8628C500D19E9F /* FunctionMapper.swift */; };
 		F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB79891C95B976003E948F /* PlenJSONUtils.swift */; };
 		F8C3C87B1C9381F0001E0590 /* PlenConnetion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C87A1C9381F0001E0590 /* PlenConnetion.swift */; };
@@ -116,7 +114,7 @@
 		F81542E61C8E3F3700E41185 /* PlenMotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionView.xib; sourceTree = "<group>"; };
 		F81542E71C8E3F3700E41185 /* PLPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PLPageViewController.swift; sourceTree = "<group>"; };
 		F81542E81C8E3F3700E41185 /* RxUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxUtils.swift; sourceTree = "<group>"; };
-		F81542E91C8E3F3700E41185 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		F81542E91C8E3F3700E41185 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUtils.swift; sourceTree = "<group>"; };
 		F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitUtils.swift; sourceTree = "<group>"; };
 		F81543051C8E41AC00E41185 /* json */ = {isa = PBXFileReference; lastKnownFileType = folder; path = json; sourceTree = "<group>"; };
@@ -138,9 +136,7 @@
 		F89C37CC1E86242200D920B2 /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		F89C37CD1E86242200D920B2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F89C37CE1E86242200D920B2 /* MoveButtonContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveButtonContainer.swift; sourceTree = "<group>"; };
-		F89C37D31E86244200D920B2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = SOURCE_ROOT; };
 		F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionLog.swift; sourceTree = "<group>"; };
-		F8A9E57D1E8628A900D19E9F /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = Extension/UIImageExtension.swift; sourceTree = "<group>"; };
 		F8A9E57F1E8628C500D19E9F /* FunctionMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FunctionMapper.swift; path = FunctionMapper/FunctionMapper.swift; sourceTree = "<group>"; };
 		F8AB79891C95B976003E948F /* PlenJSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenJSONUtils.swift; sourceTree = "<group>"; };
 		F8C3C87A1C9381F0001E0590 /* PlenConnetion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnetion.swift; sourceTree = "<group>"; };
@@ -281,7 +277,6 @@
 		F81543011C8E3F8800E41185 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F8A9E57D1E8628A900D19E9F /* UIImageExtension.swift */,
 				F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */,
 				F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */,
 				F81542E81C8E3F3700E41185 /* RxUtils.swift */,
@@ -340,11 +335,10 @@
 			isa = PBXGroup;
 			children = (
 				F8A9E57F1E8628C500D19E9F /* FunctionMapper.swift */,
-				F89C37D31E86244200D920B2 /* Constants.swift */,
 				F81542AA1C8E3E5200E41185 /* AppDelegate.swift */,
 				F81542AE1C8E3E5200E41185 /* Main.storyboard */,
 				F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */,
-				F81542E91C8E3F3700E41185 /* Resources.swift */,
+				F81542E91C8E3F3700E41185 /* Constants.swift */,
 				F81542B11C8E3E5200E41185 /* Assets.xcassets */,
 				F81542B61C8E3E5200E41185 /* Info.plist */,
 				F840BF511C9BB7DB009DD90E /* Settings.bundle */,
@@ -675,7 +669,7 @@
 				F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */,
 				F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */,
 				F89C37CF1E86242200D920B2 /* Button.swift in Sources */,
-				F81542FD1C8E3F3700E41185 /* Resources.swift in Sources */,
+				F81542FD1C8E3F3700E41185 /* Constants.swift in Sources */,
 				F8CDD23F1C91E4F500431E9E /* DragEvent.swift in Sources */,
 				F8C3C87B1C9381F0001E0590 /* PlenConnetion.swift in Sources */,
 				F81542F91C8E3F3700E41185 /* PlenMotionView.swift in Sources */,
@@ -691,10 +685,8 @@
 				F89C37D21E86242200D920B2 /* MoveButtonContainer.swift in Sources */,
 				F8A9E5801E8628C500D19E9F /* FunctionMapper.swift in Sources */,
 				F81542FC1C8E3F3700E41185 /* RxUtils.swift in Sources */,
-				F8A9E57E1E8628A900D19E9F /* UIImageExtension.swift in Sources */,
 				F8C3C8831C93E45B001E0590 /* PlenScanner.swift in Sources */,
 				F8C3C8871C93E55A001E0590 /* PlenTxCharacteristicWriter.swift in Sources */,
-				F89C37D41E86244200D920B2 /* Constants.swift in Sources */,
 				F81542F71C8E3F3700E41185 /* PlenMotionTableViewController.swift in Sources */,
 				F89C37D01E86242200D920B2 /* JoystickView.swift in Sources */,
 				F840BFF01C9BFAC2009DD90E /* PlenConnectionError.swift in Sources */,

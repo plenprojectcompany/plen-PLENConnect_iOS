@@ -244,7 +244,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func playProgram(_ sender: AnyObject) {
-        PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.playProgram(program))
+        PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.playProgram(program))
     }
     
     fileprivate func dismissScanningAlert() {

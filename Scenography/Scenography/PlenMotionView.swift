@@ -48,8 +48,8 @@ class PlenMotionView: UIView {
     }
     
     @IBAction func iconViewTouched(_ sender: AnyObject) {
-        PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.playMotion(motion.id))
-        PlenConnection.defaultInstance().writeValue(Resources.PlenCommand.stopMotion)
+        PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.playMotion(motion.id))
+        PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.stopMotion)
     }
     
     fileprivate func initBindings() {

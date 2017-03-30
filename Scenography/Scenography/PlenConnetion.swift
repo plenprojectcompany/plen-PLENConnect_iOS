@@ -58,9 +58,9 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             
             s._rx_peripheral.value = peripheral
             
-            s._centralManager.scanForPeripherals(withServices: [Resources.UUID.PlenControlService], options: nil)
+            s._centralManager.scanForPeripherals(withServices: [Constants.UUID.PlenControlService], options: nil)
             Observable<Int>
-                .timer(Resources.Time.ScannigPlenDuration, scheduler: s._backgroundScheduler)
+                .timer(Constants.Time.ScannigPlenDuration, scheduler: s._backgroundScheduler)
                 .do(onCompleted: {_ in s._centralManager.stopScan()})
                 .subscribe()
                 .addDisposableTo(s._disposeBag)
@@ -112,7 +112,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
         logger.verbose("\(peripheral)")
         
-        peripheral.discoverServices([Resources.UUID.PlenControlService])
+        peripheral.discoverServices([Constants.UUID.PlenControlService])
         
         _rx_peripheral.value = peripheral
     }
@@ -139,8 +139,8 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         guard let services = peripheral.services else {return}
         logger.verbose("services: \(services)")
         
-        guard let plenControlService = services.filter({$0.uuid == Resources.UUID.PlenControlService}).first else {return}
-        peripheral.discoverCharacteristics([Resources.UUID.PlenTxCharacteristic], for: plenControlService)
+        guard let plenControlService = services.filter({$0.uuid == Constants.UUID.PlenControlService}).first else {return}
+        peripheral.discoverCharacteristics([Constants.UUID.PlenTxCharacteristic], for: plenControlService)
         
         _rx_peripheral.value = peripheral
     }
@@ -151,7 +151,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         guard let characteristics = service.characteristics else {return}
         logger.verbose("characteristics: \(characteristics)")
         
-        guard let txCharacteristic = characteristics.filter({$0.uuid == Resources.UUID.PlenTxCharacteristic}).first else {return}
+        guard let txCharacteristic = characteristics.filter({$0.uuid == Constants.UUID.PlenTxCharacteristic}).first else {return}
         _writer = PlenTxCharacteristicWriter(txCharacteristic: txCharacteristic)
         
         _rx_peripheral.value = peripheral
