@@ -109,7 +109,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name))")
         logger.verbose("\(peripheral)")
         
         peripheral.discoverServices([Constants.UUID.PlenControlService])
@@ -118,15 +118,15 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name), error:\(error)")
-        logger.verbose("\(peripheral), error:\(error)")
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name)), error:\(String(describing: error))")
+        logger.verbose("\(peripheral), error:\(String(describing: error))")
         
         _rx_peripheral.value = peripheral
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
-        logger.verbose("\(peripheral), error:\(error)")
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name))")
+        logger.verbose("\(peripheral), error:\(String(describing: error))")
         
         _rx_peripheral.value = peripheral
     }
@@ -134,7 +134,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     // MARK: CBPeripheralDelegate
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        logger.verbose("\(peripheral), error:\(error)")
+        logger.verbose("\(peripheral), error:\(String(describing: error))")
         
         guard let services = peripheral.services else {return}
         logger.verbose("services: \(services)")
@@ -146,7 +146,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        logger.verbose("\(peripheral), service: \(service), error:\(error)")
+        logger.verbose("\(peripheral), service: \(service), error:\(String(describing: error))")
         
         guard let characteristics = service.characteristics else {return}
         logger.verbose("characteristics: \(characteristics)")
@@ -158,7 +158,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        logger.verbose("\(peripheral), characteristic: \(characteristic), error:\(error)")
+        logger.verbose("\(peripheral), characteristic: \(characteristic), error:\(String(describing: error))")
         
         assert(_writer?.txCharacteristic == characteristic)
         _writer?.didWriteValueForCharacteristic()

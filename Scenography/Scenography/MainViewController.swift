@@ -261,16 +261,16 @@ class MainViewController : UIViewController, JoystickDelegate{
             return .stop;
         }
         
-        if (angle >= CGFloat(-M_PI_4) && angle < CGFloat(M_PI_4)) {
+        if (angle >= CGFloat(-Double.pi/4) && angle < CGFloat(Double.pi/4)) {
             return .right;
         }
-        else if (angle >= CGFloat(M_PI_4) && angle < CGFloat(M_PI_4 * 3)) {
+        else if (angle >= CGFloat(Double.pi/4) && angle < CGFloat(Double.pi/4 * 3)) {
             return .forward;
         }
-        else if (angle >= CGFloat(M_PI_4 * 3) || angle <= CGFloat(-M_PI_4 * 3)) {
+        else if (angle >= CGFloat(Double.pi/4 * 3) || angle <= CGFloat(-Double.pi/4 * 3)) {
             return .left;
         }
-        else if (angle <= CGFloat(-M_PI_4) && angle > CGFloat(-M_PI_4 * 3)) {
+        else if (angle <= CGFloat(-Double.pi/4) && angle > CGFloat(-Double.pi/4 * 3)) {
             return .back;
         }
         

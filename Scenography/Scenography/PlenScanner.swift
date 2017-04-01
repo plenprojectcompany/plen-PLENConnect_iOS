@@ -78,7 +78,7 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
     
     @objc
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
-        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(peripheral.name)")
+        logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name))")
         logger.verbose("periferal:\(peripheral), advertisementData:\(advertisementData), RSSI:\(RSSI)")
         
         _rx_discoveredPeripheral.onNext(peripheral)

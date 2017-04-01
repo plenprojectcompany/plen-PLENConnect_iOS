@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D66AD2D92A2A34F8BB615BA /* Pods_Scenography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFC3B2AEB6205C1C60C56DC /* Pods_Scenography.framework */; };
-		521847CCCCFED9C528AF30CF /* Pods_ScenographyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA88DADC52AC1559E338E83C /* Pods_ScenographyUITests.framework */; };
 		8594385ECCB3F679F56FAA06 /* Pods_PLEN_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF2C4C12E77E7A8E937E7E0 /* Pods_PLEN_Connect.framework */; };
-		9B694A10DDF71BFC9590FCE0 /* Pods_ScenographyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29358ABEEB01A6807A2C136 /* Pods_ScenographyTests.framework */; };
 		D2F4BF5FA0AEEF4BCD326EFF /* Pods_PLEN_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238A1934E3D76E887C8F697 /* Pods_PLEN_ConnectTests.framework */; };
 		DF7E32496E68335BD27BFFB1 /* Pods_PLEN_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2BAD7D6AAF7643ABD2CB95 /* Pods_PLEN_ConnectUITests.framework */; };
 		F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AA1C8E3E5200E41185 /* AppDelegate.swift */; };
@@ -80,21 +77,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B87432DBD0321ECB5C777F1 /* Pods-ScenographyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyTests/Pods-ScenographyTests.release.xcconfig"; sourceTree = "<group>"; };
 		1238A1934E3D76E887C8F697 /* Pods_PLEN_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLEN_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		237F43EA6EE99935047E022D /* Pods-ScenographyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyUITests/Pods-ScenographyUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3BFC3B2AEB6205C1C60C56DC /* Pods_Scenography.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scenography.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F0A7A03EDD94DF2F9100FE /* Pods-PLEN ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E2BAD7D6AAF7643ABD2CB95 /* Pods_PLEN_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLEN_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61061C7EBE89C2AB70BAF571 /* Pods-PLEN Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect.release.xcconfig"; sourceTree = "<group>"; };
 		8FF2C4C12E77E7A8E937E7E0 /* Pods_PLEN_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLEN_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		937A01DA5EB2F97D93DA7D15 /* Pods-PLEN ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectTests/Pods-PLEN ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BA297C4EBA0CC84F1163DFAE /* Pods-Scenography.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scenography.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scenography/Pods-Scenography.release.xcconfig"; sourceTree = "<group>"; };
 		BF7BB085064C9745E9C360A5 /* Pods-PLEN ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectTests/Pods-PLEN ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
-		EA88DADC52AC1559E338E83C /* Pods_ScenographyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScenographyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF4EEE3BCFDB044C4CCB0A92 /* Pods-ScenographyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyUITests/Pods-ScenographyUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F29358ABEEB01A6807A2C136 /* Pods_ScenographyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScenographyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F70FE39F359D820D2935AE57 /* Pods-Scenography.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scenography.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scenography/Pods-Scenography.debug.xcconfig"; sourceTree = "<group>"; };
 		F741AC8150640E1E3AB53D10 /* Pods-PLEN ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F81542A71C8E3E5200E41185 /* PLEN Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PLEN Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81542AA1C8E3E5200E41185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +141,6 @@
 		F8C3C8881C93F000001E0590 /* PlenWalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenWalk.swift; sourceTree = "<group>"; };
 		F8CDD23E1C91E4F500431E9E /* DragEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragEvent.swift; sourceTree = "<group>"; };
 		FC7A5D9328F14B7CBF837958 /* Pods-PLEN Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		FD09ED47466B4031EE41902D /* Pods-ScenographyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScenographyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScenographyTests/Pods-ScenographyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +148,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D66AD2D92A2A34F8BB615BA /* Pods_Scenography.framework in Frameworks */,
 				8594385ECCB3F679F56FAA06 /* Pods_PLEN_Connect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,7 +156,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B694A10DDF71BFC9590FCE0 /* Pods_ScenographyTests.framework in Frameworks */,
 				D2F4BF5FA0AEEF4BCD326EFF /* Pods_PLEN_ConnectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				521847CCCCFED9C528AF30CF /* Pods_ScenographyUITests.framework in Frameworks */,
 				DF7E32496E68335BD27BFFB1 /* Pods_PLEN_ConnectUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,12 +174,6 @@
 		0423DEBB34C807FBEC714E38 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F70FE39F359D820D2935AE57 /* Pods-Scenography.debug.xcconfig */,
-				BA297C4EBA0CC84F1163DFAE /* Pods-Scenography.release.xcconfig */,
-				FD09ED47466B4031EE41902D /* Pods-ScenographyTests.debug.xcconfig */,
-				0B87432DBD0321ECB5C777F1 /* Pods-ScenographyTests.release.xcconfig */,
-				EF4EEE3BCFDB044C4CCB0A92 /* Pods-ScenographyUITests.debug.xcconfig */,
-				237F43EA6EE99935047E022D /* Pods-ScenographyUITests.release.xcconfig */,
 				FC7A5D9328F14B7CBF837958 /* Pods-PLEN Connect.debug.xcconfig */,
 				61061C7EBE89C2AB70BAF571 /* Pods-PLEN Connect.release.xcconfig */,
 				937A01DA5EB2F97D93DA7D15 /* Pods-PLEN ConnectTests.debug.xcconfig */,
@@ -208,9 +187,6 @@
 		55CCCA104B13D16480B6E659 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3BFC3B2AEB6205C1C60C56DC /* Pods_Scenography.framework */,
-				F29358ABEEB01A6807A2C136 /* Pods_ScenographyTests.framework */,
-				EA88DADC52AC1559E338E83C /* Pods_ScenographyUITests.framework */,
 				8FF2C4C12E77E7A8E937E7E0 /* Pods_PLEN_Connect.framework */,
 				1238A1934E3D76E887C8F697 /* Pods_PLEN_ConnectTests.framework */,
 				5E2BAD7D6AAF7643ABD2CB95 /* Pods_PLEN_ConnectUITests.framework */,
