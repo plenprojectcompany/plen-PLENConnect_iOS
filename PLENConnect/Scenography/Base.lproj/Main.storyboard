@@ -39,7 +39,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="2aY-Vv-Imq"/>
                                     <constraint firstItem="7yF-7j-JG2" firstAttribute="centerY" secondItem="qhM-3e-ALn" secondAttribute="centerY" id="Fai-Ml-Cav"/>
@@ -48,20 +48,20 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-cR-Jq8">
                                 <rect key="frame" x="335" y="0.0" width="332" height="38"/>
-                                <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="LNg-MB-jJU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xv4-ho-aye" userLabel="center bar">
                                 <rect key="frame" x="332" y="0.0" width="3" height="262"/>
-                                <color key="backgroundColor" red="0.0" green="0.59375" blue="0.2265625" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="3" id="IJg-FU-or6"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.59607843137254901" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.61960784313725492" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vl1-X3-rkV" secondAttribute="bottom" id="0rN-Cx-jjj"/>
                             <constraint firstItem="GxM-5g-yyY" firstAttribute="leading" secondItem="Xv4-ho-aye" secondAttribute="trailing" id="13r-1x-2yA"/>
