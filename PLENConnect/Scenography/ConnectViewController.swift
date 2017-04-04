@@ -12,10 +12,10 @@ import CoreBluetooth
 import Toaster
 
 class ConnectViewController : UIViewController, JoystickDelegate{
-    @IBOutlet weak private var modeSegmentedControl:UISegmentedControl?
-    @IBOutlet weak private var joystickView:JoystickView?
-    @IBOutlet weak private var moveButtonContainer:MoveButtonContainer?
-    @IBOutlet weak private var joystickContainer:UIView?
+    @IBOutlet weak private var modeSegmentedControl:UISegmentedControl!
+    @IBOutlet weak private var joystickView:JoystickView!
+    @IBOutlet weak private var moveButtonContainer:MoveButtonContainer!
+    @IBOutlet weak private var joystickContainer:UIView!
     private var previousDirection:PlenWalkDirection
     private var currentModeIndex:Int
     fileprivate var scanningDisposable: Disposable?
@@ -35,27 +35,36 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         super.viewDidLoad()
         
         // setup delegate
-        self.joystickView?.joystickDelegate = self;
+        self.joystickView.joystickDelegate = self;
         
         // setup appearances
-        self.joystickContainer?.layer.borderColor = UIColor.white.cgColor;
-        self.joystickContainer?.layer.borderWidth = 1.0;
-        self.joystickContainer?.layer.cornerRadius = 4.0;
+        self.joystickContainer.layer.borderColor = UIColor.white.cgColor;
+        self.joystickContainer.layer.borderWidth = 1.0;
+        self.joystickContainer.layer.cornerRadius = 4.0;
         
         // setup mode buttons
         let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
         let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
         self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
-        self.modeSegmentedControl?.removeAllSegments()
+        self.modeSegmentedControl.removeAllSegments()
         for i in 0..<motionCategories.count{
             let title = motionCategories[i].name
-            self.modeSegmentedControl?.insertSegment(withTitle: title, at: i, animated: false)
+            self.modeSegmentedControl.insertSegment(withTitle: title, at: i, animated: false)
         }
         
         // initialize mode
         currentModeIndex = 0;
-        self.modeSegmentedControl?.selectedSegmentIndex = currentModeIndex
+        self.modeSegmentedControl.selectedSegmentIndex = currentModeIndex
         
+        
+        
+        
+        if !PlenConnection.defaultInstance().isConnected(){
+            autoConnect()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // setup move buttons
         var motionImages = Array<String>()
         var motionIds = Array<String>()
@@ -64,12 +73,8 @@ class ConnectViewController : UIViewController, JoystickDelegate{
             motionIds.append(motion.id.description)
         }
         
-        self.moveButtonContainer?.setTitles(titles: motionIds)
-        self.moveButtonContainer?.setImages(images: motionImages)
-        
-        if !PlenConnection.defaultInstance().isConnected(){
-            autoConnect()
-        }
+        self.moveButtonContainer.setImages(images: motionImages)
+        self.moveButtonContainer.setTitles(titles: motionIds)
     }
     
     override func didReceiveMemoryWarning() {

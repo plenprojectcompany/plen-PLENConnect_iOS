@@ -194,7 +194,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5pg-Aq-Amv" secondAttribute="height" multiplier="1:1" id="uxP-3r-89p"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -206,7 +206,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tpM-v5-T21" secondAttribute="height" multiplier="1:1" id="fiA-h8-JMm"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -218,7 +218,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Epm-fo-r9F" secondAttribute="height" multiplier="1:1" id="rC9-bZ-3Xi"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -230,7 +230,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lQU-1u-xfw" secondAttribute="height" multiplier="1:1" id="Dio-KL-tND"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -245,7 +245,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yqf-8R-zzz" secondAttribute="height" multiplier="1:1" id="DoM-SY-suV"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -257,7 +257,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZZ5-mX-3jB" secondAttribute="height" multiplier="1:1" id="j9B-vl-N0G"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -269,7 +269,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OVe-Ms-R8O" secondAttribute="height" multiplier="1:1" id="sxw-f7-l6d"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -281,7 +281,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hCW-l1-k2c" secondAttribute="height" multiplier="1:1" id="cAK-PE-edK"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -293,7 +293,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fjT-e5-NOb" secondAttribute="height" multiplier="1:1" id="Nbm-8m-lhZ"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -372,7 +372,6 @@
         <!--Home-->
         <scene sceneID="lIg-gK-KEt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L5D-Ds-haF" sceneMemberID="firstResponder"/>
                 <viewController id="FOE-Pk-SLh" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gVf-3s-0Vh"/>
@@ -422,6 +421,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="UHu-mH-mFS" userLabel="Home"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L5D-Ds-haF" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1094.3028485757122" y="1813.5999999999999"/>
         </scene>
