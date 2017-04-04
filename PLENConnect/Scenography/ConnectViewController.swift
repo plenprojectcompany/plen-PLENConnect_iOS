@@ -11,7 +11,7 @@ import RxSwift
 import CoreBluetooth
 import Toaster
 
-class MainViewController : UIViewController, JoystickDelegate{
+class ConnectViewController : UIViewController, JoystickDelegate{
     @IBOutlet weak private var modeSegmentedControl:UISegmentedControl?
     @IBOutlet weak private var joystickView:JoystickView?
     @IBOutlet weak private var moveButtonContainer:MoveButtonContainer?

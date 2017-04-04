@@ -12,7 +12,7 @@ import CoreBluetooth
 
 enum Constants {
     enum Color {
-        static var PlenGreenDark: UIColor {return UIColor(hex: 0x159D49)}
+        static var PlenGreenDark: UIColor {return UIColor(hex: 0x159E49)}
         
         static var ScenographyWhite: UIColor {return UIColor(hex: 0xFFFDFB)}
         static var ScenographyBlack: UIColor {return UIColor(hex: 0x261400)}
