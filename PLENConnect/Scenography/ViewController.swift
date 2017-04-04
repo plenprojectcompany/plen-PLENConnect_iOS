@@ -18,7 +18,6 @@ import Toaster
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var titleLabel: UILabel!
-    //@IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var playButton: UIBarButtonItem!
     
     @IBOutlet weak var programTitle: UILabel!
@@ -58,9 +57,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             formats: ["H:|-(-1)-[tabBar]-(-1)-|", "V:|[tabBar]|"],
             views: views as [String : AnyObject])
         
-        //view.bringSubview(toFront: toolbar)
-        //view.bringSubview(toFront: titleLabel)
-        //makeShadow(toolbar.layer)
         makeShadow(tabBarHolder.layer)
         makeShadow(programTitleHolder.layer)
         
