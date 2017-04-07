@@ -2,11 +2,11 @@ PLEN Connect for iOS | PLEN Project Company
 ===============================================================================
 
 ## PLEN Connect
-![PLEN Connect](./Scenography/screenshot_connect.png "PLEN Connect")
+![PLEN Connect](./Scenography/screenshot_controller.png "Controller")
 Each buttons and joystick can send a motion to PLEN.
 
 ## Scenogprahy
-![Scenography](./Scenography/screenshot_scenography.png "Scenography")
+![Scenography](./Scenography/screenshot_program.png "Program")
 Visual programming language for iOS.
 
 ## Copyright (c) 2016,

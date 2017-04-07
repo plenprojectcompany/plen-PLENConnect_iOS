@@ -10,7 +10,7 @@ target 'PLEN Connect' do
 
   pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
 	
-	pod 'XCGLogger', '~> 4.0.0'
+	pod 'XCGLogger', '~> 5.0.1'
 	
 	pod 'Toaster', '~> 2.0'
 	

@@ -1,5 +1,8 @@
 PODS:
   - MaterialKit (0.4)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - RxBlocking (3.3.1):
     - RxSwift (~> 3.3)
   - RxCocoa (3.3.1):
@@ -7,9 +10,10 @@ PODS:
   - RxSwift (3.3.1)
   - SwiftyJSON (3.1.4)
   - Toaster (2.0.3)
-  - XCGLogger (4.0.0):
-    - XCGLogger/Core (= 4.0.0)
-  - XCGLogger/Core (4.0.0)
+  - XCGLogger (5.0.1):
+    - XCGLogger/Core (= 5.0.1)
+  - XCGLogger/Core (5.0.1):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - MaterialKit (from `https://github.com/faresbh/MaterialKit`, branch `swift3`)
@@ -18,7 +22,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SwiftyJSON
   - Toaster (~> 2.0)
-  - XCGLogger (~> 4.0.0)
+  - XCGLogger (~> 5.0.1)
 
 EXTERNAL SOURCES:
   MaterialKit:
@@ -32,13 +36,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   MaterialKit: 2e5267bcf410b82793f2b92d2111f8ae4ed2c3f2
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   RxBlocking: c5918ecb86b8c205a8ccc6d1ff2abb338ddc50a0
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
-  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
+  XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: 864481de39931c6f6423e4c0dd3f69aff711fc0a
+PODFILE CHECKSUM: d64053270106007da3b5aae763f0a89bf899571b
 
 COCOAPODS: 1.2.0
