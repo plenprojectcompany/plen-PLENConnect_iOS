@@ -15,7 +15,7 @@ class MoveButtonContainer : UIView{
             if(subview.isKind(of: UIButton.self)){
                 assert(i < titles.count, "invalid titles or index")
                 let button = subview as! UIButton
-                button.setTitle(titles[i], for: UIControlState.normal)
+                button.setTitle(titles[i], for: .normal)
                 i+=1
             }
         }
@@ -28,9 +28,9 @@ class MoveButtonContainer : UIView{
                 assert(i < images.count, "invalid images or index")
                 let button = subview as! UIButton
                 let size = button.frame.size
-                button.imageView?.contentMode = UIViewContentMode.scaleAspectFit
-                button.setBackgroundImage(UIImage(named: images[i])?.resize(size: size).withRenderingMode(.alwaysOriginal), for: UIControlState.normal)
-                button.setBackgroundImage(UIImage(named: images[i]+"_pressed")?.resize(size: size).withRenderingMode(.alwaysOriginal), for: UIControlState.highlighted)
+                button.imageView?.contentMode = .scaleAspectFit
+                button.setBackgroundImage(UIImage(named: images[i])?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .normal)
+                button.setBackgroundImage(UIImage(named: images[i]+"_pressed")?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .highlighted)
                 i+=1
                 button.titleLabel?.removeFromSuperview()
             }
