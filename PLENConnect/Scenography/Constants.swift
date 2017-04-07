@@ -55,7 +55,7 @@ extension Constants {
         }
         
         static func pushFunction(_ function: PlenFunction) -> String {
-            return String(format: "#PU%02X%02X", function.motion.id, function.loopCount)
+            return String(format: "#PU%02X%02X", function.motion.id, function.loopCount-1)
         }
         
         static func playProgram(_ program: PlenProgram) -> String {
