@@ -9,6 +9,7 @@
 import Foundation
 import CoreBluetooth
 
+@available(iOS 10.0, *)
 extension CBManagerState: CustomStringConvertible {
     public var description: String {
         switch self  {
