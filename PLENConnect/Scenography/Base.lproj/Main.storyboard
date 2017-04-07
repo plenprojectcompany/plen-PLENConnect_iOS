@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scenography-->
+        <!--Program-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PLEN_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProgramViewController" customModule="PLEN_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -82,7 +82,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xv4-ho-aye" secondAttribute="bottom" id="zxn-wQ-nQQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scenography" id="sLy-t1-h9S" userLabel="Scenography">
+                    <navigationItem key="navigationItem" title="Program" id="sLy-t1-h9S">
                         <barButtonItem key="backBarButtonItem" title="Home" id="VYK-NO-kSR"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="trash" id="rbE-bU-hvi">
@@ -115,7 +115,7 @@
             </objects>
             <point key="canvasLocation" x="304.4977511244378" y="284"/>
         </scene>
-        <!--PLEN Connect-->
+        <!--Controller-->
         <scene sceneID="NYN-Ul-aI4">
             <objects>
                 <viewController id="NgP-qF-K4Z" customClass="ConnectViewController" customModule="PLEN_Connect" customModuleProvider="target" sceneMemberID="viewController">
@@ -350,7 +350,7 @@
                             <constraint firstItem="sAB-ur-oia" firstAttribute="top" secondItem="kmR-Fa-gEU" secondAttribute="bottom" constant="8" id="pJp-Sw-s1V"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PLEN Connect" id="Yvq-JI-N6K" userLabel="PLEN Connect">
+                    <navigationItem key="navigationItem" title="Controller" id="Yvq-JI-N6K">
                         <barButtonItem key="backBarButtonItem" title="Home" id="G5X-Tr-FWw"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="VTO-VZ-HXy">
                             <connections>
@@ -390,7 +390,7 @@
                                             <constraint firstAttribute="width" secondItem="Yc9-qZ-cNf" secondAttribute="height" multiplier="1:1" id="dqX-nH-vLJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="PLEN Connect">
+                                        <state key="normal" title="Controller">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -402,7 +402,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dHd-ZM-yxr" secondAttribute="height" multiplier="1:1" id="iZb-HP-bzf"/>
                                         </constraints>
-                                        <state key="normal" title="Scenography">
+                                        <state key="normal" title="Program">
                                             <color key="titleColor" red="0.99609375" green="0.98828125" blue="0.98046875" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>

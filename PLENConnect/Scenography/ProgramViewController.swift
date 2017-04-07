@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProgramViewController.swift
 //  Scenography
 //
 //  Created by PLEN Project on 2016/03/02.
@@ -16,8 +16,7 @@ import Toaster
 
 // TODO: 全体的に汚い
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
-    @IBOutlet weak var titleLabel: UILabel!
+class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var playButton: UIBarButtonItem!
     
     @IBOutlet weak var programTitle: UILabel!

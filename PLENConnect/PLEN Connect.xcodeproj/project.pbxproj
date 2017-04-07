@@ -11,7 +11,7 @@
 		D2F4BF5FA0AEEF4BCD326EFF /* Pods_PLEN_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238A1934E3D76E887C8F697 /* Pods_PLEN_ConnectTests.framework */; };
 		DF7E32496E68335BD27BFFB1 /* Pods_PLEN_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2BAD7D6AAF7643ABD2CB95 /* Pods_PLEN_ConnectUITests.framework */; };
 		F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AA1C8E3E5200E41185 /* AppDelegate.swift */; };
-		F81542AD1C8E3E5200E41185 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AC1C8E3E5200E41185 /* ViewController.swift */; };
+		F81542AD1C8E3E5200E41185 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */; };
 		F81542B01C8E3E5200E41185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542AE1C8E3E5200E41185 /* Main.storyboard */; };
 		F81542B21C8E3E5200E41185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81542B11C8E3E5200E41185 /* Assets.xcassets */; };
 		F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */; };
@@ -87,7 +87,7 @@
 		F741AC8150640E1E3AB53D10 /* Pods-PLEN ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F81542A71C8E3E5200E41185 /* PLEN Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PLEN Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81542AA1C8E3E5200E41185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F81542AC1C8E3E5200E41185 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		F81542AF1C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F81542B11C8E3E5200E41185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81542B41C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				F89C37CD1E86242200D920B2 /* ConnectViewController.swift */,
-				F81542AC1C8E3E5200E41185 /* ViewController.swift */,
+				F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */,
 				F81542E71C8E3F3700E41185 /* PLPageViewController.swift */,
 				F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */,
 				F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */,
@@ -650,7 +650,7 @@
 			files = (
 				F81542F11C8E3F3700E41185 /* PlenFunction.swift in Sources */,
 				F87962551C8F321400ADF45D /* PlenMotionCategory.swift in Sources */,
-				F81542AD1C8E3E5200E41185 /* ViewController.swift in Sources */,
+				F81542AD1C8E3E5200E41185 /* ProgramViewController.swift in Sources */,
 				F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */,
 				F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */,
 				F89C37CF1E86242200D920B2 /* Button.swift in Sources */,
