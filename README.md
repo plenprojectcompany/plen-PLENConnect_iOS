@@ -16,8 +16,8 @@ Visual programming language for iOS.
 - [PLEN Project Company](https://plen.jp/)
 
 ## Build Environment
-- OSX El Capitan 10.11.6
-- Xcode 8.2.1
+- OSX Sierra 10.12.4
+- Xcode 8.3
 
 ## License
 This software is released under the MIT License.
