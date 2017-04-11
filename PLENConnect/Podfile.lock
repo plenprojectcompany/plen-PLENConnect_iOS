@@ -22,17 +22,22 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SwiftyJSON
   - Toaster (~> 2.0)
-  - XCGLogger (~> 5.0.1)
+  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`)
 
 EXTERNAL SOURCES:
   MaterialKit:
     :branch: swift3
     :git: https://github.com/faresbh/MaterialKit
+  XCGLogger:
+    :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 CHECKOUT OPTIONS:
   MaterialKit:
     :commit: 45bc7791f7e0583a94ced7d4cfc852fddc7800ca
     :git: https://github.com/faresbh/MaterialKit
+  XCGLogger:
+    :commit: 1369a7a2827615e585eab6e9516e3c3c3fd77e2d
+    :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 SPEC CHECKSUMS:
   MaterialKit: 2e5267bcf410b82793f2b92d2111f8ae4ed2c3f2
@@ -42,8 +47,8 @@ SPEC CHECKSUMS:
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
-  XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
+  XCGLogger: ed5d5da079ab1c5cd6ee956eb87b14d0a468bbed
 
-PODFILE CHECKSUM: d64053270106007da3b5aae763f0a89bf899571b
+PODFILE CHECKSUM: e8bd46ffb42b36353cd0ce64f819c503ef65125f
 
 COCOAPODS: 1.2.0

@@ -13,6 +13,7 @@ import RxSwift
 private let PlenConnectionDefaultInstance = PlenConnection()
 
 class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
+    
     var peripheral: CBPeripheral? {return _rx_peripheral.value}
     var rx_peripheralState: Observable<CBPeripheralState> {
         return _rx_peripheral.asObservable()

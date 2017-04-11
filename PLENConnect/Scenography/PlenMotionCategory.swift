@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlenMotionCategory: Equatable {
+    
     var name: String
     var motions: [PlenMotion]
     

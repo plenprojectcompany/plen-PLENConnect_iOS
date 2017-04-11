@@ -15,6 +15,7 @@ enum DecodeError: Error {
 }
 
 extension PlenMotionCategory {
+    
     static func fromJSON(_ data: Data) throws -> [PlenMotionCategory] {
         let toMotion: (Any, JSON) throws -> PlenMotion = {
             guard let id = $1["id"].int else {throw DecodeError.key("id")}
@@ -34,6 +35,7 @@ extension PlenMotionCategory {
 }
 
 extension PlenProgram {
+    
     static func fromJSON(_ data: Data, motionCategories: [PlenMotionCategory]) throws -> PlenProgram {
         let motionDict = Dictionary(pairs: motionCategories.flatMap {$0.motions}.map {($0.id, $0)})
         
@@ -54,6 +56,7 @@ extension PlenProgram {
 }
 
 extension PlenConnectionLog {
+    
     static func fromJSON(_ data: Data) throws -> [PlenConnectionLog] {
         return try JSON(data: data).map {(_, json) -> PlenConnectionLog in
             guard let peripheralIdentifier = json["peripheralIdentifier"].string else {

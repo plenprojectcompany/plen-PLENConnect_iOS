@@ -9,9 +9,11 @@
 import Foundation
 
 final class Stopwatch: CustomStringConvertible {
+    
     var numberFormat = "%10.6f"
     var description: String {return description_()}
     var title: String
+    
     fileprivate(set) var records: [(label: String, time: CFAbsoluteTime)] = []
     
     init(title: String) {

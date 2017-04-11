@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlenConnectionLog: Hashable {
+    
     var peripheralIdentifier: String
     var connectedCount: Int
     var lastConnectedTime: Date?

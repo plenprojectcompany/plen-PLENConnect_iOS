@@ -5,15 +5,11 @@ use_frameworks!
 
 target 'PLEN Connect' do
 	pod 'RxSwift',    '~> 3.0'
-	pod 'RxCocoa',    '~> 3.0'
+	pod 'RxCocoa',    '~> 3.0’
 	pod 'RxBlocking', '~> 3.0'
-
-  pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
-	
-	pod 'XCGLogger', '~> 5.0.1'
-	
+  	pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
+	pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git'
 	pod 'Toaster', '~> 2.0'
-	
 	pod 'SwiftyJSON'
 end
 

@@ -21,7 +21,9 @@ extension ObservableType {
     }
 }
 
+
 struct RxUtil {
+    
     fileprivate init() {}
     
     

@@ -21,6 +21,7 @@ struct DisposableWrapper: Disposable {
 }
 
 @available(iOS 10.0, *)
+
 class PlenScanner: NSObject, CBCentralManagerDelegate {
     fileprivate let _centralManager = CBCentralManager()
     fileprivate let _rx_centralManagerState = PublishSubject<CBManagerState>()

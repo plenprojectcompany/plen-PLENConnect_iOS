@@ -17,6 +17,7 @@ import Toaster
 // TODO: 全体的に汚い
 
 class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     @IBOutlet weak var playButton: UIBarButtonItem!
     
     @IBOutlet weak var programTitle: UILabel!
@@ -28,12 +29,10 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate var programViewController: PlenProgramViewController!
     fileprivate var motionPageViewController: PlenMotionPageViewController!
-    
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // motion page view
         motionPageViewController = UIViewControllerUtil.loadChildViewController(self,

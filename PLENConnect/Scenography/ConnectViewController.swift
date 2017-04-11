@@ -11,13 +11,17 @@ import RxSwift
 import CoreBluetooth
 import Toaster
 
+// TODO: Refactor View Controller
+
 class ConnectViewController : UIViewController, JoystickDelegate{
+    
     @IBOutlet weak private var modeSegmentedControl:UISegmentedControl!
     @IBOutlet weak private var joystickView:JoystickView!
     @IBOutlet weak private var moveButtonContainer:MoveButtonContainer!
     @IBOutlet weak private var joystickContainer:UIView!
-    private var previousDirection:PlenWalkDirection
-    private var currentModeIndex:Int
+    
+    private var previousDirection: PlenWalkDirection
+    private var currentModeIndex: Int
     fileprivate var scanningDisposable: Disposable?
     fileprivate var scanningAlertController: UIAlertController?
     fileprivate var scanResults = [CBPeripheral]()
@@ -55,9 +59,6 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         // initialize mode
         currentModeIndex = 0;
         self.modeSegmentedControl.selectedSegmentIndex = currentModeIndex
-        
-        
-        
         
         if !PlenConnection.defaultInstance().isConnected(){
             autoConnect()
@@ -198,6 +199,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
     }
     
     fileprivate func presentScanResultsAlert() {
+        
         if scanResults.isEmpty {
             presentPlenNotFoundAlert()
             return
@@ -223,7 +225,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
             }
         }
         
-        let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+        let lastConnectionTime: (CBPeripheral) -> TimeInterval = { [weak self] in
             return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
         }
         
