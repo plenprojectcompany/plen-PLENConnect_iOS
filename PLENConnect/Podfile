@@ -1,0 +1,31 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '9.2'
+# Uncomment this line if you're using Swift
+use_frameworks!
+
+target 'PLEN Connect' do
+	pod 'RxSwift',    '~> 3.0'
+	pod 'RxCocoa',    '~> 3.0'
+	pod 'RxBlocking', '~> 3.0'
+
+  pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
+	
+	pod 'XCGLogger', '~> 5.0.1'
+	
+	pod 'Toaster', '~> 2.0'
+	
+	pod 'SwiftyJSON'
+end
+
+target 'PLEN ConnectTests' do
+
+end
+
+target 'PLEN ConnectUITests' do
+
+end
+
+#post_install do | installer |
+#  require 'fileutils'
+#  FileUtils.cp_r('Pods/Target Support Files/Pods-Scenography/Pods-Scenography-acknowledgements.plist', 'Scenography/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+#end

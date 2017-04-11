@@ -1,0 +1,352 @@
+[
+  {
+    "name": "NORMAL",
+    "motions": [
+      {
+        "id": 0,
+        "icon": "p_normal_lstep",
+        "name": "LStep"
+      },
+      {
+        "id": 1,
+        "icon": "p_normal_onestep",
+        "name": "FStep"
+      },
+      {
+        "id": 2,
+        "icon": "p_normal_rstep",
+        "name": "RStep"
+      },
+      {
+        "id": 3,
+        "icon": "p_normal_ehen",
+        "name": "A-hem"
+      },
+      {
+        "id": 4,
+        "icon": "p_normal_hello",
+        "name": "Bow"
+      },
+      {
+        "id": 5,
+        "icon": "p_normal_love",
+        "name": "Propose"
+      },
+      {
+        "id": 6,
+        "icon": "p_normal_hug",
+        "name": "Hug"
+      },
+      {
+        "id": 7,
+        "icon": "p_normal_handclap",
+        "name": "Clap"
+      },
+      {
+        "id": 8,
+        "icon": "p_normal_hitouch",
+        "name": "High-five"
+      },
+      {
+        "id": 70,
+        "icon": "no_image",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "no_image",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "no_image",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "no_image",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "BOX",
+    "motions": [
+      {
+        "id": 10,
+        "icon": "p_box_shake",
+        "name": "Shake a Box"
+      },
+      {
+        "id": 11,
+        "icon": "p_box_lift_high",
+        "name": "Pick Up High"
+      },
+      {
+        "id": 12,
+        "icon": "p_box_lift_low",
+        "name": "Pick Up Low"
+      },
+      {
+        "id": 13,
+        "icon": "p_box_receive",
+        "name": "Receive a Box"
+      },
+      {
+        "id": 14,
+        "icon": "p_box_holdup",
+        "name": "Present a Box"
+      },
+      {
+        "id": 15,
+        "icon": "p_box_give",
+        "name": "Pass a Box"
+      },
+      {
+        "id": 16,
+        "icon": "p_box_throw",
+        "name": "Throw a Box"
+      },
+      {
+        "id": 17,
+        "icon": "p_box_takedown_high",
+        "name": "Put Down High"
+      },
+      {
+        "id": 18,
+        "icon": "p_box_takedown_low",
+        "name": "Put Down Low"
+      },
+      {
+        "id": 74,
+        "icon": "no_image",
+        "name": "Carry Forward"
+      },
+      {
+        "id": 75,
+        "icon": "no_image",
+        "name": "Carry LTurn"
+      },
+      {
+        "id": 76,
+        "icon": "no_image",
+        "name": "Carry RTurn"
+      },
+      {
+        "id": 77,
+        "icon": "no_image",
+        "name": "Carry Back"
+      }
+    ]
+  },
+  {
+    "name": "SOCCER",
+    "motions": [
+      {
+        "id": 20,
+        "icon": "p_normal_lstep",
+        "name": "Defense LStep"
+      },
+      {
+        "id": 21,
+        "icon": "p_normal_onestep",
+        "name": "Dribble"
+      },
+      {
+        "id": 22,
+        "icon": "p_normal_rstep",
+        "name": "Defense RStep"
+      },
+      {
+        "id": 23,
+        "icon": "p_soccer_l_kick",
+        "name": "LKick"
+      },
+      {
+        "id": 24,
+        "icon": "p_soccer_5dash",
+        "name": "Long Dribble"
+      },
+      {
+        "id": 25,
+        "icon": "p_soccer_r_kick",
+        "name": "RKick"
+      },
+      {
+        "id": 26,
+        "icon": "p_soccer_l_pass",
+        "name": "Pass to Left"
+      },
+      {
+        "id": 27,
+        "icon": "p_normal_handclap",
+        "name": "Pass it to Me!"
+      },
+      {
+        "id": 28,
+        "icon": "p_soccer_r_pass",
+        "name": "Pass to Right"
+      },
+      {
+        "id": 70,
+        "icon": "no_image",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "no_image",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "no_image",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "no_image",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "DANCE",
+    "motions": [
+      {
+        "id": 30,
+        "icon": "p_dance_rhythm_lstep",
+        "name": "Dance LStep"
+      },
+      {
+        "id": 31,
+        "icon": "p_dance_rhythm_onestep",
+        "name": "Dance FStep"
+      },
+      {
+        "id": 32,
+        "icon": "p_dance_rhythm_rstep",
+        "name": "Dance RStep"
+      },
+      {
+        "id": 33,
+        "icon": "p_dance_kimepose",
+        "name": "Dance Finish Pose"
+      },
+      {
+        "id": 34,
+        "icon": "p_dance_kusshin",
+        "name": "Dance Up & Down"
+      },
+      {
+        "id": 35,
+        "icon": "p_dance_rhythm",
+        "name": "Wiggle Dance"
+      },
+      {
+        "id": 36,
+        "icon": "p_dance_rhythm_back",
+        "name": "Dance BStep"
+      },
+      {
+        "id": 37,
+        "icon": "p_normal_hello",
+        "name": "Dance Bow"
+      },
+      {
+        "id": 38,
+        "icon": "p_dance_twist",
+        "name": "Twist Dance"
+      },
+      {
+        "id": 70,
+        "icon": "no_image",
+        "name": "Walk Forward"
+      },
+      {
+        "id": 71,
+        "icon": "no_image",
+        "name": "LTurn"
+      },
+      {
+        "id": 72,
+        "icon": "no_image",
+        "name": "RTurn"
+      },
+      {
+        "id": 73,
+        "icon": "no_image",
+        "name": "Walk Back"
+      }
+    ]
+  },
+  {
+    "name": "ROLLER SKATING",
+    "motions": [
+      {
+        "id": 40,
+        "icon": "p_skate_l_balance",
+        "name": "Ina Bauer LFoot"
+      },
+      {
+        "id": 41,
+        "icon": "p_skate_mae_brake",
+        "name": "Brake for Forward"
+      },
+      {
+        "id": 42,
+        "icon": "p_skate_r_balance",
+        "name": "Ina Bauer RFoot"
+      },
+      {
+        "id": 43,
+        "icon": "p_skate_l_t_balance",
+        "name": "Balance on LFoot"
+      },
+      {
+        "id": 44,
+        "icon": "p_skate_chokuritsu",
+        "name": "Upright"
+      },
+      {
+        "id": 45,
+        "icon": "p_skate_r_t_balance",
+        "name": "Balance on RFoot"
+      },
+      {
+        "id": 46,
+        "icon": "p_skate_l_tsumasaki",
+        "name": "Heel & Toe LFoot"
+      },
+      {
+        "id": 47,
+        "icon": "p_skate_ushiro_brake",
+        "name": "Brake for Back"
+      },
+      {
+        "id": 48,
+        "icon": "p_skate_r_tsumasaki",
+        "name": "Heel & Toe RFoot"
+      },
+      {
+        "id": 78,
+        "icon": "no_image",
+        "name": "Skating Forward"
+      },
+      {
+        "id": 79,
+        "icon": "no_image",
+        "name": "Skating LTurn"
+      },
+      {
+        "id": 80,
+        "icon": "no_image",
+        "name": "Skating RTurn"
+      },
+      {
+        "id": 81,
+        "icon": "no_image",
+        "name": "Skating Back"
+      }
+    ]
+  }
+]

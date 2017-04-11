@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  Scenography
+
+  Created by PLEN Project on 2017/03/27.
+  Copyright © 2017年 PLEN Project. All rights reserved.
+*/
+
+//Motion
+
+//Normal
+"LStep" = "左ステップ";
+"FStep" = "前ステップ";
+"RStep" = "右ステップ";
+"A-hem" = "えっへん";
+"Bow" = "おじぎ";
+"Propose" = "こくはく";
+"Hug" = "ハグ";
+"Clap" = "はくしゅ";
+"High-five" = "ハイタッチ";
+"Walk Forward" = "前に進む";
+"LTurn" = "左に回る";
+"RTurn" = "右に回る";
+"Walk Back" = "後ろに進む";
+
+//Box
+"Shake a Box" = "箱をふる";
+"Pick Up High" = "箱をとる(こしまで)";
+"Pick Up Low" = "箱をとる(あしまで)";
+"Receive a Box" = "箱をうけとる";
+"Present a Box" = "箱をささげる";
+"Pass a Box" = "箱をわたす";
+"Throw a Box" = "箱をなげる";
+"Put Down High" = "箱をおく(こしまで)";
+"Put Down Low" = "箱をおく(あしまで)";
+"Carry Forward" = "箱を持って前に進む";
+"Carry LTurn" = "箱を持って左に回る";
+"Carry RTurn" = "箱を持って右に回る";
+"Carry Back" = "箱を持って後ろに進む";
+
+//Soccer
+"Defense LStep" = "左ステップ";
+"Dribble" = "ドリブル";
+"Defense RStep" = "右ステップ";
+"LKick" = "左キック";
+"Long Dribble" = "ロングドリブル";
+"RKick" = "右キック";
+"Pass to Left" = "左パス";
+"Pass it to Me!" = "パスをくれ";
+"Pass to Right" = "右パス";
+
+//Dance
+"Dance LStep" = "ダンス左ステップ";
+"Dance FStep" = "ダンス前ステップ";
+"Dance RStep" = "ダンス右ステップ";
+"Dance Finish Pose" = "ダンスポーズ";
+"Dance Up & Down" = "ダンスアップダウン";
+"Wiggle Dance" = "ダンスくねくね";
+"Dance BStep" = "ダンス後ろステップ";
+"Dance Bow" = "ダンスおじぎ";
+"Twist Dance" = "ダンスツイスト";
+
+//Skate
+"Ina Bauer LFoot" = "左イナバウアー";
+"Brake for Forward" = "前ブレーキ";
+"Ina Bauer RFoot" = "右イナバウアー";
+"Balance on LFoot" = "左大の字";
+"Upright" = "きをつけ";
+"Balance on RFoot" = "右大の字";
+"Heel & Toe LFoot" = "左ヒール＆トー";
+"Brake for Back" = "後ブレーキ";
+"Heel & Toe RFoot" = "右ヒール＆トー";
+"Skating Forward" = "スケートで前に進む";
+"Skating LTurn" = "スケートで左に回る";
+"Skating RTurn" = "スケートで右に回る";
+"Skating Back" = "スケートで後ろに進む";

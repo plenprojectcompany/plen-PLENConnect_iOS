@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  Scenography
+
+  Created by PLEN Project on 2017/03/27.
+  Copyright © 2017年 PLEN Project. All rights reserved.
+*/
+
+//Motion
+
+//Normal
+"LStep" = "LStep";
+"FStep" = "FStep";
+"RStep" = "RStep";
+"A-hem" = "A-hem";
+"Bow" = "Bow";
+"Propose" = "Propose";
+"Hug" = "Hug";
+"Clap" = "Clap";
+"High-five" = "High-five";
+"Walk Forward" = "Walk Forward";
+"LTurn" = "LTurn";
+"RTurn" = "RTurn";
+"Walk Back" = "Walk Back";
+
+//Box
+"Shake a Box" = "Shake a Box";
+"Pick Up High" = "Pick Up High";
+"Pick Up Low" = "Pick Up Low";
+"Receive a Box" = "Receive a Box";
+"Present a Box" = "Present a Box";
+"Pass a Box" = "Pass a Box";
+"Throw a Box" = "Throw a Box";
+"Put Down High" = "Put Down High";
+"Put Down Low" = "Put Down Low";
+"Carry Forward" = "Carry Forward";
+"Carry LTurn" = "Carry LTurn";
+"Carry RTurn" = "Carry RTurn";
+"Carry Back" = "Carry Back";
+
+//Soccer
+"Defense LStep" = "Defense LStep";
+"Dribble" = "Dribble";
+"Defense RStep" = "Defense RStep";
+"LKick" = "LKick";
+"Long Dribble" = "Long Dribble";
+"RKick" = "RKick";
+"Pass to Left" = "Pass to Left";
+"Pass it to Me!" = "Pass it to Me!";
+"Pass to Right" = "Pass to Right";
+
+//Dance
+"Dance LStep" = "Dance LStep";
+"Dance FStep" = "Dance FStep";
+"Dance RStep" = "Dance RStep";
+"Dance Finish Pose" = "Dance Finish Pose";
+"Dance Up & Down" = "Dance Up & Down";
+"Wiggle Dance" = "Wiggle Dance";
+"Dance BStep" = "Dance BStep";
+"Dance Bow" = "Dance Bow";
+"Twist Dance" = "Twist Dance";
+
+//Skate
+"Ina Bauer LFoot" = "Ina Bauer LFoot";
+"Brake for Forward" = "Brake for Forward";
+"Ina Bauer RFoot" = "Ina Bauer RFoot";
+"Balance on LFoot" = "Balance on LFoot";
+"Upright" = "Upright";
+"Balance on RFoot" = "Balance on RFoot";
+"Heel & Toe LFoot" = "Heel & Toe LFoot";
+"Brake for Back" = "Brake for Back";
+"Heel & Toe RFoot" = "Heel & Toe RFoot";
+"Skating Forward" = "Skating Forward";
+"Skating LTurn" = "Skating LTurn";
+"Skating RTurn" = "Skating RTurn";
+"Skating Back" = "Skating Back";
