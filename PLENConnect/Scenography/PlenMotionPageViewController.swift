@@ -11,9 +11,11 @@ import RxSwift
 import RxCocoa
 
 class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDataSource, PLPageViewControllerDelegate {
+    
     override var tabIndicatorColor: UIColor {return Constants.Color.ScenographyWhite}
     
     let rx_motionCategories = Variable([PlenMotionCategory]())
+    
     var motionCategories: [PlenMotionCategory] {
         get {return rx_motionCategories.value}
         set(value) {rx_motionCategories.value = value}

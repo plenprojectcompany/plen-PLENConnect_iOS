@@ -10,6 +10,7 @@ import Foundation
 import CoreBluetooth
 
 class PlenTxCharacteristicWriter {
+    
     let txCharacteristic: CBCharacteristic
     let lock = NSRecursiveLock()
     

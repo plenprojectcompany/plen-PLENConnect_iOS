@@ -33,12 +33,13 @@ class PlenScanner: NSObject, CBCentralManagerDelegate {
     }
     
     func scanForPeripherals() -> Observable<CBPeripheral> {
+        
         let setupCentralManager = _rx_centralManagerState
             .take(1)
         
         let notScannableError = _rx_centralManagerState
             .filter {$0 != .poweredOn}
-            .map {_ in PlenConnectionError.centralManagerNotPoweredOn}
+            .map {_ in PlenConnectionError.centralManagerNotPoweredOn }
             .flatMap(Observable<Any>.error)
 
         let scanResult = _rx_discoveredPeripheral

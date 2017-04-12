@@ -33,6 +33,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     override init() {
         super.init()
+        
         _centralManager.delegate = self
         
         _rx_task
@@ -80,6 +81,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _writer = nil
     }
     
+    
     func writeValue(_ text: String) {
         logger.info("\(text)")
         
@@ -88,6 +90,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
+    
     // MARK: CBCentralManagerDelegate
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -95,6 +98,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         
         _rx_centralManagerState.onNext(central.state)
     }
+    
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         logger.verbose("periferal:\(peripheral), advertisementData:\(advertisementData), RSSI:\(RSSI)")
@@ -109,6 +113,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _rx_peripheral.value = peripheral
     }
     
+    
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name))")
         logger.verbose("\(peripheral)")
@@ -118,6 +123,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _rx_peripheral.value = peripheral
     }
     
+    
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name)), error:\(String(describing: error))")
         logger.verbose("\(peripheral), error:\(String(describing: error))")
@@ -125,12 +131,14 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         _rx_peripheral.value = peripheral
     }
     
+    
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         logger.info("UUID:\(peripheral.identifier.uuidString), name:\(String(describing: peripheral.name))")
         logger.verbose("\(peripheral), error:\(String(describing: error))")
         
         _rx_peripheral.value = peripheral
     }
+    
     
     // MARK: CBPeripheralDelegate
     

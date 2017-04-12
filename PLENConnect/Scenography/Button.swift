@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Button : UIButton{
+class Button : UIButton {
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -18,4 +19,5 @@ class Button : UIButton{
         self.layer.cornerRadius = 4.0
         self.layer.masksToBounds = true
     }
+    
 }

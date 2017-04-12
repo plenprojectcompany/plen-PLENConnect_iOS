@@ -65,6 +65,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         }
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         // setup move buttons
         var motionImages = Array<String>()
@@ -77,12 +78,10 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         self.moveButtonContainer.setImages(images: motionImages)
         self.moveButtonContainer.setTitles(titles: motionIds)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
+
+    // TODO: Add this to a separate file
     func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
+        
         // 方向の判定
         let direction = wheelActionKeyForAngle(angle:angle, strength:strength)
         var mode = PlenWalkMode.normal
@@ -105,7 +104,8 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         self.previousDirection = direction
     }
     
-    @IBAction func modeSegmentChanged(sender:UISegmentedControl){
+    @IBAction func modeSegmentChanged(sender:UISegmentedControl) {
+        
         currentModeIndex = sender.selectedSegmentIndex
         var motionImages = Array<String>()
         var motionIds = Array<String>()
@@ -115,9 +115,10 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         }
         self.moveButtonContainer?.setImages(images: motionImages)
         self.moveButtonContainer?.setTitles(titles: motionIds)
+        
     }
     
-    @IBAction func moveButtonTapped(sender:UIButton){
+    @IBAction func moveButtonTapped(sender:UIButton) {
         let value = Constants.PlenCommand.playMotion(Int(sender.title(for: .normal)!)!)
         PlenConnection.defaultInstance().writeValue(value)
     }
@@ -142,7 +143,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         presentScanningAlert()
     }
     
-    func autoConnect(){
+    func autoConnect() {
         scanResults.removeAll()
         
         scanningDisposable = PlenScanner().scanForPeripherals()

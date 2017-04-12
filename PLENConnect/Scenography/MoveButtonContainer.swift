@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MoveButtonContainer : UIView{
-    func setTitles(titles:Array<String>){
+class MoveButtonContainer: UIView {
+    
+    func setTitles(titles:Array<String>) {
         var i = 0
         for subview in self.subviews{
-            if(subview.isKind(of: UIButton.self)){
+            if (subview.isKind(of: UIButton.self)) {
                 assert(i < titles.count, "invalid titles or index")
                 let button = subview as! UIButton
                 button.setTitle(titles[i], for: .normal)
