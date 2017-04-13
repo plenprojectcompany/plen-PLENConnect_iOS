@@ -13,10 +13,12 @@ import RxCocoa
 
 @IBDesignable
 class PlenFunctionView: UIView, UITextFieldDelegate {
+    
     @IBOutlet weak var motionView: PlenMotionView!
     @IBOutlet weak var loopCountField: UITextField!
     
     let rx_function = Variable(PlenFunction.Nop)
+    
     var function: PlenFunction {
         get {return rx_function.value}
         set(value) {rx_function.value = value}
@@ -40,7 +42,6 @@ class PlenFunctionView: UIView, UITextFieldDelegate {
         super.awakeFromNib()
         
         loopCountField.delegate = self
-        
         initBindings()
     }
     

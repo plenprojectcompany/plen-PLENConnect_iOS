@@ -26,7 +26,6 @@ struct RxUtil {
     
     fileprivate init() {}
     
-    
     static func bind<E: Equatable>(_ lhs: Variable<E>, _ rhs: Variable<E>) -> Disposable {
         return CompositeDisposable(
             lhs.asObservable().filter {[weak rhs] in (rhs?.value != $0)}.bindTo(rhs),

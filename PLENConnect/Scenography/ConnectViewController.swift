@@ -13,21 +13,22 @@ import Toaster
 
 // TODO: Refactor View Controller
 
-class ConnectViewController : UIViewController, JoystickDelegate{
+class ConnectViewController: UIViewController {
     
-    @IBOutlet weak private var modeSegmentedControl:UISegmentedControl!
-    @IBOutlet weak private var joystickView:JoystickView!
-    @IBOutlet weak private var moveButtonContainer:MoveButtonContainer!
-    @IBOutlet weak private var joystickContainer:UIView!
+    @IBOutlet weak private var modeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak private var joystickView: JoystickView!
+    @IBOutlet weak private var moveButtonContainer: MoveButtonContainer!
+    @IBOutlet weak private var joystickContainer: UIView!
     
-    private var previousDirection: PlenWalkDirection
-    private var currentModeIndex: Int
+    var previousDirection: PlenWalkDirection
+    var currentModeIndex: Int
     fileprivate var scanningDisposable: Disposable?
     fileprivate var scanningAlertController: UIAlertController?
     fileprivate var scanResults = [CBPeripheral]()
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
     fileprivate let _disposeBag = DisposeBag()
     fileprivate var motionCategories = [PlenMotionCategory]()
+    
     
     required init?(coder aDecoder: NSCoder) {
         previousDirection = .stop
@@ -46,21 +47,14 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         self.joystickContainer.layer.borderWidth = 1.0;
         self.joystickContainer.layer.cornerRadius = 4.0;
         
-        // setup mode buttons
-        let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
-        self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
-        self.modeSegmentedControl.removeAllSegments()
-        for i in 0..<motionCategories.count{
-            let title = motionCategories[i].name
-            self.modeSegmentedControl.insertSegment(withTitle: title, at: i, animated: false)
-        }
+        setupModeButtons()
         
         // initialize mode
         currentModeIndex = 0;
         self.modeSegmentedControl.selectedSegmentIndex = currentModeIndex
         
         if !PlenConnection.defaultInstance().isConnected(){
+            // PlenConnection.autoConnect()
             autoConnect()
         }
     }
@@ -79,31 +73,6 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         self.moveButtonContainer.setTitles(titles: motionIds)
     }
 
-    // TODO: Add this to a separate file
-    func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
-        
-        // 方向の判定
-        let direction = wheelActionKeyForAngle(angle:angle, strength:strength)
-        var mode = PlenWalkMode.normal
-        if(currentModeIndex == 1){
-            mode = .box
-        }else if(currentModeIndex == 4){
-            mode = .rollerSkating
-        }
-        
-        // 前回と同じ方向でなければストップモーションを2度挟む
-        if (direction != self.previousDirection) {
-            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
-            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
-        }
-        
-        let value = Constants.PlenCommand.walk(direction, mode: mode)
-        
-        PlenConnection.defaultInstance().writeValue(value)
-        
-        self.previousDirection = direction
-    }
-    
     @IBAction func modeSegmentChanged(sender:UISegmentedControl) {
         
         currentModeIndex = sender.selectedSegmentIndex
@@ -143,14 +112,30 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         presentScanningAlert()
     }
     
+    
+    func setupModeButtons() {
+        // setup mode buttons
+        let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
+        self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
+        self.modeSegmentedControl.removeAllSegments()
+        for i in 0..<motionCategories.count{
+            let title = motionCategories[i].name
+            self.modeSegmentedControl.insertSegment(withTitle: title, at: i, animated: false)
+        }
+    }
+    
+    // TODO: Reuse autoConnect()
     func autoConnect() {
         scanResults.removeAll()
         
         scanningDisposable = PlenScanner().scanForPeripherals()
             .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
-            .do(onNext: {[weak self] in self?.scanResults.append($0)},
-                onCompleted:{[weak self] in
-                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+            .do(onNext: { [weak self] in self?.scanResults.append($0)},
+                
+                onCompleted: { [weak self] in
+                    
+                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = { [weak self] in
                     return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
                     }
                     
@@ -172,9 +157,11 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         scanningDisposable?.addDisposableTo(_disposeBag)
     }
     
+    
     fileprivate func dismissScanningAlert() {
         dismiss(animated: true, completion: nil)
     }
+    
     
     fileprivate func presentScanningAlert() {
         let controller = UIAlertController(
@@ -198,6 +185,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         present(controller, animated: true, completion: nil)
         scanningAlertController = controller
     }
+    
     
     fileprivate func presentScanResultsAlert() {
         
@@ -264,24 +252,4 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         present(controller, animated: true, completion: nil)
     }
     
-    fileprivate func wheelActionKeyForAngle(angle:CGFloat, strength:CGFloat)->PlenWalkDirection{
-        if (strength < Constants.Dimen.ThreasholdCenter) {
-            return .stop;
-        }
-        
-        if (angle >= CGFloat(-Double.pi/4) && angle < CGFloat(Double.pi/4)) {
-            return .right;
-        }
-        else if (angle >= CGFloat(Double.pi/4) && angle < CGFloat(Double.pi/4 * 3)) {
-            return .forward;
-        }
-        else if (angle >= CGFloat(Double.pi/4 * 3) || angle <= CGFloat(-Double.pi/4 * 3)) {
-            return .left;
-        }
-        else if (angle <= CGFloat(-Double.pi/4) && angle > CGFloat(-Double.pi/4 * 3)) {
-            return .back;
-        }
-        
-        return .stop;
-    }
 }

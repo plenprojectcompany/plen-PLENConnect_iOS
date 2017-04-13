@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 struct UIViewUtil {
     fileprivate init() {}
     
@@ -122,6 +123,7 @@ struct UIViewUtil {
     }
 }
 
+
 struct UIViewControllerUtil {
     fileprivate init() {}
     
@@ -140,6 +142,7 @@ struct UIViewControllerUtil {
         return child
     }
 }
+
 
 struct UITableViewUtil {
     fileprivate init() {}

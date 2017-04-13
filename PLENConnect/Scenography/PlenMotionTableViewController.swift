@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class PlenMotionTableViewController: UITableViewController, DragGestureRecognizerTargetDelegate {
+    
     typealias Cell = PlenMotionCell
     
     let rx_motionCategory = Variable(PlenMotionCategory.Empty)
@@ -58,8 +59,11 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewUtil.dequeueCell(tableView, type: Cell.self, indexPath: indexPath)!
+        
         initCell(cell, motion: motionCategory.motions[indexPath.row])
+        
         return cell
     }
     
@@ -82,12 +86,14 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
         guard draggable else {return nil}
         
         let location = gestureRecognizer.location(in: tableView)
+        
         guard let indexPath = tableView.indexPathForRow(at: location) else {return nil}
         
         let touchedCell = tableView.cellForRow(at: indexPath) as! Cell
         let touchedButtons = UIViewUtil.find(touchedCell)
             .flatMap {$0.last as? UIButton}
             .filter {$0.point(inside: gestureRecognizer.location(in: $0), with: nil)}
+        
         guard touchedButtons.isEmpty else {return nil}
         
         let dragShadow = UIViewUtil.loadXib(Cell.self)!

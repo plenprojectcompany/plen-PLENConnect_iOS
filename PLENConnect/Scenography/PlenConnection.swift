@@ -46,14 +46,15 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         return PlenConnectionDefaultInstance
     }
     
-    func isConnected()->Bool{
+    func isConnected() -> Bool{
         return self.peripheral?.state == .connected && _writer != nil
     }
     
     func connectPlen(_ peripheral: CBPeripheral) {
+        
         logger.verbose("\(peripheral.identifier)")
         
-        _rx_task.onNext {[weak self] in
+        _rx_task.onNext { [weak self] in
             guard let s = self else {return}
             
             s.disconnectPlen()
@@ -69,6 +70,7 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
         
     }
+
     
     func disconnectPlen() {
         _rx_task.onNext {[weak self] in

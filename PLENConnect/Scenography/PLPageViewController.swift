@@ -19,8 +19,6 @@ enum PLTabStyle {
 // MARK: -
 class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIToolbarDelegate, UIScrollViewDelegate {
     
-    // MARK: - Variables
-    
     // MARK: Protocols
     weak var datasource: PLPageViewControllerDataSource?
     weak var delegate: PLPageViewControllerDelegate?
@@ -62,13 +60,12 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         
         loadPager()
         loadTabBar()
-        
         layoutView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         reloadData()
     }
     
@@ -387,7 +384,8 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     }
 }
 
-// MARK: -
+// MARK: - PLTabView
+// TODO: Separation of concern required
 private class PLTabView: UIView {
     // MARK: - Variables
     
@@ -430,7 +428,8 @@ private class PLTabView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        guard selected else {return}
+        
+        guard selected else { return }
         
         let bezierPath = UIBezierPath()
         

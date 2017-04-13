@@ -14,36 +14,34 @@ import MaterialKit
 
 @IBDesignable
 class PlenMotionView: UIView {
+    
     @IBOutlet weak var iconView: MKButton!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     let rx_motion = Variable(PlenMotion.None)
+    
     var motion: PlenMotion {
         get {return rx_motion.value}
-        set(value) {rx_motion.value = value}
+        set(value) { rx_motion.value = value }
     }
     
     fileprivate let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         _ = UIViewUtil.loadXib(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         _ = UIViewUtil.loadXib(self)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         initIconLayer(iconView.layer)
-        
         initBindings()
     }
     
@@ -75,12 +73,12 @@ class PlenMotionView: UIView {
             .addDisposableTo(disposeBag)
     }
     
+    
     fileprivate func initIconLayer(_ layer: CALayer) {
-        // TODO: Don't repeat yourself
-        layer.rasterizationScale = UIScreen.main.scale;
+        layer.rasterizationScale = UIScreen.main.scale
         layer.shadowRadius = 1.0
         layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 0, height: 1);
+        layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shouldRasterize = true
     }
 }

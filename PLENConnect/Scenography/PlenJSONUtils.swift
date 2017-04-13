@@ -17,7 +17,9 @@ enum DecodeError: Error {
 extension PlenMotionCategory {
     
     static func fromJSON(_ data: Data) throws -> [PlenMotionCategory] {
+        
         let toMotion: (Any, JSON) throws -> PlenMotion = {
+            
             guard let id = $1["id"].int else {throw DecodeError.key("id")}
             guard let name = $1["name"].string else {throw DecodeError.key("name")}
             guard let iconPath = $1["icon"].string else {throw DecodeError.key("icon")}

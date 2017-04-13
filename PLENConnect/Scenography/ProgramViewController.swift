@@ -203,6 +203,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         presentScanningAlert()
     }
     
+    // TODO: Reuse autoConnect()
     func autoConnect(){
         scanResults.removeAll()
         
@@ -231,6 +232,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         
         scanningDisposable?.addDisposableTo(_disposeBag)
     }
+    
     
     @IBAction func trashProgram(_ sender: AnyObject) {
         if program.sequence.isEmpty {return}
