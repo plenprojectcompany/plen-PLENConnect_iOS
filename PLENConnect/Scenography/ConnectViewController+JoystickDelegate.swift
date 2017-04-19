@@ -10,7 +10,6 @@ import UIKit
 
 extension ConnectViewController: JoystickDelegate {
     
-    // TODO: Add this to a separate file
     func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
         
         // 方向の判定

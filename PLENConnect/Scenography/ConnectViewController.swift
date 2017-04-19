@@ -72,6 +72,7 @@ class ConnectViewController: UIViewController {
         self.moveButtonContainer.setImages(images: motionImages)
         self.moveButtonContainer.setTitles(titles: motionIds)
     }
+ 
 
     @IBAction func modeSegmentChanged(sender:UISegmentedControl) {
         
