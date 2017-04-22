@@ -15,6 +15,7 @@ import Toaster
 
 class ConnectViewController: UIViewController {
     
+    @IBOutlet var motionButtons: [Button]!
     @IBOutlet weak private var modeSegmentedControl: UISegmentedControl!
     @IBOutlet weak private var joystickView: JoystickView!
     @IBOutlet weak private var moveButtonContainer: MoveButtonContainer!
@@ -68,9 +69,37 @@ class ConnectViewController: UIViewController {
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
+    
+        setMotionButtonImages(
+            motionImages: motionImages,
+            motionIDs: motionIds
+        )
         
-        self.moveButtonContainer.setImages(images: motionImages)
-        self.moveButtonContainer.setTitles(titles: motionIds)
+    }
+    
+    
+    // TODO: Move this elsewhere
+    fileprivate func setMotionButtonImages(motionImages: [String], motionIDs: [String]) {
+        
+        var index = 0
+        
+        motionButtons.forEach { (button) in
+            
+            let imageWidth = button.frame.size.width
+            let size = CGSize(width: imageWidth, height: imageWidth)
+            let image = UIImage(named: motionImages[index])
+            let namedImage = UIImage(named: motionImages[index]+"_pressed")
+            
+            button.imageView?.contentMode = .center
+            
+            button.setImage(image?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .normal)
+            button.setImage(namedImage?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .highlighted)
+            
+            button.setTitle(motionIDs[index], for: .normal)
+            button.titleLabel?.removeFromSuperview()
+            
+            index += 1
+        }
     }
  
 
@@ -83,8 +112,14 @@ class ConnectViewController: UIViewController {
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
-        self.moveButtonContainer?.setImages(images: motionImages)
-        self.moveButtonContainer?.setTitles(titles: motionIds)
+        
+        // self.moveButtonContainer?.setImages(images: motionImages)
+        // self.moveButtonContainer?.setTitles(titles: motionIds)
+        
+        setMotionButtonImages(
+            motionImages: motionImages,
+            motionIDs: motionIds
+        )
         
     }
     

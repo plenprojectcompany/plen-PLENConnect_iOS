@@ -24,6 +24,7 @@ class MoveButtonContainer: UIView {
 
     func setImages(images:Array<String>){
         var i = 0
+        
         for subview in self.subviews{
             if(subview.isKind(of: UIButton.self)) {
                 assert(i < images.count, "invalid images or index")
