@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlenFunction: Hashable {
+    
     var motion: PlenMotion
     var loopCount: Int
     
@@ -18,6 +19,7 @@ struct PlenFunction: Hashable {
     
     static let Nop = PlenFunction(motion: PlenMotion.None, loopCount: 0)
 }
+
 
 func ==(lhs: PlenFunction, rhs: PlenFunction) -> Bool {
     return lhs.motion == rhs.motion && lhs.loopCount == rhs.loopCount

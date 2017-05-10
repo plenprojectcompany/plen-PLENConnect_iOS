@@ -8,8 +8,7 @@
 
 import Foundation
 
-protocol PlenConnectionErrorType: Error {
-}
+protocol PlenConnectionErrorType: Error {}
 
 enum PlenConnectionError: PlenConnectionErrorType {
     case centralManagerNotPoweredOn

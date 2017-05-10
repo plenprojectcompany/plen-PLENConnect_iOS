@@ -11,19 +11,25 @@ import RxSwift
 import CoreBluetooth
 import Toaster
 
-class ConnectViewController : UIViewController, JoystickDelegate{
-    @IBOutlet weak private var modeSegmentedControl:UISegmentedControl!
-    @IBOutlet weak private var joystickView:JoystickView!
-    @IBOutlet weak private var moveButtonContainer:MoveButtonContainer!
-    @IBOutlet weak private var joystickContainer:UIView!
-    private var previousDirection:PlenWalkDirection
-    private var currentModeIndex:Int
+// TODO: Refactor View Controller
+
+class ConnectViewController: UIViewController {
+    
+    @IBOutlet var motionButtons: [Button]!
+    @IBOutlet weak private var modeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak private var joystickView: JoystickView!
+    @IBOutlet weak private var moveButtonContainer: MoveButtonContainer!
+    @IBOutlet weak private var joystickContainer: UIView!
+    
+    var previousDirection: PlenWalkDirection
+    var currentModeIndex: Int
     fileprivate var scanningDisposable: Disposable?
     fileprivate var scanningAlertController: UIAlertController?
     fileprivate var scanResults = [CBPeripheral]()
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
     fileprivate let _disposeBag = DisposeBag()
     fileprivate var motionCategories = [PlenMotionCategory]()
+    
     
     required init?(coder aDecoder: NSCoder) {
         previousDirection = .stop
@@ -42,27 +48,18 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         self.joystickContainer.layer.borderWidth = 1.0;
         self.joystickContainer.layer.cornerRadius = 4.0;
         
-        // setup mode buttons
-        let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
-        self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
-        self.modeSegmentedControl.removeAllSegments()
-        for i in 0..<motionCategories.count{
-            let title = motionCategories[i].name
-            self.modeSegmentedControl.insertSegment(withTitle: title, at: i, animated: false)
-        }
+        setupModeButtons()
         
         // initialize mode
         currentModeIndex = 0;
         self.modeSegmentedControl.selectedSegmentIndex = currentModeIndex
         
-        
-        
-        
         if !PlenConnection.defaultInstance().isConnected(){
+            // PlenConnection.autoConnect()
             autoConnect()
         }
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         // setup move buttons
@@ -72,39 +69,42 @@ class ConnectViewController : UIViewController, JoystickDelegate{
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
+    
+        setMotionButtonImages(
+            motionImages: motionImages,
+            motionIDs: motionIds
+        )
         
-        self.moveButtonContainer.setImages(images: motionImages)
-        self.moveButtonContainer.setTitles(titles: motionIds)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
-    func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
-        // 方向の判定
-        let direction = wheelActionKeyForAngle(angle:angle, strength:strength)
-        var mode = PlenWalkMode.normal
-        if(currentModeIndex == 1){
-            mode = .box
-        }else if(currentModeIndex == 4){
-            mode = .rollerSkating
+    // TODO: Move this elsewhere
+    fileprivate func setMotionButtonImages(motionImages: [String], motionIDs: [String]) {
+        
+        var index = 0
+        
+        motionButtons.forEach { (button) in
+            
+            let imageWidth = button.frame.size.width
+            let size = CGSize(width: imageWidth, height: imageWidth)
+            let image = UIImage(named: motionImages[index])
+            let namedImage = UIImage(named: motionImages[index]+"_pressed")
+            
+            button.imageView?.contentMode = .center
+            
+            button.setImage(image?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .normal)
+            button.setImage(namedImage?.resize(size: size).withRenderingMode(.alwaysOriginal), for: .highlighted)
+            
+            button.setTitle(motionIDs[index], for: .normal)
+            button.titleLabel?.removeFromSuperview()
+            
+            index += 1
         }
-        
-        // 前回と同じ方向でなければストップモーションを2度挟む
-        if (direction != self.previousDirection) {
-            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
-            PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
-        }
-        
-        let value = Constants.PlenCommand.walk(direction, mode: mode)
-        
-        PlenConnection.defaultInstance().writeValue(value)
-        
-        self.previousDirection = direction
     }
-    
-    @IBAction func modeSegmentChanged(sender:UISegmentedControl){
+ 
+
+    @IBAction func modeSegmentChanged(sender:UISegmentedControl) {
+        
         currentModeIndex = sender.selectedSegmentIndex
         var motionImages = Array<String>()
         var motionIds = Array<String>()
@@ -112,11 +112,18 @@ class ConnectViewController : UIViewController, JoystickDelegate{
             motionImages.append(motion.iconPath)
             motionIds.append(motion.id.description)
         }
-        self.moveButtonContainer?.setImages(images: motionImages)
-        self.moveButtonContainer?.setTitles(titles: motionIds)
+        
+        // self.moveButtonContainer?.setImages(images: motionImages)
+        // self.moveButtonContainer?.setTitles(titles: motionIds)
+        
+        setMotionButtonImages(
+            motionImages: motionImages,
+            motionIDs: motionIds
+        )
+        
     }
     
-    @IBAction func moveButtonTapped(sender:UIButton){
+    @IBAction func moveButtonTapped(sender:UIButton) {
         let value = Constants.PlenCommand.playMotion(Int(sender.title(for: .normal)!)!)
         PlenConnection.defaultInstance().writeValue(value)
     }
@@ -141,14 +148,30 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         presentScanningAlert()
     }
     
-    func autoConnect(){
+    
+    func setupModeButtons() {
+        // setup mode buttons
+        let path = Bundle.main.path(forResource: "json/default_motions", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
+        self.motionCategories = try! PlenMotionCategory.fromJSON(data!)
+        self.modeSegmentedControl.removeAllSegments()
+        for i in 0..<motionCategories.count{
+            let title = motionCategories[i].name
+            self.modeSegmentedControl.insertSegment(withTitle: title, at: i, animated: false)
+        }
+    }
+    
+    // TODO: Reuse autoConnect()
+    func autoConnect() {
         scanResults.removeAll()
         
         scanningDisposable = PlenScanner().scanForPeripherals()
             .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
-            .do(onNext: {[weak self] in self?.scanResults.append($0)},
-                onCompleted:{[weak self] in
-                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+            .do(onNext: { [weak self] in self?.scanResults.append($0)},
+                
+                onCompleted: { [weak self] in
+                    
+                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = { [weak self] in
                     return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
                     }
                     
@@ -170,9 +193,11 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         scanningDisposable?.addDisposableTo(_disposeBag)
     }
     
+    
     fileprivate func dismissScanningAlert() {
         dismiss(animated: true, completion: nil)
     }
+    
     
     fileprivate func presentScanningAlert() {
         let controller = UIAlertController(
@@ -197,7 +222,9 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         scanningAlertController = controller
     }
     
+    
     fileprivate func presentScanResultsAlert() {
+        
         if scanResults.isEmpty {
             presentPlenNotFoundAlert()
             return
@@ -223,7 +250,7 @@ class ConnectViewController : UIViewController, JoystickDelegate{
             }
         }
         
-        let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
+        let lastConnectionTime: (CBPeripheral) -> TimeInterval = { [weak self] in
             return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
         }
         
@@ -261,24 +288,4 @@ class ConnectViewController : UIViewController, JoystickDelegate{
         present(controller, animated: true, completion: nil)
     }
     
-    fileprivate func wheelActionKeyForAngle(angle:CGFloat, strength:CGFloat)->PlenWalkDirection{
-        if (strength < Constants.Dimen.ThreasholdCenter) {
-            return .stop;
-        }
-        
-        if (angle >= CGFloat(-Double.pi/4) && angle < CGFloat(Double.pi/4)) {
-            return .right;
-        }
-        else if (angle >= CGFloat(Double.pi/4) && angle < CGFloat(Double.pi/4 * 3)) {
-            return .forward;
-        }
-        else if (angle >= CGFloat(Double.pi/4 * 3) || angle <= CGFloat(-Double.pi/4 * 3)) {
-            return .left;
-        }
-        else if (angle <= CGFloat(-Double.pi/4) && angle > CGFloat(-Double.pi/4 * 3)) {
-            return .back;
-        }
-        
-        return .stop;
-    }
 }

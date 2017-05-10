@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlenMotion: Hashable {
+    
     var id: Int
     var name: String
     var iconPath: String

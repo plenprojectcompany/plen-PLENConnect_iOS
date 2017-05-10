@@ -17,6 +17,7 @@ import Toaster
 // TODO: 全体的に汚い
 
 class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     @IBOutlet weak var playButton: UIBarButtonItem!
     
     @IBOutlet weak var programTitle: UILabel!
@@ -28,12 +29,16 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate var programViewController: PlenProgramViewController!
     fileprivate var motionPageViewController: PlenMotionPageViewController!
-    
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
+    fileprivate var scanningDisposable: Disposable?
+    fileprivate var scanningAlertController: UIAlertController?
+    fileprivate var scanResults = [CBPeripheral]()
+    
+    fileprivate let _disposeBag = DisposeBag()
+    fileprivate var modeDisposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // motion page view
         motionPageViewController = UIViewControllerUtil.loadChildViewController(self,
@@ -97,6 +102,21 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        try! program.toData().write(to: URL(fileURLWithPath: programPath), options: [])
+        try! PlenConnectionLog.toData(connectionLogs.map {$0.1}).write(to: URL(fileURLWithPath: connectionLogsPath), options: [])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: programPath)) else {return}
+        program = try! PlenProgram.fromJSON(data, motionCategories: motionPageViewController.motionCategories)
+        
+        guard let data2 = try? Data(contentsOf: URL(fileURLWithPath: connectionLogsPath)) else {return}
+        connectionLogs = Dictionary(pairs: try! PlenConnectionLog.fromJSON(data2).map {($0.peripheralIdentifier, $0)})
+    }
+    
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         view.endEditing(true)
         return false
@@ -112,14 +132,11 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     let rx_program = Variable(PlenProgram.Empty)
+    
     var program: PlenProgram {
         get {return rx_program.value}
         set(value) {rx_program.value = value}
     }
-    
-    fileprivate let _disposeBag = DisposeBag()
-    
-    fileprivate var modeDisposeBag = DisposeBag()
     
     fileprivate func updateMode() {
         programViewController?.removeFromParentViewController()
@@ -142,6 +159,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
             break
         }
     }
+    
     
     @IBAction func floatButtonTouched(_ sender: UIButton) {
         switch leftContainerMode {
@@ -178,11 +196,6 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         layer.shouldRasterize = true
     }
     
-    fileprivate var scanningDisposable: Disposable?
-    
-    fileprivate var scanningAlertController: UIAlertController?
-    
-    fileprivate var scanResults = [CBPeripheral]()
     
     @IBAction func startScan(_ sender: UIBarButtonItem?) {
         PlenConnection.defaultInstance().disconnectPlen()
@@ -204,6 +217,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         presentScanningAlert()
     }
     
+    // TODO: Reuse autoConnect()
     func autoConnect(){
         scanResults.removeAll()
         
@@ -232,6 +246,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         
         scanningDisposable?.addDisposableTo(_disposeBag)
     }
+    
     
     @IBAction func trashProgram(_ sender: AnyObject) {
         if program.sequence.isEmpty {return}
@@ -359,16 +374,5 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate var connectionLogsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/connectionLogs.json"
     
-    override func viewDidDisappear(_ animated: Bool) {
-        try! program.toData().write(to: URL(fileURLWithPath: programPath), options: [])
-        try! PlenConnectionLog.toData(connectionLogs.map {$0.1}).write(to: URL(fileURLWithPath: connectionLogsPath), options: [])
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: programPath)) else {return}
-        program = try! PlenProgram.fromJSON(data, motionCategories: motionPageViewController.motionCategories)
-        
-        guard let data2 = try? Data(contentsOf: URL(fileURLWithPath: connectionLogsPath)) else {return}
-        connectionLogs = Dictionary(pairs: try! PlenConnectionLog.fromJSON(data2).map {($0.peripheralIdentifier, $0)})
-    }
 }

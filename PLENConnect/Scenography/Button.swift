@@ -8,14 +8,16 @@
 
 import UIKit
 
-class Button : UIButton{
+class Button: UIButton {
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         self.backgroundColor = Constants.Color.PlenGreenDark
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 1.0
         self.layer.cornerRadius = 4.0
         self.layer.masksToBounds = true
     }
+    
 }

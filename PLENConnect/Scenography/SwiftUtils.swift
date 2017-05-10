@@ -61,7 +61,7 @@ func typeName(type: AnyClass) -> String {
     return NSStringFromClass(type).components(separatedBy: ".").last!
 }
 
-// MARK: - weak
+// MARK: - Weak
 
 class Weak<T: AnyObject> {
     weak var value: T?
@@ -71,7 +71,7 @@ class Weak<T: AnyObject> {
     }
 }
 
-// MARK: - sleep
+// MARK: - Sleep
 
 func fsleep(_ seconds: Float) {
     if seconds >= 0 {

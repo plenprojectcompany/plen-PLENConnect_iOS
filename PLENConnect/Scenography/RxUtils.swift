@@ -21,9 +21,10 @@ extension ObservableType {
     }
 }
 
+
 struct RxUtil {
-    fileprivate init() {}
     
+    fileprivate init() {}
     
     static func bind<E: Equatable>(_ lhs: Variable<E>, _ rhs: Variable<E>) -> Disposable {
         return CompositeDisposable(
