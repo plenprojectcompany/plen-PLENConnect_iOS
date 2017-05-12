@@ -8,7 +8,15 @@
 
 import UIKit
 
+
 class PlenFunctionCell: UITableViewCell {
+    
     @IBOutlet weak var functionView: PlenFunctionView!
     @IBOutlet weak var separater: UIView!
+    
+    public func configure(with function: PlenFunction) {
+        backgroundColor = .clear
+        functionView.function = function
+    }
+    
 }

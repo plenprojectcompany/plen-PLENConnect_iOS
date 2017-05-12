@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="75i-fi-Imx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="75i-fi-Imx">
     <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -123,7 +123,7 @@
                         <viewControllerLayoutGuide type="top" id="kmR-Fa-gEU"/>
                         <viewControllerLayoutGuide type="bottom" id="M1j-8V-Drb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="oid-5s-AIf">
+                    <view key="view" contentMode="scaleToFill" id="oid-5s-AIf">
                         <rect key="frame" x="0.0" y="64" width="736" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -196,7 +196,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H3y-Q5-Ohu">
                                                 <rect key="frame" x="306" y="0.0" width="296" height="296"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container" customClass="MoveButtonContainer" customModule="PLEN_Connect" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="hFv-lt-19c" userLabel="Move Button Container">
                                                         <rect key="frame" x="0.0" y="0.0" width="296" height="67"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -343,7 +343,7 @@
                         <outlet property="joystickContainer" destination="LUR-sP-CMx" id="3Cx-PJ-iqt"/>
                         <outlet property="joystickView" destination="dzx-WD-7Vk" id="a6g-NH-bBI"/>
                         <outlet property="modeSegmentedControl" destination="sAB-ur-oia" id="dEB-dk-74y"/>
-                        <outlet property="moveButtonContainer" destination="hFv-lt-19c" id="D8K-pu-7SB"/>
+                        <outlet property="moveButtonContainer" destination="hFv-lt-19c" id="lm0-xH-tKb"/>
                         <outletCollection property="motionButtons" destination="5pg-Aq-Amv" collectionClass="NSMutableArray" id="t0Q-EZ-n85"/>
                         <outletCollection property="motionButtons" destination="tpM-v5-T21" collectionClass="NSMutableArray" id="88g-dh-Bst"/>
                         <outletCollection property="motionButtons" destination="Epm-fo-r9F" collectionClass="NSMutableArray" id="26U-6J-wca"/>

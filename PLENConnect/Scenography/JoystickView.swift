@@ -8,8 +8,8 @@
 
 import UIKit
 
-@objc protocol JoystickDelegate {
-    @objc optional func onJoystickMoved(currentPoint:CGPoint, angle:CGFloat, strength:CGFloat)
+protocol JoystickDelegate: class {
+    func onJoystickMoved(currentPoint:CGPoint, angle:CGFloat, strength:CGFloat)
 }
 
 class JoystickView : UIScrollView, UIScrollViewDelegate {
@@ -49,12 +49,14 @@ class JoystickView : UIScrollView, UIScrollViewDelegate {
     
     
     func setHighighted(highlighted:Bool) {
-        if (highlighted) {
+        if highlighted {
             
             self.highlightView.isHidden = false
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
                 self.highlightView.alpha = 1.0
             })
+            
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
                 self.highlightView.alpha = 0.0
@@ -79,7 +81,7 @@ class JoystickView : UIScrollView, UIScrollViewDelegate {
         let angle = atan2(self.contentOffset.y, -self.contentOffset.x)
         
         if (self.joystickDelegate?.onJoystickMoved != nil) {
-            self.joystickDelegate?.onJoystickMoved!(currentPoint: CGPoint(x:-self.contentOffset.x, y: -self.contentOffset.y), angle: angle, strength:radius)
+            self.joystickDelegate?.onJoystickMoved(currentPoint: CGPoint(x:-self.contentOffset.x, y: -self.contentOffset.y), angle: angle, strength:radius)
         }
     }
     

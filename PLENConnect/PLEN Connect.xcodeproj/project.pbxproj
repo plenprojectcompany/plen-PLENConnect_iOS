@@ -10,6 +10,7 @@
 		78D3D629562399FE560AEBC5 /* Pods_PLEN_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80AE4D4F2DE654D1FC094EE /* Pods_PLEN_Connect.framework */; };
 		8ECE58E0E73AC0362BDAB398 /* Pods_PLEN_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3E8787085EDD6895D2D1BE /* Pods_PLEN_ConnectTests.framework */; };
 		DD224C181E9EFA78005B88D8 /* ConnectViewController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD224C171E9EFA78005B88D8 /* ConnectViewController+JoystickDelegate.swift */; };
+		DDD865141EC53FA200C4FBE3 /* PlenAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD865131EC53FA200C4FBE3 /* PlenAlert.swift */; };
 		EDEA68C944378991BBF4C4E7 /* Pods_PLEN_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679E5FA21C9B1433C8605AFD /* Pods_PLEN_ConnectUITests.framework */; };
 		F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AA1C8E3E5200E41185 /* AppDelegate.swift */; };
 		F81542AD1C8E3E5200E41185 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */; };
@@ -50,7 +51,6 @@
 		F89C37CF1E86242200D920B2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CB1E86242200D920B2 /* Button.swift */; };
 		F89C37D01E86242200D920B2 /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CC1E86242200D920B2 /* JoystickView.swift */; };
 		F89C37D11E86242200D920B2 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CD1E86242200D920B2 /* ConnectViewController.swift */; };
-		F89C37D21E86242200D920B2 /* MoveButtonContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89C37CE1E86242200D920B2 /* MoveButtonContainer.swift */; };
 		F8A4B2AD1C9AC94C00F46573 /* PlenConnectionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */; };
 		F8AB798A1C95B976003E948F /* PlenJSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB79891C95B976003E948F /* PlenJSONUtils.swift */; };
 		F8C3C87B1C9381F0001E0590 /* PlenConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C3C87A1C9381F0001E0590 /* PlenConnection.swift */; };
@@ -86,6 +86,7 @@
 		67A262FD94B601B6B85A087B /* Pods-PLEN Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect.release.xcconfig"; sourceTree = "<group>"; };
 		D80AE4D4F2DE654D1FC094EE /* Pods_PLEN_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLEN_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD224C171E9EFA78005B88D8 /* ConnectViewController+JoystickDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConnectViewController+JoystickDelegate.swift"; sourceTree = "<group>"; };
+		DDD865131EC53FA200C4FBE3 /* PlenAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenAlert.swift; sourceTree = "<group>"; };
 		E7CD2822CA760953C38DA3E1 /* Pods-PLEN ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED6295B8C52078962A349477 /* Pods-PLEN ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLEN ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PLEN ConnectTests/Pods-PLEN ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F81542A71C8E3E5200E41185 /* PLEN Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PLEN Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +136,6 @@
 		F89C37CB1E86242200D920B2 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		F89C37CC1E86242200D920B2 /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		F89C37CD1E86242200D920B2 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
-		F89C37CE1E86242200D920B2 /* MoveButtonContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveButtonContainer.swift; sourceTree = "<group>"; };
 		F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionLog.swift; sourceTree = "<group>"; };
 		F8AB79891C95B976003E948F /* PlenJSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenJSONUtils.swift; sourceTree = "<group>"; };
 		F8C3C87A1C9381F0001E0590 /* PlenConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnection.swift; sourceTree = "<group>"; };
@@ -358,7 +358,6 @@
 			children = (
 				F89C37CB1E86242200D920B2 /* Button.swift */,
 				F89C37CC1E86242200D920B2 /* JoystickView.swift */,
-				F89C37CE1E86242200D920B2 /* MoveButtonContainer.swift */,
 				F879624B1C8F13FD00ADF45D /* TableViewCells */,
 				DD224C191E9F0052005B88D8 /* PlenFunctionView */,
 				DD224C1A1E9F005D005B88D8 /* PlenMotionView */,
@@ -375,6 +374,7 @@
 				F87962581C8F375800ADF45D /* PlenProgram.swift */,
 				F8C3C8881C93F000001E0590 /* PlenWalk.swift */,
 				F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */,
+				DDD865131EC53FA200C4FBE3 /* PlenAlert.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -734,7 +734,7 @@
 				F81542FB1C8E3F3700E41185 /* PLPageViewController.swift in Sources */,
 				F81542FE1C8E3F3700E41185 /* SwiftUtils.swift in Sources */,
 				F87962591C8F375800ADF45D /* PlenProgram.swift in Sources */,
-				F89C37D21E86242200D920B2 /* MoveButtonContainer.swift in Sources */,
+				DDD865141EC53FA200C4FBE3 /* PlenAlert.swift in Sources */,
 				F81542FC1C8E3F3700E41185 /* RxUtils.swift in Sources */,
 				F8C3C8831C93E45B001E0590 /* PlenScanner.swift in Sources */,
 				F8C3C8871C93E55A001E0590 /* PlenTxCharacteristicWriter.swift in Sources */,

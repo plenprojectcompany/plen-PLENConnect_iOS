@@ -100,9 +100,8 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
     }
     
     fileprivate func initCell(_ cell: Cell, function: PlenFunction) {
-        cell.backgroundColor = UIColor.clear
-        cell.functionView.function = function
         cell.functionView.isHidden = (function == _emptyCellData)
+        cell.configure(with: function)
     }
     
     // MARK: - UITableViewDataSource
@@ -116,19 +115,24 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = UITableViewUtil.dequeueCell(tableView, type: Cell.self, indexPath: indexPath)!
         
         // 1. dispose old disposables
         let bag = DisposeBag()
+        
         _disposeMap[cell.functionView] = bag
         
+        let plenFunction = program.sequence[indexPath.row]
+        
         // 2. initialize cell
-        initCell(cell, function: program.sequence[indexPath.row])
+        initCell(cell, function: plenFunction)
         
         // 3. bind
         cell.functionView.rx.deallocated
             .subscribe(onNext: {[weak self] in _ = self?._disposeMap.removeValue(forKey: cell.functionView)})
             .addDisposableTo(bag)
+        
         cell.functionView.rx_function.asObservable()
             .subscribe(onNext: {[weak self] in self?.program.sequence[indexPath.row] = $0})
             .addDisposableTo(bag)
@@ -153,6 +157,7 @@ class PlenProgramViewController: UITableViewController, DragEventListener, DragG
             
             var sequence = program.sequence.filter {$0 != _emptyCellData}
             let location = event.gestureRecognizer.location(in: tableView)
+            
             if let row = tableView.indexPathForRow(at: location)?.row, 0 ..< program.sequence.count ~= row {
                 sequence.insert(_emptyCellData, at: row)
             } else {
