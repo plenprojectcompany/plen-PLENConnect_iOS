@@ -8,15 +8,16 @@
 
 import Foundation
 import UIKit
+import PageMenu
 
-// TODO: https://github.com/HighBay/PageMenu で置き換えたほうが良い
+// TODO: Replace with https://github.com/HighBay/ PageMenu
 
 enum PLTabStyle {
     case none
     case inactiveFaded(fadedAlpha: CGFloat)
 }
 
-// MARK: -
+// MARK: - PLPageViewController
 class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIToolbarDelegate, UIScrollViewDelegate {
     
     // MARK: Protocols
@@ -258,6 +259,8 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         
         addChildViewController(pager)
         pager.didMove(toParentViewController: self)
+        pager.dataSource = self
+        pager.delegate = self
         
         // TODO: このへんの処理の順番が謎
         let pagerScrollView = pager.view.subviews.first as! UIScrollView
@@ -265,8 +268,6 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         pagerScrollView.scrollsToTop = false
         pagerScrollView.delegate = self
         
-        pager.dataSource = self
-        pager.delegate = self
     }
     
     fileprivate func loadTabBar() {
@@ -275,7 +276,7 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
         tabBar = UICollectionView(frame: CGRect(), collectionViewLayout: flowLayout)
         
         tabBar.isScrollEnabled = false
-        tabBar.backgroundColor = UIColor.clear
+        tabBar.backgroundColor = .clear
         tabBar.scrollsToTop = false
         tabBar.isOpaque = false
         tabBar.showsHorizontalScrollIndicator = false
@@ -384,63 +385,6 @@ class PLPageViewController: UIViewController, UIPageViewControllerDataSource, UI
     }
 }
 
-// MARK: - PLTabView
-// TODO: Separation of concern required
-private class PLTabView: UIView {
-    // MARK: - Variables
-    
-    var selected = false {
-        didSet {
-            switch style {
-            case .inactiveFaded(let fadedAlpha):
-                alpha = selected ? 1.0 : fadedAlpha
-            default:
-                break
-            }
-            setNeedsDisplay()
-        }
-    }
-    var indicatorHeight = CGFloat(2.0)
-    var indicatorColor = UIColor.lightGray
-    var style = PLTabStyle.none
-    
-    // MARK: - Methods
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        commonInit()
-    }
-    
-    init(frame: CGRect, indicatorColor: UIColor, indicatorHeight: CGFloat, style: PLTabStyle) {
-        super.init(frame: frame)
-        
-        self.indicatorColor = indicatorColor
-        self.indicatorHeight = indicatorHeight
-        self.style = style
-        
-        commonInit()
-    }
-    
-    func commonInit() {
-        backgroundColor = UIColor.clear
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        guard selected else { return }
-        
-        let bezierPath = UIBezierPath()
-        
-        bezierPath.move(to: CGPoint(x: 0, y: rect.height - indicatorHeight / 2))
-        bezierPath.addLine(to: CGPoint(x: rect.width, y: rect.height - indicatorHeight / 2.0))
-        bezierPath.lineWidth = indicatorHeight
-        
-        indicatorColor.setStroke()
-        bezierPath.stroke()
-    }
-}
 
 // MARK: - PLPageViewControllerDataSource
 @objc

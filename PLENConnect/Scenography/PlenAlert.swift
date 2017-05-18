@@ -9,8 +9,9 @@
 import UIKit
 import RxSwift
 import CoreBluetooth
+import Toaster
 
-class PlenAlert {
+final class PlenAlert {
     static let sharedInstance = PlenAlert()
     
     fileprivate static var scanningDisposable: Disposable?
@@ -147,6 +148,43 @@ class PlenAlert {
         
         PlenAlert.scanningDisposable?.addDisposableTo(PlenAlert._disposeBag)
         PlenAlert.presentScanningAlert(for: view)
+    }
+    
+    
+    static func autoConnect() {
+        PlenAlert.scanResults.removeAll()
+        
+        PlenAlert.scanningDisposable = PlenScanner().scanForPeripherals()
+            .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
+            .do(onNext: {
+                PlenAlert.scanResults.append($0)
+            },
+                
+                onCompleted: { 
+                    
+                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = {
+                        return PlenAlert.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
+                    }
+                    
+                    PlenAlert.scanResults.sorted {lastConnectionTime($0) < lastConnectionTime($1)}.forEach {peripheral in
+                        if !(PlenAlert.connectionLogs.keys.contains(peripheral.identifier.uuidString)) {
+                            PlenAlert.connectionLogs[peripheral.identifier.uuidString] = PlenConnectionLog(
+                                peripheralIdentifier: peripheral.identifier.uuidString,
+                                connectedCount: 0,
+                                lastConnectedTime: nil)
+                        }
+                    }
+                    
+                    if !(PlenAlert.scanResults.isEmpty) {
+                        
+                        PlenConnection.defaultInstance().connectPlen((PlenAlert.scanResults.first!))
+                        Toast(text: "PLEN connected",
+                              duration: Delay.short).show()
+                    }
+            })
+            .subscribe()
+        
+        PlenAlert.scanningDisposable?.addDisposableTo(PlenAlert._disposeBag)
     }
     
 }

@@ -34,9 +34,6 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate var programViewController: PlenProgramViewController!
     fileprivate var motionPageViewController: PlenMotionPageViewController!
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
-    fileprivate var scanningDisposable: Disposable?
-    fileprivate var scanningAlertController: UIAlertController?
-    fileprivate var scanResults = [CBPeripheral]()
     
     fileprivate let _disposeBag = DisposeBag()
     fileprivate var modeDisposeBag = DisposeBag()
@@ -125,7 +122,7 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
             .addDisposableTo(_disposeBag)
         
         if !PlenConnection.defaultInstance().isConnected(){
-            autoConnect()
+            PlenAlert.autoConnect()
         }
     }
     
@@ -229,37 +226,6 @@ class ProgramViewController: UIViewController, UIGestureRecognizerDelegate {
         layer.shadowOpacity = 1 / sqrt(z)
         layer.shadowOffset = CGSize(width: 0, height: CGFloat(z));
         layer.shouldRasterize = true
-    }
-    
-    
-    // TODO: Reuse autoConnect()
-    func autoConnect(){
-        scanResults.removeAll()
-        
-        scanningDisposable = PlenScanner().scanForPeripherals()
-            .take(2, scheduler: SerialDispatchQueueScheduler(qos: .background))
-            .do(onNext: {[weak self] in self?.scanResults.append($0)},
-                onCompleted:{[weak self] in
-                    let lastConnectionTime: (CBPeripheral) -> TimeInterval = {[weak self] in
-                        return self?.connectionLogs[$0.identifier.uuidString]?.lastConnectedTime?.timeIntervalSinceNow ?? Double.infinity
-                    }
-                    
-                    self?.scanResults.sorted {lastConnectionTime($0) < lastConnectionTime($1)}.forEach {peripheral in
-                        if !(self?.connectionLogs.keys.contains(peripheral.identifier.uuidString))! {
-                            self?.connectionLogs[peripheral.identifier.uuidString] = PlenConnectionLog(
-                                peripheralIdentifier: peripheral.identifier.uuidString,
-                                connectedCount: 0,
-                                lastConnectedTime: nil)
-                        }
-                    }
-                    if !(self?.scanResults.isEmpty)! {
-                        PlenConnection.defaultInstance().connectPlen((self?.scanResults.first!)!)
-                        Toast(text: "PLEN connected", duration: Delay.short).show()
-                    }
-            })
-            .subscribe()
-        
-        scanningDisposable?.addDisposableTo(_disposeBag)
     }
     
 

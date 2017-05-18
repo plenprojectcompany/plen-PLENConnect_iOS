@@ -12,6 +12,7 @@ import RxCocoa
 
 class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDataSource, PLPageViewControllerDelegate {
     
+    // MARK: - Variables
     override var tabIndicatorColor: UIColor {
         return Constants.Color.ScenographyWhite
     }
@@ -31,6 +32,7 @@ class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDa
     
     fileprivate var _controllers = [PlenMotionTableViewController]()
     
+    // MARK: – Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +42,7 @@ class PlenMotionPageViewController: PLPageViewController, PLPageViewControllerDa
         initBindings()
     }
     
+    // MARK: - Methods
     fileprivate func initBindings() {
         // auto reloadData
         rx_motionCategories.asObservable()

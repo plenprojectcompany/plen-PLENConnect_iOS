@@ -58,6 +58,7 @@ class JoystickView : UIScrollView, UIScrollViewDelegate {
             })
             
         } else {
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
                 self.highlightView.alpha = 0.0
             }, completion: {(finished:Bool)->Void in

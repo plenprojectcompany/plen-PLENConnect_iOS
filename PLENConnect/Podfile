@@ -11,6 +11,7 @@ target 'PLEN Connect' do
 	pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git'
 	pod 'Toaster', '~> 2.0'
 	pod 'SwiftyJSON'
+	pod 'PageMenu'
 end
 
 target 'PLEN ConnectTests' do
