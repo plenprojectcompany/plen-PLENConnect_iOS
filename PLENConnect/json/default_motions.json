@@ -49,22 +49,22 @@
       },
       {
         "id": 70,
-        "icon": "no_image",
+        "icon": "p_normal_walk_forward",
         "name": "Walk Forward"
       },
       {
         "id": 71,
-        "icon": "no_image",
+        "icon": "p_normal_lturn",
         "name": "LTurn"
       },
       {
         "id": 72,
-        "icon": "no_image",
+        "icon": "p_normal_rturn",
         "name": "RTurn"
       },
       {
         "id": 73,
-        "icon": "no_image",
+        "icon": "p_normal_walk_back",
         "name": "Walk Back"
       }
     ]
@@ -144,7 +144,7 @@
     "motions": [
       {
         "id": 20,
-        "icon": "p_normal_lstep",
+        "icon": "p_soccor_defense_lstep",
         "name": "Defense LStep"
       },
       {
@@ -154,7 +154,7 @@
       },
       {
         "id": 22,
-        "icon": "p_normal_rstep",
+        "icon": "p_soccor_defense_rstep",
         "name": "Defense RStep"
       },
       {
@@ -189,22 +189,22 @@
       },
       {
         "id": 70,
-        "icon": "no_image",
+        "icon": "p_normal_walk_forward",
         "name": "Walk Forward"
       },
       {
         "id": 71,
-        "icon": "no_image",
+        "icon": "p_normal_lturn",
         "name": "LTurn"
       },
       {
         "id": 72,
-        "icon": "no_image",
+        "icon": "p_normal_rturn",
         "name": "RTurn"
       },
       {
         "id": 73,
-        "icon": "no_image",
+        "icon": "p_normal_walk_back",
         "name": "Walk Back"
       }
     ]
@@ -259,22 +259,22 @@
       },
       {
         "id": 70,
-        "icon": "no_image",
+        "icon": "p_normal_walk_forward",
         "name": "Walk Forward"
       },
       {
         "id": 71,
-        "icon": "no_image",
+        "icon": "p_normal_lturn",
         "name": "LTurn"
       },
       {
         "id": 72,
-        "icon": "no_image",
+        "icon": "p_normal_rturn",
         "name": "RTurn"
       },
       {
         "id": 73,
-        "icon": "no_image",
+        "icon": "p_normal_walk_back",
         "name": "Walk Back"
       }
     ]
