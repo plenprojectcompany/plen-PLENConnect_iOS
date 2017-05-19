@@ -3,6 +3,7 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - PageMenu (2.0.0)
   - RxBlocking (3.3.1):
     - RxSwift (~> 3.3)
   - RxCocoa (3.3.1):
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - MaterialKit (from `https://github.com/faresbh/MaterialKit`, branch `swift3`)
+  - PageMenu
   - RxBlocking (~> 3.0)
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
@@ -42,6 +44,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   MaterialKit: 2e5267bcf410b82793f2b92d2111f8ae4ed2c3f2
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
   RxBlocking: c5918ecb86b8c205a8ccc6d1ff2abb338ddc50a0
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
@@ -49,6 +52,6 @@ SPEC CHECKSUMS:
   Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
   XCGLogger: ed5d5da079ab1c5cd6ee956eb87b14d0a468bbed
 
-PODFILE CHECKSUM: e8bd46ffb42b36353cd0ce64f819c503ef65125f
+PODFILE CHECKSUM: 9889b9d3c674bd3393905256405eed9541987c8f
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

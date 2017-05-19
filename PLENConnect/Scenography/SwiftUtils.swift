@@ -88,8 +88,6 @@ func fsleep(_ seconds: Float) {
 // MARK: - Hashable
 
 struct HashableUtil {
-    fileprivate init() {}
-    
     static func combine(_ hashValues: Int...) -> Int {
         return hashValues.reduce(17) {37 * $0 + $1}
     }

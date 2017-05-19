@@ -9,6 +9,13 @@
 import UIKit
 
 class PlenMotionCell: UITableViewCell {
+    
     @IBOutlet weak var motionView: PlenMotionView!
     @IBOutlet weak var separater: UIView!
+    
+    public func configure(with motion: PlenMotion) {
+        backgroundColor = .clear
+        motionView.motion = motion
+    }
+    
 }

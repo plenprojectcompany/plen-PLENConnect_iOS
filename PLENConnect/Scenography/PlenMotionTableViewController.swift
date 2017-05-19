@@ -43,9 +43,9 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
             .addDisposableTo(_disposeBag)
     }
     
+    
     fileprivate func initCell(_ cell: Cell, motion: PlenMotion) {
-        cell.backgroundColor = UIColor.clear
-        cell.motionView.motion = motion
+        cell.configure(with: motion)
     }
     
     // MARK: - UITableViewDataSource
@@ -62,7 +62,9 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
         
         let cell = UITableViewUtil.dequeueCell(tableView, type: Cell.self, indexPath: indexPath)!
         
-        initCell(cell, motion: motionCategory.motions[indexPath.row])
+        let plenMotion = motionCategory.motions[indexPath.row]
+        
+        initCell(cell, motion: plenMotion)
         
         return cell
     }
@@ -74,11 +76,15 @@ class PlenMotionTableViewController: UITableViewController, DragGestureRecognize
     // MARK: - DragGestureRecognizerTargetDelegate
     
     fileprivate func initDragGestureRecognizerTarget() {
+        
         let dragGestureRecognizer = UILongPressGestureRecognizer()
         DragGestureRecognizerTarget(delegate: self).addGestureRecognizerTargetTo(dragGestureRecognizer)
+        
         dragGestureRecognizer.minimumPressDuration = Constants.Time.DragGestureMinimumPressDuration
+        
         tableView.addGestureRecognizer(dragGestureRecognizer)
     }
+    
     
     func dragGestureRecognizerTargetShouldCreateDragShadow(_ target: DragGestureRecognizerTarget, gestureRecognizer: UIGestureRecognizer) -> UIView? {
         // TODO: Don't repeat yourself

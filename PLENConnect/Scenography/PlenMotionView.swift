@@ -15,10 +15,12 @@ import MaterialKit
 @IBDesignable
 class PlenMotionView: UIView {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var iconView: MKButton!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    // MARK: Variables
     let rx_motion = Variable(PlenMotion.None)
     
     var motion: PlenMotion {
@@ -28,6 +30,8 @@ class PlenMotionView: UIView {
     
     fileprivate let disposeBag = DisposeBag()
     
+    
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         _ = UIViewUtil.loadXib(self)
@@ -45,11 +49,15 @@ class PlenMotionView: UIView {
         initBindings()
     }
     
+    // MARK: - IBAction
     @IBAction func iconViewTouched(_ sender: AnyObject) {
-        PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.playMotion(motion.id))
-        PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.stopMotion)
+        let plenCommand = Constants.PlenCommand.self
+        let plenConnection = PlenConnection.defaultInstance()
+        plenConnection.writeValue(plenCommand.playMotion(motion.id))
+        plenConnection.writeValue(Constants.PlenCommand.stopMotion)
     }
     
+    // MARK: - Methods
     fileprivate func initBindings() {
         // icon
         rx_motion.asObservable()
