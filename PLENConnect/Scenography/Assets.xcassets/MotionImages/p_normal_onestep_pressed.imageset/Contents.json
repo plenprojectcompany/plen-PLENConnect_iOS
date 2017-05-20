@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "p_normal_onestep_pressed.png",
+      "filename" : "p_normal_fstep_pressed.png",
       "scale" : "1x"
     },
     {
