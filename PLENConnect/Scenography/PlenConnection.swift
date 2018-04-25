@@ -87,9 +87,11 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func writeValue(_ text: String) {
         logger.info("\(text)")
         
-        _rx_task.onNext {[weak self] in
-           self?._writer?.writeValue(text)
-        }
+        _rx_task
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .onNext {[weak self] in
+                self?._writer?.writeValue(text)
+            }
     }
     
     
