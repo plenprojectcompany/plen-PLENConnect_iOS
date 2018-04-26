@@ -96,7 +96,7 @@
                                     <action selector="playProgram:" destination="BYZ-38-t0r" id="eYH-b7-S5Q"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="search" id="LsP-34-FFO">
+                            <barButtonItem image="search_plen" id="LsP-34-FFO">
                                 <connections>
                                     <action selector="startScan:" destination="BYZ-38-t0r" id="P0H-ID-apK"/>
                                 </connections>
@@ -334,7 +334,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Controller" id="Yvq-JI-N6K">
                         <barButtonItem key="backBarButtonItem" title="Home" id="G5X-Tr-FWw"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="VTO-VZ-HXy">
+                        <barButtonItem key="rightBarButtonItem" image="search_plen" style="plain" id="VTO-VZ-HXy">
                             <connections>
                                 <action selector="startScan:" destination="NgP-qF-K4Z" id="7DV-pA-0TG"/>
                             </connections>
@@ -445,6 +445,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="search_plen" width="25" height="25"/>
         <image name="top_connect" width="540" height="540"/>
         <image name="top_scenography" width="540" height="540"/>
     </resources>

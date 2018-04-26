@@ -17,10 +17,7 @@
 		F81542AB1C8E3E5200E41185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AA1C8E3E5200E41185 /* AppDelegate.swift */; };
 		F81542AD1C8E3E5200E41185 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */; };
 		F81542B01C8E3E5200E41185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542AE1C8E3E5200E41185 /* Main.storyboard */; };
-		F81542B21C8E3E5200E41185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81542B11C8E3E5200E41185 /* Assets.xcassets */; };
 		F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */; };
-		F81542C01C8E3E5200E41185 /* ScenographyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */; };
-		F81542CB1C8E3E5200E41185 /* ScenographyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */; };
 		F81542EF1C8E3F3700E41185 /* PlenMotionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */; };
 		F81542F01C8E3F3700E41185 /* PlenMotionPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */; };
 		F81542F11C8E3F3700E41185 /* PlenFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81542DD1C8E3F3700E41185 /* PlenFunction.swift */; };
@@ -44,6 +41,7 @@
 		F840BFEA1C9BF836009DD90E /* DebugUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFE91C9BF836009DD90E /* DebugUtils.swift */; };
 		F840BFEE1C9BFAC2009DD90E /* CoreBluetoothUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */; };
 		F840BFF01C9BFAC2009DD90E /* PlenConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */; };
+		F87289391EDEB9710022A2B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F87289381EDEB9710022A2B9 /* Assets.xcassets */; };
 		F87962491C8F130600ADF45D /* PlenFunctionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962471C8F130600ADF45D /* PlenFunctionCell.swift */; };
 		F879624A1C8F130600ADF45D /* PlenFunctionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F87962481C8F130600ADF45D /* PlenFunctionCell.xib */; };
 		F87962521C8F148400ADF45D /* PlenProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87962501C8F148400ADF45D /* PlenProgramViewController.swift */; };
@@ -97,14 +95,11 @@
 		F81542AA1C8E3E5200E41185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		F81542AF1C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F81542B11C8E3E5200E41185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81542B41C8E3E5200E41185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F81542B61C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81542BB1C8E3E5200E41185 /* PLEN ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PLEN ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyTests.swift; sourceTree = "<group>"; };
 		F81542C11C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81542C61C8E3E5200E41185 /* PLEN ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PLEN ConnectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenographyUITests.swift; sourceTree = "<group>"; };
 		F81542CC1C8E3E5200E41185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81542DB1C8E3F3700E41185 /* PlenMotionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenMotionPageViewController.swift; sourceTree = "<group>"; };
 		F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenMotionPageViewController.xib; sourceTree = "<group>"; };
@@ -131,6 +126,7 @@
 		F840BFE91C9BF836009DD90E /* DebugUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugUtils.swift; sourceTree = "<group>"; };
 		F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreBluetoothUtils.swift; sourceTree = "<group>"; };
 		F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenConnectionError.swift; sourceTree = "<group>"; };
+		F87289381EDEB9710022A2B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F87962471C8F130600ADF45D /* PlenFunctionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenFunctionCell.swift; sourceTree = "<group>"; };
 		F87962481C8F130600ADF45D /* PlenFunctionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlenFunctionCell.xib; sourceTree = "<group>"; };
 		F87962501C8F148400ADF45D /* PlenProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlenProgramViewController.swift; sourceTree = "<group>"; };
@@ -323,7 +319,6 @@
 		F81542BE1C8E3E5200E41185 /* ConnectTests */ = {
 			isa = PBXGroup;
 			children = (
-				F81542BF1C8E3E5200E41185 /* ScenographyTests.swift */,
 				F81542C11C8E3E5200E41185 /* Info.plist */,
 			);
 			name = ConnectTests;
@@ -333,7 +328,6 @@
 		F81542C91C8E3E5200E41185 /* ConnectUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F81542CA1C8E3E5200E41185 /* ScenographyUITests.swift */,
 				F81542CC1C8E3E5200E41185 /* Info.plist */,
 			);
 			name = ConnectUITests;
@@ -404,11 +398,11 @@
 		F873CA1F1C90E5EA00B1B74C /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F87289381EDEB9710022A2B9 /* Assets.xcassets */,
 				F81542AA1C8E3E5200E41185 /* AppDelegate.swift */,
 				F81542AE1C8E3E5200E41185 /* Main.storyboard */,
 				F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */,
 				F81542E91C8E3F3700E41185 /* Constants.swift */,
-				F81542B11C8E3E5200E41185 /* Assets.xcassets */,
 				F81542B61C8E3E5200E41185 /* Info.plist */,
 				F840BF511C9BB7DB009DD90E /* Settings.bundle */,
 				F816B8F91E889FB7002B737C /* Localizable.strings */,
@@ -513,8 +507,14 @@
 				TargetAttributes = {
 					F81542A61C8E3E5200E41185 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 9ME882KZTA;
+						DevelopmentTeam = YNFL33JF5R;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					F81542BA1C8E3E5200E41185 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -558,9 +558,9 @@
 				F81542B51C8E3E5200E41185 /* LaunchScreen.storyboard in Resources */,
 				F81542F31C8E3F3700E41185 /* PlenFunctionView.xib in Resources */,
 				F87962531C8F148400ADF45D /* PlenProgramViewController.xib in Resources */,
-				F81542B21C8E3E5200E41185 /* Assets.xcassets in Resources */,
 				F879624A1C8F130600ADF45D /* PlenFunctionCell.xib in Resources */,
 				F840BF521C9BB7DB009DD90E /* Settings.bundle in Resources */,
+				F87289391EDEB9710022A2B9 /* Assets.xcassets in Resources */,
 				F81542FA1C8E3F3700E41185 /* PlenMotionView.xib in Resources */,
 				F81542F01C8E3F3700E41185 /* PlenMotionPageViewController.xib in Resources */,
 				F81542F81C8E3F3700E41185 /* PlenMotionTableViewController.xib in Resources */,
@@ -771,7 +771,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F81542C01C8E3E5200E41185 /* ScenographyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,7 +778,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F81542CB1C8E3E5200E41185 /* ScenographyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,7 +922,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9ME882KZTA;
+				DEVELOPMENT_TEAM = YNFL33JF5R;
 				"ENABLE_NS_ASSERTIONS[arch=*]" = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -933,9 +931,10 @@
 				INFOPLIST_FILE = Scenography/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = plenproject.PLENConnect;
+				PRODUCT_BUNDLE_IDENTIFIER = plenconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -947,7 +946,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9ME882KZTA;
+				DEVELOPMENT_TEAM = YNFL33JF5R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -955,9 +954,10 @@
 				INFOPLIST_FILE = Scenography/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = plenproject.PLENConnect;
+				PRODUCT_BUNDLE_IDENTIFIER = plenconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
