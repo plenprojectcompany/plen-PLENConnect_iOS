@@ -88,7 +88,6 @@ class PlenConnection: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         logger.info("\(text)")
         
         _rx_task
-            .throttle(0.5, scheduler: MainScheduler.instance)
             .onNext {[weak self] in
                 self?._writer?.writeValue(text)
             }

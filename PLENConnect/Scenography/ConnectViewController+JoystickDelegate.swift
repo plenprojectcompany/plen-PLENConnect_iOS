@@ -9,7 +9,7 @@
 import UIKit
 
 extension ConnectViewController: JoystickDelegate {
-    
+    fileprivate var _last_moved_time : NSDate()
     func onJoystickMoved(currentPoint: CGPoint, angle: CGFloat, strength: CGFloat) {
         
         // 方向の判定
@@ -20,17 +20,21 @@ extension ConnectViewController: JoystickDelegate {
         }else if(currentModeIndex == 4){
             mode = .rollerSkating
         }
-        
+        now = NSDate()
         // 前回と同じ方向でなければストップモーションを2度挟む
         if (direction != self.previousDirection) {
             PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
             PlenConnection.defaultInstance().writeValue(Constants.PlenCommand.walk(.stop , mode: mode))
+
+            let value = Constants.PlenCommand.walk(direction, mode: mode)
+            PlenConnection.defaultInstance().writeValue(value)
+            _last_moved_time = now
+        }else if(now.timeIntervalSinceDate(_last_moved_time)>=0.05){
+            let value = Constants.PlenCommand.walk(direction, mode: mode)
+            PlenConnection.defaultInstance().writeValue(value)
+            _last_moved_time = now
         }
-        
-        let value = Constants.PlenCommand.walk(direction, mode: mode)
-        
-        PlenConnection.defaultInstance().writeValue(value)
-        
+
         self.previousDirection = direction
     }
     
