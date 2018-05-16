@@ -26,6 +26,16 @@ DEPENDENCIES:
   - Toaster (~> 2.0)
   - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ObjcExceptionBridging
+    - PageMenu
+    - RxBlocking
+    - RxCocoa
+    - RxSwift
+    - SwiftyJSON
+    - Toaster
+
 EXTERNAL SOURCES:
   MaterialKit:
     :branch: swift3
@@ -54,4 +64,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9889b9d3c674bd3393905256405eed9541987c8f
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.2

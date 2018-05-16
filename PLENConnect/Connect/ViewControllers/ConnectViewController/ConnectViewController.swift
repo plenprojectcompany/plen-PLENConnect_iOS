@@ -24,6 +24,7 @@ class ConnectViewController: UIViewController {
     // MARK: - Variables and Constants
     var previousDirection: PlenWalkDirection
     var currentModeIndex: Int
+    var _last_moved_time = NSDate()
     fileprivate var connectionLogs = [String: PlenConnectionLog]()
     fileprivate let _disposeBag = DisposeBag()
     fileprivate var motionCategories = [PlenMotionCategory]()

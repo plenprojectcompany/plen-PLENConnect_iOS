@@ -203,6 +203,7 @@
 				F81542DC1C8E3F3700E41185 /* PlenMotionPageViewController.xib */,
 			);
 			name = PlenMotionPageViewController;
+			path = PlenMotionPageViewController;
 			sourceTree = "<group>";
 		};
 		DD224C101E9EF830005B88D8 /* PlenMotionTableViewController */ = {
@@ -212,6 +213,7 @@
 				F81542E41C8E3F3700E41185 /* PlenMotionTableViewController.xib */,
 			);
 			name = PlenMotionTableViewController;
+			path = PlenMotionTableViewController;
 			sourceTree = "<group>";
 		};
 		DD224C111E9EF83D005B88D8 /* PlenProgramViewController */ = {
@@ -221,6 +223,7 @@
 				F87962511C8F148400ADF45D /* PlenProgramViewController.xib */,
 			);
 			name = PlenProgramViewController;
+			path = PlenProgramViewController;
 			sourceTree = "<group>";
 		};
 		DD224C121E9EF866005B88D8 /* PlenMotionCell */ = {
@@ -230,6 +233,7 @@
 				F81542E21C8E3F3700E41185 /* PlenMotionCell.xib */,
 			);
 			name = PlenMotionCell;
+			path = PlenMotionCell;
 			sourceTree = "<group>";
 		};
 		DD224C131E9EF86E005B88D8 /* PlenFunctionCell */ = {
@@ -239,15 +243,17 @@
 				F87962481C8F130600ADF45D /* PlenFunctionCell.xib */,
 			);
 			name = PlenFunctionCell;
+			path = PlenFunctionCell;
 			sourceTree = "<group>";
 		};
 		DD224C161E9EFA67005B88D8 /* ConnectViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F89C37CD1E86242200D920B2 /* ConnectViewController.swift */,
 				DD224C171E9EFA78005B88D8 /* ConnectViewController+JoystickDelegate.swift */,
+				F89C37CD1E86242200D920B2 /* ConnectViewController.swift */,
 			);
 			name = ConnectViewController;
+			path = ConnectViewController;
 			sourceTree = "<group>";
 		};
 		DD224C191E9F0052005B88D8 /* PlenFunctionView */ = {
@@ -257,6 +263,7 @@
 				F81542DF1C8E3F3700E41185 /* PlenFunctionView.xib */,
 			);
 			name = PlenFunctionView;
+			path = PlenFunctionView;
 			sourceTree = "<group>";
 		};
 		DD224C1A1E9F005D005B88D8 /* PlenMotionView */ = {
@@ -266,27 +273,29 @@
 				F81542E61C8E3F3700E41185 /* PlenMotionView.xib */,
 			);
 			name = PlenMotionView;
+			path = PlenMotionView;
 			sourceTree = "<group>";
 		};
 		DDAFC4631ECD9C710078A25C /* DragEvent */ = {
 			isa = PBXGroup;
 			children = (
-				F8CDD23E1C91E4F500431E9E /* DragEvent.swift */,
 				DDAFC4611ECD9B310078A25C /* ActualDragGestureRecognizerTarget.swift */,
+				F8CDD23E1C91E4F500431E9E /* DragEvent.swift */,
 			);
 			name = DragEvent;
+			path = DragEvent;
 			sourceTree = "<group>";
 		};
 		F815429E1C8E3E5100E41185 = {
 			isa = PBXGroup;
 			children = (
-				F81543051C8E41AC00E41185 /* json */,
 				F81542A91C8E3E5200E41185 /* Connect */,
 				F81542BE1C8E3E5200E41185 /* ConnectTests */,
 				F81542C91C8E3E5200E41185 /* ConnectUITests */,
-				F81542A81C8E3E5200E41185 /* Products */,
-				7AB9EB1C229CB32594CF653F /* Pods */,
 				C481B6831D3ACD3B965E5C42 /* Frameworks */,
+				7AB9EB1C229CB32594CF653F /* Pods */,
+				F81542A81C8E3E5200E41185 /* Products */,
+				F81543051C8E41AC00E41185 /* json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -304,16 +313,16 @@
 			isa = PBXGroup;
 			children = (
 				F873CA1F1C90E5EA00B1B74C /* Application */,
-				F840BFE81C9BF7F3009DD90E /* Framework */,
 				F8C3C8791C9381CE001E0590 /* Bluetooth */,
-				F81543011C8E3F8800E41185 /* Utils */,
 				F81543031C8E3FD500E41185 /* Entities */,
+				F840BFE81C9BF7F3009DD90E /* Framework */,
+				F81543011C8E3F8800E41185 /* Utils */,
 				F81543001C8E3F6000E41185 /* ViewControllers */,
 				F81543021C8E3FAC00E41185 /* Views */,
 				F81543081C8E485D00E41185 /* MyPlayground.playground */,
 			);
 			name = Connect;
-			path = Scenography;
+			path = Connect;
 			sourceTree = "<group>";
 		};
 		F81542BE1C8E3E5200E41185 /* ConnectTests */ = {
@@ -322,7 +331,7 @@
 				F81542C11C8E3E5200E41185 /* Info.plist */,
 			);
 			name = ConnectTests;
-			path = ScenographyTests;
+			path = ConnectTests;
 			sourceTree = "<group>";
 		};
 		F81542C91C8E3E5200E41185 /* ConnectUITests */ = {
@@ -331,60 +340,64 @@
 				F81542CC1C8E3E5200E41185 /* Info.plist */,
 			);
 			name = ConnectUITests;
-			path = ScenographyUITests;
+			path = ConnectUITests;
 			sourceTree = "<group>";
 		};
 		F81543001C8E3F6000E41185 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DD224C161E9EFA67005B88D8 /* ConnectViewController */,
-				F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */,
-				F81542E71C8E3F3700E41185 /* PLPageViewController.swift */,
 				DD224C0F1E9EF81C005B88D8 /* PlenMotionPageViewController */,
 				DD224C101E9EF830005B88D8 /* PlenMotionTableViewController */,
 				DD224C111E9EF83D005B88D8 /* PlenProgramViewController */,
+				F81542E71C8E3F3700E41185 /* PLPageViewController.swift */,
+				F81542AC1C8E3E5200E41185 /* ProgramViewController.swift */,
 			);
 			name = ViewControllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F81543011C8E3F8800E41185 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */,
-				F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */,
-				F81542E81C8E3F3700E41185 /* RxUtils.swift */,
-				F8AB79891C95B976003E948F /* PlenJSONUtils.swift */,
 				F840BFEB1C9BFAC2009DD90E /* CoreBluetoothUtils.swift */,
 				F840BFE91C9BF836009DD90E /* DebugUtils.swift */,
+				F8AB79891C95B976003E948F /* PlenJSONUtils.swift */,
+				F81542E81C8E3F3700E41185 /* RxUtils.swift */,
+				F81542EA1C8E3F3700E41185 /* SwiftUtils.swift */,
+				F81542EB1C8E3F3700E41185 /* UIKitUtils.swift */,
 			);
 			name = Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F81543021C8E3FAC00E41185 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F89C37CB1E86242200D920B2 /* Button.swift */,
-				DDAFC41B1EC95C730078A25C /* PLTabView.swift */,
-				F89C37CC1E86242200D920B2 /* JoystickView.swift */,
-				F879624B1C8F13FD00ADF45D /* TableViewCells */,
 				DD224C191E9F0052005B88D8 /* PlenFunctionView */,
 				DD224C1A1E9F005D005B88D8 /* PlenMotionView */,
+				F879624B1C8F13FD00ADF45D /* TableViewCells */,
+				F89C37CB1E86242200D920B2 /* Button.swift */,
+				F89C37CC1E86242200D920B2 /* JoystickView.swift */,
+				DDAFC41B1EC95C730078A25C /* PLTabView.swift */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F81543031C8E3FD500E41185 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				DDD865131EC53FA200C4FBE3 /* PlenAlert.swift */,
+				F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */,
 				F81542DD1C8E3F3700E41185 /* PlenFunction.swift */,
 				F81542E01C8E3F3700E41185 /* PlenMotion.swift */,
 				F87962541C8F321400ADF45D /* PlenMotionCategory.swift */,
 				F87962581C8F375800ADF45D /* PlenProgram.swift */,
 				F8C3C8881C93F000001E0590 /* PlenWalk.swift */,
-				F8A4B2AC1C9AC94C00F46573 /* PlenConnectionLog.swift */,
-				DDD865131EC53FA200C4FBE3 /* PlenAlert.swift */,
 			);
 			name = Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		F840BFE81C9BF7F3009DD90E /* Framework */ = {
@@ -393,41 +406,45 @@
 				DDAFC4631ECD9C710078A25C /* DragEvent */,
 			);
 			name = Framework;
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		F873CA1F1C90E5EA00B1B74C /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				F87289381EDEB9710022A2B9 /* Assets.xcassets */,
 				F81542AA1C8E3E5200E41185 /* AppDelegate.swift */,
-				F81542AE1C8E3E5200E41185 /* Main.storyboard */,
-				F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */,
+				F87289381EDEB9710022A2B9 /* Assets.xcassets */,
 				F81542E91C8E3F3700E41185 /* Constants.swift */,
 				F81542B61C8E3E5200E41185 /* Info.plist */,
-				F840BF511C9BB7DB009DD90E /* Settings.bundle */,
+				F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */,
 				F816B8F91E889FB7002B737C /* Localizable.strings */,
+				F81542AE1C8E3E5200E41185 /* Main.storyboard */,
+				F840BF511C9BB7DB009DD90E /* Settings.bundle */,
 			);
 			name = Application;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		F879624B1C8F13FD00ADF45D /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				DD224C121E9EF866005B88D8 /* PlenMotionCell */,
 				DD224C131E9EF86E005B88D8 /* PlenFunctionCell */,
+				DD224C121E9EF866005B88D8 /* PlenMotionCell */,
 			);
 			name = TableViewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		F8C3C8791C9381CE001E0590 /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */,
 				F8C3C87A1C9381F0001E0590 /* PlenConnection.swift */,
+				F840BFED1C9BFAC2009DD90E /* PlenConnectionError.swift */,
 				F8C3C8821C93E45B001E0590 /* PlenScanner.swift */,
 				F8C3C8861C93E55A001E0590 /* PlenTxCharacteristicWriter.swift */,
 			);
 			name = Bluetooth;
+			path = Bluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,7 +459,6 @@
 				F81542A41C8E3E5200E41185 /* Frameworks */,
 				F81542A51C8E3E5200E41185 /* Resources */,
 				3E7107ED1E8180BFBE01E783 /* [CP] Embed Pods Frameworks */,
-				8C21279B8452D06747F62B57 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -461,8 +477,6 @@
 				F81542B71C8E3E5200E41185 /* Sources */,
 				F81542B81C8E3E5200E41185 /* Frameworks */,
 				F81542B91C8E3E5200E41185 /* Resources */,
-				EE20E83DCB64A89623B043E8 /* [CP] Embed Pods Frameworks */,
-				4D76F2C12BF53BE0F726040C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -482,8 +496,6 @@
 				F81542C21C8E3E5200E41185 /* Sources */,
 				F81542C31C8E3E5200E41185 /* Frameworks */,
 				F81542C41C8E3E5200E41185 /* Resources */,
-				5854FE122F86C04636378932 /* [CP] Embed Pods Frameworks */,
-				7650C05969F472A00ABE2C5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -593,13 +605,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PLEN Connect-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E7107ED1E8180BFBE01E783 /* [CP] Embed Pods Frameworks */ = {
@@ -608,43 +623,32 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MaterialKit/MaterialKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4D76F2C12BF53BE0F726040C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN ConnectTests/Pods-PLEN ConnectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5854FE122F86C04636378932 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		588DD0142C70E15E058DDF38 /* [CP] Check Pods Manifest.lock */ = {
@@ -653,13 +657,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PLEN ConnectUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7031117347C967C791A1C378 /* [CP] Check Pods Manifest.lock */ = {
@@ -668,58 +675,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PLEN ConnectTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7650C05969F472A00ABE2C5E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN ConnectUITests/Pods-PLEN ConnectUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C21279B8452D06747F62B57 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN Connect/Pods-PLEN Connect-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE20E83DCB64A89623B043E8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PLEN ConnectTests/Pods-PLEN ConnectTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -803,6 +768,7 @@
 				F81542AF1C8E3E5200E41185 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		F81542B31C8E3E5200E41185 /* LaunchScreen.storyboard */ = {
@@ -811,6 +777,7 @@
 				F81542B41C8E3E5200E41185 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		F816B8F91E889FB7002B737C /* Localizable.strings */ = {
@@ -820,6 +787,7 @@
 				F816B8FA1E889FE9002B737C /* ja */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -928,7 +896,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Scenography/Info.plist;
+				INFOPLIST_FILE = Connect/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenconnect;
@@ -951,7 +919,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Scenography/Info.plist;
+				INFOPLIST_FILE = Connect/Application/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenconnect;
@@ -967,7 +935,7 @@
 			baseConfigurationReference = ED6295B8C52078962A349477 /* Pods-PLEN ConnectTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ScenographyTests/Info.plist;
+				INFOPLIST_FILE = ConnectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -981,7 +949,7 @@
 			baseConfigurationReference = 5840D0704BDFA10B71A5BDD9 /* Pods-PLEN ConnectTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ScenographyTests/Info.plist;
+				INFOPLIST_FILE = ConnectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -994,7 +962,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7CD2822CA760953C38DA3E1 /* Pods-PLEN ConnectUITests.debug.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = ScenographyUITests/Info.plist;
+				INFOPLIST_FILE = ConnectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1008,7 +976,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29E99E2E2051D45EBF7255EA /* Pods-PLEN ConnectUITests.release.xcconfig */;
 			buildSettings = {
-				INFOPLIST_FILE = ScenographyUITests/Info.plist;
+				INFOPLIST_FILE = ConnectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = plenproject.ScenographyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
