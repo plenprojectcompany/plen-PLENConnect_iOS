@@ -8,7 +8,7 @@ target 'PLEN Connect' do
 	pod 'RxCocoa',    '~> 3.0’
 	pod 'RxBlocking', '~> 3.0'
   	pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit', :branch => "swift3"
-	pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git'
+	pod 'XCGLogger', :git => 'https://github.com/DaveWoodCom/XCGLogger.git', :branch => "swift_3.0"
 	pod 'Toaster', '~> 2.0'
 	pod 'SwiftyJSON'
 	pod 'PageMenu'

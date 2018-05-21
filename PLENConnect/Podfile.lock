@@ -1,20 +1,16 @@
 PODS:
   - MaterialKit (0.4)
-  - ObjcExceptionBridging (1.0.1):
-    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
-  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - PageMenu (2.0.0)
-  - RxBlocking (3.3.1):
-    - RxSwift (~> 3.3)
-  - RxCocoa (3.3.1):
-    - RxSwift (~> 3.3)
-  - RxSwift (3.3.1)
-  - SwiftyJSON (3.1.4)
-  - Toaster (2.0.3)
-  - XCGLogger (5.0.1):
-    - XCGLogger/Core (= 5.0.1)
-  - XCGLogger/Core (5.0.1):
-    - ObjcExceptionBridging
+  - RxBlocking (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
+  - SwiftyJSON (4.1.0)
+  - Toaster (2.1.1)
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
   - MaterialKit (from `https://github.com/faresbh/MaterialKit`, branch `swift3`)
@@ -24,11 +20,10 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SwiftyJSON
   - Toaster (~> 2.0)
-  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`)
+  - XCGLogger (from `https://github.com/DaveWoodCom/XCGLogger.git`, branch `swift_3.0`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ObjcExceptionBridging
     - PageMenu
     - RxBlocking
     - RxCocoa
@@ -41,6 +36,7 @@ EXTERNAL SOURCES:
     :branch: swift3
     :git: https://github.com/faresbh/MaterialKit
   XCGLogger:
+    :branch: swift_3.0
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 CHECKOUT OPTIONS:
@@ -48,20 +44,19 @@ CHECKOUT OPTIONS:
     :commit: 45bc7791f7e0583a94ced7d4cfc852fddc7800ca
     :git: https://github.com/faresbh/MaterialKit
   XCGLogger:
-    :commit: 1369a7a2827615e585eab6e9516e3c3c3fd77e2d
+    :commit: 2fd27c92eb102bcf09f3176a230e42e38cacd4a2
     :git: https://github.com/DaveWoodCom/XCGLogger.git
 
 SPEC CHECKSUMS:
   MaterialKit: 2e5267bcf410b82793f2b92d2111f8ae4ed2c3f2
-  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   PageMenu: 9c38fd7e0d9ef4b1408320f55bb907bbc0e538dc
-  RxBlocking: c5918ecb86b8c205a8ccc6d1ff2abb338ddc50a0
-  RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
-  RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Toaster: 77c0b03d78e680bbbab0071c9c7ee392b0034010
-  XCGLogger: ed5d5da079ab1c5cd6ee956eb87b14d0a468bbed
+  RxBlocking: 4f4bd5732e8b952e54ae8a57739bcfb645de12bc
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 9889b9d3c674bd3393905256405eed9541987c8f
+PODFILE CHECKSUM: ecba03fa552436ba1b14b4cded46c9cbd69c1764
 
 COCOAPODS: 1.5.2

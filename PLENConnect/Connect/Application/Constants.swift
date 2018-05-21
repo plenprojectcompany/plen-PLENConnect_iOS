@@ -22,7 +22,7 @@ enum Constants {
     
     enum Dimen {
         static let PlenMotionCellHeight: CGFloat = 77
-        static let ThreasholdCenter:CGFloat = 0.3
+        static let ThreasholdCenter:CGFloat = 0.1
     }
     
     enum Time {
