@@ -24,7 +24,7 @@
       },
       {
         "id": 4,
-        "icon": "p_normal_hello",
+        "icon": "p_normal_bow",
         "name": "Bow"
       },
       {
@@ -119,22 +119,22 @@
       },
       {
         "id": 74,
-        "icon": "no_image",
+        "icon": "p_box_forward",
         "name": "Carry Forward"
       },
       {
         "id": 75,
-        "icon": "no_image",
+        "icon": "p_box_clockwiseturning",
         "name": "Carry LTurn"
       },
       {
         "id": 76,
-        "icon": "no_image",
+        "icon": "p_box_clockwise",
         "name": "Carry RTurn"
       },
       {
         "id": 77,
-        "icon": "no_image",
+        "icon": "p_box_back",
         "name": "Carry Back"
       }
     ]
@@ -149,7 +149,7 @@
       },
       {
         "id": 21,
-        "icon": "p_normal_onestep",
+        "icon": "p_soccer_5dash",
         "name": "Dribble"
       },
       {
@@ -164,7 +164,7 @@
       },
       {
         "id": 24,
-        "icon": "p_soccer_5dash",
+        "icon": "p_soccer_long_dribble",
         "name": "Long Dribble"
       },
       {
@@ -249,7 +249,7 @@
       },
       {
         "id": 37,
-        "icon": "p_normal_hello",
+        "icon": "p_dance_bow",
         "name": "Dance Bow"
       },
       {
@@ -329,22 +329,22 @@
       },
       {
         "id": 78,
-        "icon": "no_image",
+        "icon": "p_skate_forward",
         "name": "Skating Forward"
       },
       {
         "id": 79,
-        "icon": "no_image",
+        "icon": "p_skate_lturn",
         "name": "Skating LTurn"
       },
       {
         "id": 80,
-        "icon": "no_image",
+        "icon": "p_skate_rturn",
         "name": "Skating RTurn"
       },
       {
         "id": 81,
-        "icon": "no_image",
+        "icon": "p_skate_back",
         "name": "Skating Back"
       }
     ]
